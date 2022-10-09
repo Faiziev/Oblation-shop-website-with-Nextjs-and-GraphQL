@@ -107,8 +107,8 @@ const Header = () => {
           </Stack>
         </Stack>
         { tablet ?
-          ['right'].map((anchor) => (
-            <React.Fragment>
+          ['right'].map((anchor, i) => (
+            <React.Fragment key={i}>
               <Stack width="33.3%" alignItems="flex-end">
                 <Stack width="30px" height="30px" alignItems={"center"} justifyContent={"center"} onClick={toggleDrawer(anchor, true)} style={{cursor: 'pointer'}}>
                   <MenuIcon />
