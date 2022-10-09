@@ -1,7 +1,18 @@
 import '../styles/globals.css'
+import '../styles/bootstrap.min.css'
+import Footer from './../components/Footer';
+import Header from './../components/Header';
+import { Stack } from '@mui/material';
+import { BACKGROUND } from './../utils/styling';
 
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <Stack style={{ background: BACKGROUND}} width={"100%"}>
+      <Header />
+      <Component {...pageProps} />
+      <Footer />
+    </Stack>
+  )
 }
 
 export default MyApp
