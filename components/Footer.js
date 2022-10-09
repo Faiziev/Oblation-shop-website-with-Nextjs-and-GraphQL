@@ -26,7 +26,7 @@ const FooterLogo = () => {
     <Stack width={"auto"} height="100px">
       <Logo />
     </Stack>
-    <Span kind={`g${tablet ? 5 : 3}`}>Beykoz Anadolu Feneri köyümüzde başlamış olduğumuz hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Yûşâ'da hizmet vermeye başladık. </Span>
+    <Span kind={`g${tablet ? 5 : 3}`}> </Span>
   </Stack>
 }
 
