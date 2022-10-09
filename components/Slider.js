@@ -110,7 +110,7 @@ export const BigSlider = () => {
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
         >
-          {imgList.map(img => <SwiperSlide>
+          {imgList.map((img, i) => <SwiperSlide key={i}>
               <Image src={img.link} alt={img.alt} sizes='100%'/>
             </SwiperSlide>
           )}
@@ -154,7 +154,7 @@ export const SmallSwiper = () => {
         }}
         modules={[Pagination]}
       >
-        {ServicesData.map(card => <SwiperSlide style={{background: SECTION, height: "100%"}}>
+        {ServicesData.map((card, i) => <SwiperSlide style={{background: SECTION, height: "100%"}} key={i}>
           <SliderCard img={card.img} title={card.title} label={card.label} href={card.href}/>
         </SwiperSlide>)}
       </Swiper>

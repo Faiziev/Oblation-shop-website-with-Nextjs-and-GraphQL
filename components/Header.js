@@ -75,8 +75,8 @@ const Header = () => {
       <List >
         <Stack justifyContent='space-between' height="60vh" width="100%">
           {HeaderTitles.map((btn, i) => (
-            <ListItem key={btn} disablePadding >
-              <ListItemButton sx={{height: 50}} justifyContent="center">
+            <ListItem key={i} disablePadding >
+              <ListItemButton sx={{height: 50, justifyContent: "center"}}>
                 <HeaderButton href={`/${btn.href}`} title={btn.title} />
               </ListItemButton>
             </ListItem>
@@ -108,7 +108,7 @@ const Header = () => {
         </Stack>
         { tablet ?
           ['right'].map((anchor, i) => (
-            <React.Fragment key={i}>
+            <React.Fragment key={anchor}>
               <Stack width="33.3%" alignItems="flex-end">
                 <Stack width="30px" height="30px" alignItems={"center"} justifyContent={"center"} onClick={toggleDrawer(anchor, true)} style={{cursor: 'pointer'}}>
                   <MenuIcon />

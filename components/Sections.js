@@ -102,7 +102,7 @@ export const Animals = () => {
             justifyContent: 'space-between',
           }}
           >
-          {AnimalsData.map((animal, index) => <ProductCard data={animal} key={index}/> )}
+          {AnimalsData.map((animal, i) => <ProductCard data={animal} key={i}/> )}
         </motion.div>
       </Stack>
     </Container>
