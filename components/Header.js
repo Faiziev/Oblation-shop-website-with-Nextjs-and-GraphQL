@@ -93,6 +93,11 @@ const Header = () => {
           background: ${BACKGROUND};
           color: ${WHITE}
         }
+        .css-1ab2xsx {
+          background-color: #000;
+          color: ${WHITE};
+          justify-content: center;
+        }
         .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
           justify-content: center;
         }
