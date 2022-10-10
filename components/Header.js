@@ -94,7 +94,7 @@ const Header = () => {
           color: ${WHITE}
         }
         .css-1ab2xsx {
-          background-color: #000;
+          background-color: #000 !important;
           color: ${WHITE};
           justify-content: center;
         }
