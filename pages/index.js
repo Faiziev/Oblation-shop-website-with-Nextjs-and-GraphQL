@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Kasap Faiziev Kurban Satış Evi - Adak, Akika, Şükür Kurbanı</title>
+        <title>Yıldırım Kurban Satış Evi - Adak, Akika, Şükür Kurbanı</title>
         <link rel="icon" href="/favicon.ico" />
         <meta charset="utf-8" />
-        <title>Kasap Faiziev Kurban Satış Evi - Adak, Akika, Şükür Kurbanı</title>
+        <title>Yıldırım Kurban Satış Evi - Adak, Akika, Şükür Kurbanı</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="keywords" content="Kasap Faiziev, Faiziev kurban, beykoz adak, beykoz kurban, kurban satışı, adak kurban, akika kurban, adak, akika, şükür kurban, kurban kesimi, kurban satışı, kasap-faiziev, faiziev-kasap, kasap, adak faiziev, faiziev adak" />
         <meta name="description" content="Kasap Faiziev Kurban Satış Evi - Beykoz Anadolu Feneri köyümüzde başlamış olduğumuz hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Yüşa'da hizmet vermeye başladık." />
@@ -33,7 +33,7 @@ export default function Home() {
         </Note>
         <Interview />
         <Note blood>
-          <Span kind={`e${tablet ? 0 : 8}`} style={{textAlign: tablet ? 'center' : undefined}}>FAIZIEV KASAP OLARAK BAŞKA ŞUBEMIZ <Span kind={`w${tablet ? 0 : 8}`}>YOKTUR.</Span></Span>
+          <Span kind={`e${tablet ? 0 : 8}`} style={{textAlign: tablet ? 'center' : undefined}}>YILDIRIM KASAP OLARAK BAŞKA ŞUBEMIZ <Span kind={`w${tablet ? 0 : 8}`}>YOKTUR.</Span></Span>
           <TransparentBtn>
             Adresimiz İçin Tıklayın!
           </TransparentBtn>
