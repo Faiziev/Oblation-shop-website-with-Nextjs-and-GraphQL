@@ -15,13 +15,11 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import { MenuIcon } from "../lib/icons";
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import MailIcon from '@mui/icons-material/Mail';
 
 const HeaderTitles = [
   {
     title:"ANASAYFA",
-    href: "anasayfa"
+    href: ""
   },
   {
     title:"HAKKIMIZDA",
@@ -41,21 +39,13 @@ const HeaderTitles = [
   }
 ]
 
-const Header = () => {
-  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
-  const [left, setLeft] = useState(false)
-  const handle = () => {
-    if (window.scrollY >= 100) {
-      setLeft(true)
-    }else {
-      setLeft(false)
-    }
-  }
-  if (typeof window !== "undefined") {
-    window.addEventListener('scroll', handle)
-  }
+const DesktopHeader = () => {
+  return <Stack direction="row" width="70%" height={70} alignItems={"center"} justifyContent="space-around">
+    {HeaderTitles.map((btn, i) => <HeaderButton href={`/${btn.href}`} title={btn.title} key={i}/>)}
+  </Stack>
+}
 
-
+const MobileHeader = () => {
   const [state, setState] = useState({ right: false })
 
   const toggleDrawer = (anchor, open) => (event) => {
@@ -86,6 +76,42 @@ const Header = () => {
     </Box>
   );
 
+  return <>
+    {
+      ['right'].map((anchor, i) => (
+        <React.Fragment key={anchor}>
+          <Stack width="33.3%" alignItems="flex-end">
+            <Stack width="30px" height="30px" alignItems={"center"} justifyContent={"center"} onClick={toggleDrawer(anchor, true)} style={{cursor: 'pointer'}}>
+              <MenuIcon />
+            </Stack>
+          </Stack>
+          <Drawer
+            anchor={anchor}
+            open={state[anchor]}
+            onClose={toggleDrawer(anchor, false)}
+          >
+            {list(anchor)}
+          </Drawer>
+        </React.Fragment>
+      ))
+    }
+  </>
+}
+
+const Header = () => {
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
+  const desktop = useMediaQuery(`(min-width:${screens[1]}px)`)
+  const [left, setLeft] = useState(false)
+  const handle = () => {
+    if (window.scrollY >= 100) {
+      setLeft(true)
+    }else {
+      setLeft(false)
+    }
+  }
+  if (typeof window !== "undefined") {
+    window.addEventListener('scroll', handle)
+  }
 
   return <Stack style={{position: 'fixed', top: 0, zIndex: ZINDEX[1], width: '100%', background: HEADER}}>
     <style jsx global>{`
@@ -111,27 +137,10 @@ const Header = () => {
             <Logo />
           </Stack>
         </Stack>
-        { tablet ?
-          ['right'].map((anchor, i) => (
-            <React.Fragment key={anchor}>
-              <Stack width="33.3%" alignItems="flex-end">
-                <Stack width="30px" height="30px" alignItems={"center"} justifyContent={"center"} onClick={toggleDrawer(anchor, true)} style={{cursor: 'pointer'}}>
-                  <MenuIcon />
-                </Stack>
-              </Stack>
-              <Drawer
-                anchor={anchor}
-                open={state[anchor]}
-                onClose={toggleDrawer(anchor, false)}
-              >
-                {list(anchor)}
-              </Drawer>
-            </React.Fragment>
-          ))
-        :
-          <Stack direction="row" width="70%" height={70} alignItems={"center"} justifyContent="space-around">
-            {HeaderTitles.map((btn, i) => <HeaderButton href={`/${btn.href}`} title={btn.title} key={i}/>)}
-          </Stack>
+        {tablet ?
+          <MobileHeader />
+        : desktop && 
+          <DesktopHeader />
         }
       </Stack>
     </Container>

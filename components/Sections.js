@@ -1,17 +1,19 @@
 import Stack from '@mui/material/Stack';
 import Link from 'next/link';
-import { ADLink } from '../lib/links';
-import { BTNRADIUS, screens, Span } from '../utils/styling';
-import { WHITE, GOLD, BLOOD, ORANGE } from './../utils/styling';
-import { SectionButton } from './Buttons';
+import { Span, GOLD, BLOOD, ORANGE, BORDERPRIM, screens, SECTION } from './../utils/styling';
+import { SectionButton, LinerButton } from './Buttons';
 import { ProductCard } from './Card';
 import { Container } from './Container';
-import { SliderImg1, SliderImgSm1, AnimalsImages } from './Images';
-import { AnimateSharedLayout, AnimatePresence, motion } from "framer-motion";
+import { SliderImgSm1, AnimalsImages } from './Images';
+import { motion } from "framer-motion";
 import { SmallSwiper } from './Slider';
 import { SectionTitle } from './Titles';
 import YoutubeEmbed from './Youtube';
 import { useMediaQuery } from '@mui/material';
+import { useDropzone } from "react-dropzone"
+import { useRef, useState } from 'react';
+import { ImgIcon } from '../lib/icons';
+import { BorderedTextField } from './Inputs';
 
 export const ServicesData = [
   {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
@@ -79,6 +81,72 @@ export const Interview = () => {
 </Section>
 }
 
+export const Upload = () => {
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
+  const [selectedFile, setSelectedFile] = useState(null)
+  const filePicker = useRef(null)
+  const { getRootProps, getInputProps } = useDropzone({
+    //drag and drop functionality
+    maxFiles: 1,
+    noClick: true,
+    noKeyboard: true,
+    accept: "image/jpeg,image/png",
+    onDrop: (files) => {
+      let file = files[0]
+      const reader = new FileReader()
+      reader.onload = (event) => {
+        setSelectedFile(event.target.result)
+      }
+      reader.readAsDataURL(file)
+    },
+  })
+
+  return <Section>
+    <Container>
+      <SectionTitle>
+        Blog Paylaş
+      </SectionTitle>
+      <Stack width={"100%"} direction={"column"} alignItems={"center"} justifyContent={"space-between"} spacing={5}>
+        <Stack width={"100%"} direction={tablet ? "column" : "row"} >
+          <Stack justifyContent="center" alignItems="center" style={{  width: "100%", height: "100%", borderRadius: "5px", }}>
+            <div {...getRootProps()} style={{ maxWidth: "100%", width: "100%", height: "90%" }}>
+              {selectedFile ? (
+                <>
+                  <img src={selectedFile}/>
+                </>
+              ) : (
+                <>
+                  <Stack justifyContent="center" alignItems="center" role="button" onClick={() => filePicker.current.click()}
+                    style={{ width: tablet ? "100%" : "90%", height: "300px", borderRadius: "5px", border: `1px solid ${BORDERPRIM}`, cursor: "pointer" }}>
+                    <div style={{ width: "75px", height: "75px", fill: BORDERPRIM }} >
+                      <ImgIcon />
+                    </div>
+                  </Stack>
+                  <input
+                    {...getInputProps()}
+                    type="file"
+                    hidden
+                    ref={filePicker}
+                    // onChange={uploadImage}
+                  />
+                </>
+              )}
+            </div>
+          </Stack>
+          <Stack width={"100%"}  justifyContent="space-between" spacing={3}>
+            <BorderedTextField rows={1} placeHolder="Baslik" />
+            <BorderedTextField rows={1} placeHolder="Yan Baslik"/>
+            <BorderedTextField rows={3} placeHolder="Metin"/>
+          </Stack>
+        </Stack>
+        <Stack width={"200px"} justifyContent="center">
+          <LinerButton>Paylas</LinerButton>
+        </Stack>
+      </Stack>
+    </Container>
+  </Section>
+}
+
 export const Animals = () => {
   const container = {
     show: {
@@ -114,7 +182,7 @@ export const Section = ({children, height, background, style}) => {
     <Stack 
       height={height ? height : "100%"} width="100%" 
       style={{
-        backgroundColor: background ? background : "#2b2d30",
+        backgroundColor: background ? background : SECTION,
         padding: "75px 0px",
         ...style
       }}

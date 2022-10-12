@@ -1,5 +1,5 @@
 import { ButtonBase, Stack, styled } from "@mui/material"
-import { BTNRADIUS, BTNWHITE, ORANGE, RED, SECTION, textStyle, } from "../utils/styling";
+import { BTNRADIUS, BTNWHITE, ORANGE, RED, SECTION, textStyle, LINERGRADBACK } from "../utils/styling";
 
 const Button = styled(ButtonBase)(() => ({
   position: 'relative',
@@ -12,7 +12,8 @@ const Button = styled(ButtonBase)(() => ({
   borderRadius: BTNRADIUS[0],
   // [theme.breakpoints.down('sm')]: {
   //   width: '100% !important', 
-  // },
+  // },import { LINERGRADBACK } from './../utils/styling';
+
   '&:hover, &.Mui-focusVisible': {
     zIndex: 1,
     background: RED,
@@ -83,12 +84,39 @@ const TspBtn = styled(ButtonBase)(() => ({
   },
 }));
 
+const LinerButtonStyle = styled(ButtonBase)(() => ({
+  position: 'relative',
+  padding: '15px 24px',
+  background: LINERGRADBACK,
+  border: `1px solid ${SECTION}`,
+  boxShadow: '0 8px 30px rgba(0,0,0,.12)',
+  transition: 'linear 0.2s',
+  borderRadius: BTNRADIUS[4],
+  justifyContent: 'center',
+  ...textStyle("w4"),
+  '&:hover, &.Mui-focusVisible': {
+    zIndex: 1,
+    // background: SECTION,
+    opacity: 0.9,
+    transition: 'linear 0.2s',
+    '& .MuiImageBackdrop-root': {
+      opacity: 0.15,
+    },
+    '& .MuiImageMarked-root': {
+      opacity: 0,
+    },
+    '& .MuiTypography-root': {
+      border: '0px solid transparent',
+    },
+  },
+}));
+
+
 export const CardButton = ({style, children, onClick}) => {
   return <Button onClick={onClick}>
     {children}
   </Button>
 }
-
 
 export const SectionButton = ({style, children, onClick}) => {
   return <SecButton onClick={onClick} disableRipple>
@@ -100,4 +128,10 @@ export const TransparentBtn = ({style, children, onClick}) => {
   return <TspBtn onClick={onClick} disableRipple>
     {children}
   </TspBtn>
+}
+
+export const LinerButton = ({children, onClick}) => {
+  return <LinerButtonStyle onClick={onClick} disableRipple>
+    {children}
+  </LinerButtonStyle>
 }

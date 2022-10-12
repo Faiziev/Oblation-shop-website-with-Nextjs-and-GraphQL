@@ -15,6 +15,9 @@ export const BLOOD    = "rgb(136, 8, 8)"
 export const BORDER   = "#bdbdbd"
 export const BACKGROUND   = "#000"
 export const HEADER   = "#000"
+export const BORDERPRIM   = "#D7D4D4"
+export const LINERGRAD = `linear-gradient(${SECTION}, ${SECTION}) padding-box,linear-gradient(110deg,#50e3c2 0,#0070f3 100%) border-box`
+export const LINERGRADBACK = `linear-gradient(155deg,#50e3c2,#0070f3)`
 
 export const ZINDEX = [9999, 999]
 
@@ -24,7 +27,7 @@ export const colours = { DARK, GREY, LIGHT_GREY, ORANGE, LINK, NOTE, SUCCESS }
 
 export const sizes = [24, 20, 18, 16, 14, 13, 12, 28, 36]
 
-export const BTNRADIUS = [5, 10, 16, 20]
+export const BTNRADIUS = [5, 10, 16, 20, 50]
 export const BORDERRADIUS = [5, 10, 16, 20]
 
 export const kinds = {

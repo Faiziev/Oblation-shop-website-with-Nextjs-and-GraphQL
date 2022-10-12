@@ -22,7 +22,7 @@ export default function Home() {
         <meta name="author" content="Kasap Faiziev Kurban Satış Evi" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Head>
-      <Stack marginTop={tablet ? "120px" : "160px"}>
+      {/* <Stack marginTop={tablet ? "120px" : "160px"}> */}
         <BigSlider />
         <Services />
         <Note>
@@ -39,7 +39,7 @@ export default function Home() {
           </TransparentBtn>
         </Note>
         <Animals />
-      </Stack>
+      {/* </Stack> */}
     </div>
   )
 }
