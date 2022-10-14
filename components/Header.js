@@ -22,16 +22,20 @@ const HeaderTitles = [
     href: ""
   },
   {
-    title:"HAKKIMIZDA",
-    href: "hakkimizda"
+    title:"BLOGLAR",
+    href: "bloglar"
   },
   {
     title:"HİZMETLERİMİZ",
     href: "hizmetlerimiz"
   },
+  // {
+    //   title:"BİZDEN KARELER",
+    //   href: "bizdenkareler"
+    // },
   {
-    title:"BİZDEN KARELER",
-    href: "bizdenkareler"
+    title:"HAKKIMIZDA",
+    href: "hakkimizda"
   },
   {
     title:"İLETİŞİM",
@@ -40,7 +44,7 @@ const HeaderTitles = [
 ]
 
 const DesktopHeader = () => {
-  return <Stack direction="row" width="70%" height={70} alignItems={"center"} justifyContent="space-around">
+  return <Stack direction="row" width="70%" height={70} alignItems={"center"} justifyContent="space-around" style={{cursor: 'pointer'}}>
     {HeaderTitles.map((btn, i) => <HeaderButton href={`/${btn.href}`} title={btn.title} key={i}/>)}
   </Stack>
 }
@@ -133,7 +137,7 @@ const Header = () => {
       <Stack direction={left ? 'row' : tablet ? 'row' : 'column'} width={"100%"} alignItems="center" justifyContent="space-between">
         {tablet && <Stack width="33.3%"></Stack>}
         <Stack width={tablet ? "33.3%" : undefined} alignItems="center">
-          <Stack width={"200px"} height={100} margin={'10px 0px'}>
+          <Stack width={"500px"} height={100} margin={'10px 0px'}>
             <Logo />
           </Stack>
         </Stack>

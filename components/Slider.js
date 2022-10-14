@@ -123,7 +123,6 @@ export const BigSlider = () => {
 export const SmallSwiper = () => {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`)
-  console.log(tablet ? 2 : mobile ? 1 : 3)
   return <>
     <Stack height={"100%"} width={"100%"} >
       <style jsx global>

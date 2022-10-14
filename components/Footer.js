@@ -23,7 +23,7 @@ const FooterLogo = () => {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
 
   return <Stack width="100%" alignItems="center" style={{padding: "20px 0px", textAlign: 'center'}} spacing={2}>
-    <Stack width={"auto"} height="100px">
+    <Stack width={"300px"} height="100px">
       <Logo />
     </Stack>
     <Span kind={`g${tablet ? 5 : 3}`}>Adak, Kurban ve Akika vb. hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Faiziev&apos;da hizmet vermeye başladık. </Span>

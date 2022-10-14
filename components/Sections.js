@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 import { Span, GOLD, BLOOD, ORANGE, BORDERPRIM, screens, SECTION } from './../utils/styling';
 import { SectionButton, LinerButton } from './Buttons';
-import { ProductCard } from './Card';
+import { PostCard, ProductCard, SliderCard } from './Card';
 import { Container } from './Container';
 import { SliderImgSm1, AnimalsImages } from './Images';
 import { motion } from "framer-motion";
@@ -171,6 +171,36 @@ export const Animals = () => {
           }}
           >
           {AnimalsData.map((animal, i) => <ProductCard data={animal} key={i}/> )}
+        </motion.div>
+      </Stack>
+    </Container>
+  </Section>
+}
+
+export const Blogs = ({posts}) => {
+  const container = {
+    show: {
+      transition: {
+        staggerChildren: 0.35,
+      },
+    },
+  }
+
+  return <Section>
+    <Container>
+      <SectionTitle>
+        HAYVANLARIMIZ
+      </SectionTitle>
+      <Stack justifyContent={"space-between"} width="100%">
+        <motion.div variants={container} initial="hidden" animate="show"
+          style={{
+            width: '100%',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'flex-start',
+          }}
+          >
+          {posts.map((post, i) => <PostCard data={post.node} key={i}/> )}
         </motion.div>
       </Stack>
     </Container>
