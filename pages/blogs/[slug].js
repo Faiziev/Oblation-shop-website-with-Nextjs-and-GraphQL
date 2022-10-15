@@ -49,10 +49,14 @@ const getContentFragment = (index, text, obj, type) => {
 };
 
 export default function PostDetails({ post }) {
+  const router = useRouter();
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
   // const [tit, setTit] = useState(null)
   const tit = post.title ? post.title : null
   // console.log(post.featuredImage.url.length > 0)
+  if (router.isFallback) {
+    return 'loading'
+  }
   return (
     <div className={'styles.container'}>
       <Head>
@@ -69,11 +73,9 @@ export default function PostDetails({ post }) {
         <Stack spacing={4}>
           <Stack paddingTop={'140px'}></Stack>
           <Stack width='100%'>
-            {post.title ?  
-              <Span kind={tablet ? 'b0' : 'b9'}>
-                {post.title}
-              </Span>
-            : 'loading'}
+            <Span kind={tablet ? 'b0' : 'b9'}>
+              {post.title}
+            </Span>
           </Stack>
           <Stack width="100%" maxWidth={"100%"}>
             {post.featuredImage.url && <img src={post.featuredImage.url} style={{maxWidth: tablet ? '100%' : '90%', height: 'auto' }} />}
