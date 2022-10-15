@@ -3,11 +3,9 @@ import Head from 'next/head'
 import { useRouter } from 'next/router';
 import { Stack, useMediaQuery } from '@mui/material';
 import { getPosts, getPostDetails } from '../../services';
-import { Span, screens } from '../../utils/styling';
-// import { screens, Span } from '../utils/styling';
+import { Span, screens, BORDERRADIUS } from '../../utils/styling';
 import Image from 'next/future/image';
 import { Container } from './../../components/Container';
-import { useState } from 'react';
 
 const getContentFragment = (index, text, obj, type) => {
   let modifiedText = text;
@@ -51,9 +49,6 @@ const getContentFragment = (index, text, obj, type) => {
 export default function PostDetails({ post }) {
   const router = useRouter();
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
-  // const [tit, setTit] = useState(null)
-  const tit = post.title ? post.title : null
-  // console.log(post.featuredImage.url.length > 0)
   if (router.isFallback) {
     return 'loading'
   }
@@ -74,11 +69,12 @@ export default function PostDetails({ post }) {
           <Stack paddingTop={'140px'}></Stack>
           <Stack width='100%'>
             <Span kind={tablet ? 'b0' : 'b9'}>
-              {post.title}
+              {/* {post.title} */}
+              Baslik
             </Span>
           </Stack>
           <Stack width="100%" maxWidth={"100%"}>
-            {post.featuredImage.url && <img src={post.featuredImage.url} style={{maxWidth: tablet ? '100%' : '90%', height: 'auto' }} />}
+            {post.featuredImage.url && <img src={post.featuredImage.url} style={{maxWidth: tablet ? '100%' : '90%', height: 'auto', borderRadius: BORDERRADIUS[2] }} />}
           </Stack>
           <Stack width='100%' style={{maxWidth: tablet ? '100%' : '90%'}}>
             <Span kind={tablet ? 'b3' : 'b1'}>

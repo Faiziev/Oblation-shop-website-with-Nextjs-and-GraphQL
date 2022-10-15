@@ -143,7 +143,7 @@ const Header = () => {
           transition: TRANSITION
         }}
         >
-          {tablet && <Stack width="23.3%"></Stack>}
+          {tablet && <Stack width="33.3%"></Stack>}
           <Stack width={desktop ? "33.3%" : 323} alignItems="center">
             <HLogo imgStyle={{maxWidth: 323, height: 'auto'}}/>
           </Stack>
