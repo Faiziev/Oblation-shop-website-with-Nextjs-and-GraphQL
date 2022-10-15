@@ -69,9 +69,11 @@ export default function PostDetails({ post }) {
         <Stack spacing={4}>
           <Stack paddingTop={'140px'}></Stack>
           <Stack width='100%'>
-            <Span kind={tablet ? 'b0' : 'b9'}>
-              {tit ? tit : 'loading'}
-            </Span>
+            {post.title ?  
+              <Span kind={tablet ? 'b0' : 'b9'}>
+                {post.title}
+              </Span>
+            : 'loading'}
           </Stack>
           <Stack width="100%" maxWidth={"100%"}>
             {post.featuredImage.url && <img src={post.featuredImage.url} style={{maxWidth: tablet ? '100%' : '90%', height: 'auto' }} />}
