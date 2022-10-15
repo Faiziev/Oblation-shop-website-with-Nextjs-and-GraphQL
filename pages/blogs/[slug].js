@@ -51,7 +51,7 @@ export default function PostDetails({ post }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
   const router = useRouter();
 
-  console.log(post.featuredImage.url.length > 0)
+  // console.log(post.featuredImage.url.length > 0)
   const src = {src: post.featuredImage.url}
   return (
     <div className={'styles.container'}>
