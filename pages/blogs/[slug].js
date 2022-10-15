@@ -69,7 +69,7 @@ export default function PostDetails({ post }) {
           <Stack paddingTop={'140px'}></Stack>
           <Stack width='100%'>
             <Span kind={tablet ? 'b0' : 'b9'}>
-              {post.title}
+              {post.title && post.title}
             </Span>
           </Stack>
           <Stack width="100%" maxWidth={"100%"}>
