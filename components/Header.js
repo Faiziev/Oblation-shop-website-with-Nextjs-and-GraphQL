@@ -3,7 +3,7 @@ import { Stack, useMediaQuery } from "@mui/material"
 import { HLogo, Logo, SLogo } from './Logo';
 import { HeaderButton } from './HeaderButton';
 import { Container } from "./Container";
-import { BACKGROUND, HEADER, screens, WHITE, Span, TRANSITION } from "../utils/styling";
+import { BACKGROUND, HEADER, screens, DARK, Span, TRANSITION } from "../utils/styling";
 import { ZINDEX, BORDERRADIUS } from './../utils/styling';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -118,11 +118,11 @@ const Header = () => {
     <style jsx global>{`
         .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
           background: ${BACKGROUND};
-          color: ${WHITE}
+          color: ${DARK}
         }
         .css-1ab2xsx {
-          background-color: #000 !important;
-          color: ${WHITE};
+          background-color: #fff !important;
+          color: ${DARK};
           justify-content: center;
         }
         .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
