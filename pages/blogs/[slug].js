@@ -52,7 +52,6 @@ export default function PostDetails({ post }) {
   const router = useRouter();
 
   // console.log(post.featuredImage.url.length > 0)
-  const src = {src: post.featuredImage.url}
   return (
     <div className={'styles.container'}>
       <Head>
@@ -74,7 +73,7 @@ export default function PostDetails({ post }) {
             </Span>
           </Stack>
           <Stack width="100%" maxWidth={"100%"}>
-            <img {...src} style={{maxWidth: tablet ? '100%' : '90%', height: 'auto' }} />
+            {post.featuredImage.url && <img src={post.featuredImage.url} style={{maxWidth: tablet ? '100%' : '90%', height: 'auto' }} />}
           </Stack>
           <Stack width='100%' style={{maxWidth: tablet ? '100%' : '90%'}}>
             <Span kind={tablet ? 'b3' : 'b1'}>
