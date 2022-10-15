@@ -13,7 +13,7 @@ const CardImg = ({img, style, imgStyles}) => {
 }
 
 const PostImg = ({src, style, imgStyles}) => {
-  console.log(src)
+  // console.log(src)
   return <Stack width="100%" maxWidth={350} style={{...style}} alignItems={"center"}>
     <Image src={src} alt={src} width={300} height={150} style={{ borderRadius: BORDERRADIUS[2], marginTop: 15, ...imgStyles}}/>
   </Stack>
@@ -86,7 +86,7 @@ export const SliderCard = ({title, label, img, href}) => {
 }
 
 export const PostCard = ({data}) => {
-  console.log(data.featuredImage.url)
+  // console.log(data.featuredImage.url)
   return <div className='card'>
     <style jsx global>
       {`

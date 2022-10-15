@@ -10,7 +10,7 @@ import { getPosts } from '../services';
 
 export default function Blog({posts}) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
-
+  console.log( posts )
   return (
     <div className={styles.container}>
       <Head>
