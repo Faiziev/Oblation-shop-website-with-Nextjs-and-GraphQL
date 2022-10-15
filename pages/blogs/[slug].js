@@ -7,6 +7,7 @@ import { Span, screens } from '../../utils/styling';
 // import { screens, Span } from '../utils/styling';
 import Image from 'next/future/image';
 import { Container } from './../../components/Container';
+import { useState } from 'react';
 
 const getContentFragment = (index, text, obj, type) => {
   let modifiedText = text;
@@ -49,8 +50,9 @@ const getContentFragment = (index, text, obj, type) => {
 
 export default function PostDetails({ post }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
+  // const [tit, setTit] = useState(null)
   const router = useRouter();
-  const tit = post.title ? post.title : null
+  // const tit = post.title ? post.title : null
   // console.log(post.featuredImage.url.length > 0)
   return (
     <div className={'styles.container'}>
@@ -69,7 +71,7 @@ export default function PostDetails({ post }) {
           <Stack paddingTop={'140px'}></Stack>
           <Stack width='100%'>
             <Span kind={tablet ? 'b0' : 'b9'}>
-              {post.title && tit}
+              {typeof window !== "undefined" ? post.title : 'loading'}
             </Span>
           </Stack>
           <Stack width="100%" maxWidth={"100%"}>
