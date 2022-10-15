@@ -5,7 +5,7 @@ import { Span } from '../utils/styling';
 
 export const HeaderButton = ({href, title}) => {
   return <Link href={`/${href}`} onClick={() => console.log("reset-password")} >
-    <Span kind="a3">
+    <Span kind="a3" className="text-gradient">
       {title}
     </Span>
   </Link>

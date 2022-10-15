@@ -11,20 +11,22 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Stack, useMediaQuery } from "@mui/material";
 import Image from "next/future/image";
 import { SliderImg1, SliderImg2, SliderImg3, SliderImg4 } from "./Images";
-import { SliderCard } from "./Card";
+import { SliderCard, UltimateCard } from "./Card";
 import { ServicesData } from "./Sections";
-import { GOLD, ORANGE, screens, SECTION } from "../utils/styling";
+import { GOLD, GREY, ORANGE, screens, SECTION, Span } from "../utils/styling";
+import { Container } from "./Container";
 
 const imgList = [
-  {alt: "kurban fotograf Slider-1", link: SliderImg1},
-  {alt: "kurban fotograf Slider-2", link: SliderImg2},
-  {alt: "kurban fotograf Slider-3", link: SliderImg3},
-  {alt: "kurban fotograf Slider-4", link: SliderImg4},
+  {alt: "kurban fotograf Slider-1", img: SliderImg1, content: 'Yıldırım Adak ve Kurban Satış Noktasına', gradient: 'Hoş Geldiniz', size: "500px"},
+  {alt: "kurban fotograf Slider-2", img: SliderImg2, content: 'Yıldırım Adak ve Kurban Satış Noktasına', gradient: 'Hoş Geldiniz', size: "500px"},
+  {alt: "kurban fotograf Slider-3", img: SliderImg3, content: 'Yıldırım Adak ve Kurban Satış Noktasına', gradient: 'Hoş Geldiniz', size: "500px"},
+  {alt: "kurban fotograf Slider-4", img: SliderImg4, content: 'Yıldırım Adak ve Kurban Satış Noktasına', gradient: 'Hoş Geldiniz', size: "500px"},
 ]
 
 export const BigSlider = () => {
-  const rightIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.16458 39.2646L21.2014 20.8097C21.6314 20.4136 21.6314 19.7347 21.2014 19.3386L1.16458 0.883611' stroke='white' strokeLinecap='round'/%3E%3C/svg%3E")`
-  const leftIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8354 0.884521L1.79859 19.3395C1.36856 19.7356 1.36856 20.4145 1.79859 20.8106L21.8354 39.2656' stroke='white' strokeLinecap='round'/%3E%3C/svg%3E")`
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
+  const rightIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.16458 39.2646L21.2014 20.8097C21.6314 20.4136 21.6314 19.7347 21.2014 19.3386L1.16458 0.883611' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`
+  const leftIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8354 0.884521L1.79859 19.3395C1.36856 19.7356 1.36856 20.4145 1.79859 20.8106L21.8354 39.2656' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`
   return (
     <>
       <style jsx global>
@@ -98,11 +100,11 @@ export const BigSlider = () => {
           }
         `}
       </style>
-      <Stack height="100%">
+      <Stack height={tablet ? '110vh' : '110vh' }>
         <Swiper 
           className="mySwiper" 
           autoplay={{
-            delay: 3500,
+            delay: 5500,
             disableOnInteraction: false,
           }}
           pagination={false}
@@ -110,9 +112,20 @@ export const BigSlider = () => {
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
         >
-          {imgList.map((img, i) => <SwiperSlide key={i}>
-              <Image src={img.link} alt={img.alt} sizes='100%'/>
+          {imgList.map((img, i) => (
+            <SwiperSlide key={i}>
+              <Container>
+                <Stack direction={tablet ? 'column-reverse' : 'row' } width={'100%'} height="100%" alignItems='center' justifyContent={'center'} spacing={tablet ? 3 : 0}>
+                  <Stack width={tablet ? '100%' : '50%' } height={tablet ? '15%' : undefined }>
+                    <Span kind={tablet ? 'b7' : 'b9' } style={{textAlign: tablet ? 'center' : 'start'}}>{img.content} <Span kind={tablet ? 'b7' : 'b9' } style={{color: ORANGE}}>{img.gradient}</Span></Span>
+                  </Stack>
+                  <Stack width={tablet ? '100%' : '50%' } height={tablet ? 'auto' : undefined } maxWidth={img.size} maxHeight={img.size}>
+                    <Image src={img.img} alt={img.alt} sizes='100%'/>
+                  </Stack>
+                </Stack>
+              </Container>
             </SwiperSlide>
+            )
           )}
         </Swiper>
       </Stack>
@@ -154,7 +167,7 @@ export const SmallSwiper = () => {
         modules={[Pagination]}
       >
         {ServicesData.map((card, i) => <SwiperSlide style={{background: SECTION, height: "100%"}} key={i}>
-          <SliderCard img={card.img} title={card.title} label={card.label} href={card.href}/>
+          <UltimateCard data={card} img={card.img} title={card.title} label={card.label} href={card.href}/>
         </SwiperSlide>)}
       </Swiper>
     </Stack>

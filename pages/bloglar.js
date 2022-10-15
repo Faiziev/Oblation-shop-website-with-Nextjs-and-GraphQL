@@ -23,6 +23,7 @@ export default function Blog({posts}) {
         <meta name="author" content="Kasap Faiziev Kurban Satış Evi" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
       </Head>
+      <Stack paddingTop={'85px'}></Stack>
       <Blogs posts={posts}/>
     </div>
   )

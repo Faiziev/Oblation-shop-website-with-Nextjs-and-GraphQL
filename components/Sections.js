@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack';
 import Link from 'next/link';
 import { Span, GOLD, BLOOD, ORANGE, BORDERPRIM, screens, SECTION } from './../utils/styling';
 import { SectionButton, LinerButton } from './Buttons';
-import { PostCard, ProductCard, SliderCard } from './Card';
+import { PostCard, ProductCard, SliderCard, UltimateCard } from './Card';
 import { Container } from './Container';
 import { SliderImgSm1, AnimalsImages } from './Images';
 import { motion } from "framer-motion";
@@ -16,23 +16,23 @@ import { ImgIcon } from '../lib/icons';
 import { BorderedTextField } from './Inputs';
 
 export const ServicesData = [
-  {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
-  {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
-  {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
-  {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
-  {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
-  {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
-  {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
-  {img: {src: SliderImgSm1, alt: "akika foto"}, title: "Baslik", label: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.  Akika kurbanınız vekalet ile kesilmekte ve dilerseniz anlaşmalı dini vakıf, dernek veya kuran kurslarına dağıtımı yapılmaktadır. Dağıtım sonrası ilgili kurum sizleri arayıp adağınızın teslim edildiğini teyit etmekte ve sizlere teşekkürlerini bizzat iletmektedirler.', href: "#"},
+  {featuredImage: {url: SliderImgSm1, alt: "akika foto"}, title: "Baslik", excerpt : 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: "#"},
+  {featuredImage: {url: SliderImgSm1, alt: "akika foto"}, title: "Baslik", excerpt : 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: "#"},
+  {featuredImage: {url: SliderImgSm1, alt: "akika foto"}, title: "Baslik", excerpt : 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: "#"},
+  {featuredImage: {url: SliderImgSm1, alt: "akika foto"}, title: "Baslik", excerpt : 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: "#"},
+  {featuredImage: {url: SliderImgSm1, alt: "akika foto"}, title: "Baslik", excerpt : 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: "#"},
+  {featuredImage: {url: SliderImgSm1, alt: "akika foto"}, title: "Baslik", excerpt : 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: "#"},
+  {featuredImage: {url: SliderImgSm1, alt: "akika foto"}, title: "Baslik", excerpt : 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: "#"},
+  {featuredImage: {url: SliderImgSm1, alt: "akika foto"}, title: "Baslik", excerpt : 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: "#"},
 ]
 
 export const AnimalsData = [
-  {img: {src: AnimalsImages.Animal1, alt: "category foto"}, name: "KOÇ", category: "Küçükbaş", href: "#"},
-  {img: {src: AnimalsImages.Animal2, alt: "category foto"}, name: "KOYUN", category: "Küçükbaş", href: "#"},
-  {img: {src: AnimalsImages.Animal3, alt: "category foto"}, name: "KUZU", category: "Küçükbaş", href: "#"},
-  {img: {src: AnimalsImages.Animal4, alt: "category foto"}, name: "DANA", category: "Büyükbaş", href: "#"},
-  {img: {src: AnimalsImages.Animal5, alt: "category foto"}, name: "İNEK", category: "Büyükbaş", href: "#"},
-  {img: {src: AnimalsImages.Animal6, alt: "category foto"}, name: "DÜVE", category: "Büyükbaş", href: "#"},
+  {featuredImage: {url: AnimalsImages.Animal1, alt: "category foto"}, title: "KOÇ",  category: "Küçükbaş", href: "#"},
+  {featuredImage: {url: AnimalsImages.Animal2, alt: "category foto"}, title: "KOYUN",category: "Küçükbaş", href: "#"},
+  {featuredImage: {url: AnimalsImages.Animal3, alt: "category foto"}, title: "KUZU", category: "Küçükbaş", href: "#"},
+  {featuredImage: {url: AnimalsImages.Animal4, alt: "category foto"}, title: "DANA", category: "Büyükbaş", href: "#"},
+  {featuredImage: {url: AnimalsImages.Animal5, alt: "category foto"}, title: "İNEK", category: "Büyükbaş", href: "#"},
+  {featuredImage: {url: AnimalsImages.Animal6, alt: "category foto"}, title: "DÜVE", category: "Büyükbaş", href: "#"},
 ]
 
 export const Services = () => {
@@ -74,7 +74,7 @@ export const Interview = () => {
         <YoutubeEmbed embedId="hnEwJKVWjFM" />
       </Stack>
       <Stack width={tablet ? "100%" : "50%"}>
-        <Span kind={`w${tablet ? 1 : 7}`}>Ülke TV - Yol Hikayesi programına <Span kind={`w${tablet ? 1 : 7}`} style={{color: GOLD}}>Faiziev Kurban</Span> Kurban Satış evi olarak konuk olduk.</Span>
+        <Span kind={`b${tablet ? 1 : 7}`}>Ülke TV - Yol Hikayesi programına <Span kind={`w${tablet ? 1 : 7}`} style={{color: ORANGE}}>Yıldırım Adak ve Kurban</Span> Satış evi olarak konuk olduk.</Span>
       </Stack>
     </Stack>
   </Container>
@@ -162,16 +162,17 @@ export const Animals = () => {
         HAYVANLARIMIZ
       </SectionTitle>
       <Stack justifyContent={"space-between"} width="100%">
-        <motion.div variants={container} initial="hidden" animate="show"
+        <Stack variants={container} initial="hidden" animate="show"
+          direction='row' alignItems="center" justifyContent={'center'}
           style={{
             width: '100%',
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
           }}
           >
-          {AnimalsData.map((animal, i) => <ProductCard data={animal} key={i}/> )}
-        </motion.div>
+          {AnimalsData.map((animal, i) => <UltimateCard data={animal} key={i} product/> )}
+        </Stack>
       </Stack>
     </Container>
   </Section>
@@ -189,18 +190,50 @@ export const Blogs = ({posts}) => {
   return <Section>
     <Container>
       <SectionTitle>
-        HAYVANLARIMIZ
+        İlginç Sorular
       </SectionTitle>
       <Stack justifyContent={"space-between"} width="100%">
         <motion.div variants={container} initial="hidden" animate="show"
+          direction='row' alignItems="center"
           style={{
             width: '100%',
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'flex-start',
+            justifyContent: 'center',
           }}
           >
-          {posts.map((post, i) => <PostCard data={post.node} key={i}/> )}
+          {posts.map((post, i) => <UltimateCard data={post.node} key={i} post/> )}
+        </motion.div>
+      </Stack>
+    </Container>
+  </Section>
+}
+
+export const BlogPage = ({ post }) => {
+  const container = {
+    show: {
+      transition: {
+        staggerChildren: 0.35,
+      },
+    },
+  }
+
+  return <Section>
+    <Container>
+      <SectionTitle>
+        İlginç Sorular
+      </SectionTitle>
+      <Stack justifyContent={"space-between"} width="100%">
+        <motion.div variants={container} initial="hidden" animate="show"
+          direction='row' alignItems="center"
+          style={{
+            width: '100%',
+            display: 'flex',
+            flexWrap: 'wrap',
+            justifyContent: 'center',
+          }}
+          >
+          {post.map((post, i) => <UltimateCard data={post.node} key={i} post/> )}
         </motion.div>
       </Stack>
     </Container>

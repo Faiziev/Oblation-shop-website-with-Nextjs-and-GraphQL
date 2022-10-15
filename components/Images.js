@@ -1,12 +1,19 @@
-import logo from '../public/logo2.png';
-import SliderImg1 from '../public/slider-1.jpg';
-import SliderImg2 from '../public/slider-2.jpg';
-import SliderImg3 from '../public/slider-3.jpg';
-import SliderImg4 from '../public/slider-4.jpg';
+// import logo from '../public/logo2.png';
+import logo from '../public/Logo-Y.png';
+import HorzontalLogo from '../public/Logo-H.png';
+import FOOTERLOGO from '../public/footer.png';
+import SingleLogo from '../public/Logo-Single.png';
+import SliderImg1 from '../public/shaped-1.png';
+import SliderImg2 from '../public/shaped-2.png';
+import SliderImg3 from '../public/shaped-3.png';
+import SliderImg4 from '../public/shaped-4.png';
+
+import BackImg from '../public/bg.webp'
+
 import SliderImg5 from '../public/slider-5.jpg';
 import SliderImgSm1 from '../public/slider-sm-1.jpg';
 
-export {logo};
+export {logo, HorzontalLogo, SingleLogo, BackImg, FOOTERLOGO};
 export {SliderImg1, SliderImg2, SliderImg3, SliderImg4, SliderImg5};
 export {SliderImgSm1};
 
@@ -18,4 +25,3 @@ import Animal5 from '../public/animal-card/5.jpg';
 import Animal6 from '../public/animal-card/6.jpg';
 
 export const AnimalsImages = {Animal1, Animal2, Animal3, Animal4, Animal5, Animal6};
-

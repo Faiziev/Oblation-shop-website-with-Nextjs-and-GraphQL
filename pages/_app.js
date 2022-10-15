@@ -10,7 +10,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <Stack style={{ background: BACKGROUND}} width={"100%"}>
       <Header />
-      <Stack marginTop={tablet ? "120px" : "160px"}></Stack>
+      {/* marginTop={tablet ? "120px" : "120px"} */}
+      <Stack ></Stack>
       <Component {...pageProps} />
       <Footer />
     </Stack>

@@ -1,5 +1,5 @@
 import { ButtonBase, Stack, styled } from "@mui/material"
-import { BTNRADIUS, BTNWHITE, ORANGE, RED, SECTION, textStyle, LINERGRADBACK } from "../utils/styling";
+import { BTNRADIUS, BTNWHITE, ORANGE, RED, SECTION, textStyle, LINERGRADBACK, TRANSITION, DARK } from "../utils/styling";
 
 const Button = styled(ButtonBase)(() => ({
   position: 'relative',
@@ -7,17 +7,19 @@ const Button = styled(ButtonBase)(() => ({
   marginTop: 15,
   marginBottom: 15,
   background: ORANGE,
+  opacity: 0.7,
   ...textStyle("w3"),
-  transition: 'linear 0.2s',
+  transition: TRANSITION,
   borderRadius: BTNRADIUS[0],
   // [theme.breakpoints.down('sm')]: {
   //   width: '100% !important', 
-  // },import { LINERGRADBACK } from './../utils/styling';
+  // },import { LINERGRADBACK, DARK } from './../utils/styling';
 
   '&:hover, &.Mui-focusVisible': {
     zIndex: 1,
-    background: RED,
-    transition: 'linear 0.2s',
+    background: ORANGE,
+    transition: TRANSITION,
+    opacity: 1,
     '& .MuiImageBackdrop-root': {
       opacity: 0.15,
     },
@@ -37,13 +39,13 @@ const SecButton = styled(ButtonBase)(() => ({
   marginBottom: 15,
   background: BTNWHITE,
   ...textStyle("w4"),
-  transition: 'linear 0.2s',
   borderRadius: BTNRADIUS[0],
   justifyContent: 'center',
+  transition: TRANSITION,
   '&:hover, &.Mui-focusVisible': {
     zIndex: 1,
     background: '#000',
-    transition: 'linear 0.2s',
+    transition: TRANSITION,
     '& .MuiImageBackdrop-root': {
       opacity: 0.15,
     },
@@ -65,13 +67,14 @@ const TspBtn = styled(ButtonBase)(() => ({
   border: `1px solid ${SECTION}`,
 
   ...textStyle("w4"),
-  transition: 'linear 0.2s',
+  transition: TRANSITION,
   borderRadius: BTNRADIUS[1],
   justifyContent: 'center',
   '&:hover, &.Mui-focusVisible': {
     zIndex: 1,
     background: SECTION,
-    transition: 'linear 0.2s',
+    color: DARK,
+    transition: TRANSITION,
     '& .MuiImageBackdrop-root': {
       opacity: 0.15,
     },
@@ -98,7 +101,7 @@ const LinerButtonStyle = styled(ButtonBase)(() => ({
     zIndex: 1,
     // background: SECTION,
     opacity: 0.9,
-    transition: 'linear 0.2s',
+    transition: TRANSITION,
     '& .MuiImageBackdrop-root': {
       opacity: 0.15,
     },

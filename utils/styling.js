@@ -1,6 +1,6 @@
 export const DARK = "#424242"
-export const SECTION = "rgb(43, 45, 48)"
-export const GREY = "#ABABAB"
+// export const SECTION = "rgb(43, 45, 48)"
+export const SECTION = "#fff"
 export const WHITE = "rgb(250, 244, 235)"
 export const LIGHT_GREY = "#D7D4D4"
 export const RED = "rgb(220, 0, 24)"
@@ -8,30 +8,35 @@ export const LINK = "#ffdd71"
 export const NOTE = "#1C80A0"
 export const SUCCESS = "#559C2A"
 
-export const BTNWHITE = "rgb(44, 48, 49)"
-export const ORANGE   = "rgb(138, 114, 41)"
+export const TRANSITION = ".2s linear 0s"
+
+export const FOOTERPRIMARY = "#444"
+export const FOOTERSECONDARY = "#363636"
+export const BTNWHITE = "rgba(0, 0, 0, .4)"
+export const GREY     = "rgba(0, 0, 0, 0.95)"
+export const ORANGE   = "#bc9553"
 export const GOLD     = "rgb(255, 221, 113)"
 export const BLOOD    = "rgb(136, 8, 8)"
-export const BORDER   = "#bdbdbd"
-export const BACKGROUND   = "#000"
-export const HEADER   = "#000"
+export const BORDER   = "#adadad"
+export const BACKGROUND   = "#fff"
+export const HEADER   = "rgba(255, 255, 255, 0.95)"
 export const BORDERPRIM   = "#D7D4D4"
 export const LINERGRAD = `linear-gradient(${SECTION}, ${SECTION}) padding-box,linear-gradient(110deg,#50e3c2 0,#0070f3 100%) border-box`
 export const LINERGRADBACK = `linear-gradient(155deg,#50e3c2,#0070f3)`
 
 export const ZINDEX = [9999, 999]
 
-export const screens = [500, 850]
+export const screens = [500, 900, 900]
 
 export const colours = { DARK, GREY, LIGHT_GREY, ORANGE, LINK, NOTE, SUCCESS }
 
-export const sizes = [24, 20, 18, 16, 14, 13, 12, 28, 36]
+export const sizes = [24, 20, 18, 16, 14, 13, 12, 28, 36, 50]
 
 export const BTNRADIUS = [5, 10, 16, 20, 50]
 export const BORDERRADIUS = [5, 10, 16, 20]
 
 export const kinds = {
-  "b": { color: DARK, fontWeight: 500},
+  "b": { color: DARK, fontWeight: 600},
   "g": { color: GOLD, fontWeight: 600},
   "w": { color: WHITE, fontWeight: 600},
   "e": { color: WHITE, fontWeight: "normal"},

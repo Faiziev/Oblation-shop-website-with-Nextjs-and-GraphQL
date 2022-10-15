@@ -9,6 +9,7 @@ export const Container = ({style, children}) => {
           display: flex;
           flex-direction: column;
           align-items: center;
+          transition: .2s linear 0s;
         }
         
         

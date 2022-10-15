@@ -1,19 +1,15 @@
 import React, { useState } from "react";
 import { Stack, useMediaQuery } from "@mui/material"
-import { Logo } from './Logo';
+import { HLogo, Logo, SLogo } from './Logo';
 import { HeaderButton } from './HeaderButton';
 import { Container } from "./Container";
-import { BACKGROUND, HEADER, screens, WHITE, Span } from "../utils/styling";
-import { ZINDEX } from './../utils/styling';
+import { BACKGROUND, HEADER, screens, WHITE, Span, TRANSITION } from "../utils/styling";
+import { ZINDEX, BORDERRADIUS } from './../utils/styling';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import { MenuIcon } from "../lib/icons";
 
 const HeaderTitles = [
@@ -44,8 +40,8 @@ const HeaderTitles = [
 ]
 
 const DesktopHeader = () => {
-  return <Stack direction="row" width="70%" height={70} alignItems={"center"} justifyContent="space-around" style={{cursor: 'pointer'}}>
-    {HeaderTitles.map((btn, i) => <HeaderButton href={`/${btn.href}`} title={btn.title} key={i}/>)}
+  return <Stack direction="row" width="100%" height={50} alignItems={"center"} justifyContent="space-around" style={{cursor: 'pointer'}}>
+    {HeaderTitles.map((btn, i) => <HeaderButton href={btn.href} title={btn.title} key={i}/>)}
   </Stack>
 }
 
@@ -84,11 +80,11 @@ const MobileHeader = () => {
     {
       ['right'].map((anchor, i) => (
         <React.Fragment key={anchor}>
-          <Stack width="33.3%" alignItems="flex-end">
-            <Stack width="30px" height="30px" alignItems={"center"} justifyContent={"center"} onClick={toggleDrawer(anchor, true)} style={{cursor: 'pointer'}}>
+          {/* <Stack width="33.3%" alignItems="flex-end"> */}
+            <Stack width="30px" height="30px" alignItems={"flex-end"} justifyContent={"center"} onClick={toggleDrawer(anchor, true)} style={{cursor: 'pointer'}}>
               <MenuIcon />
             </Stack>
-          </Stack>
+          {/* </Stack> */}
           <Drawer
             anchor={anchor}
             open={state[anchor]}
@@ -105,6 +101,7 @@ const MobileHeader = () => {
 const Header = () => {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
   const desktop = useMediaQuery(`(min-width:${screens[1]}px)`)
+  const l_tablet = useMediaQuery(`(min-width:${screens[2]}px)`)
   const [left, setLeft] = useState(false)
   const handle = () => {
     if (window.scrollY >= 100) {
@@ -117,7 +114,7 @@ const Header = () => {
     window.addEventListener('scroll', handle)
   }
 
-  return <Stack style={{position: 'fixed', top: 0, zIndex: ZINDEX[1], width: '100%', background: HEADER}}>
+  return <Stack style={{position: 'fixed', top: 0, zIndex: ZINDEX[1], width: '100%', background: 'transparent'}}>
     <style jsx global>{`
         .css-1160xiw-MuiPaper-root-MuiDrawer-paper {
           background: ${BACKGROUND};
@@ -134,18 +131,29 @@ const Header = () => {
       `}
     </style>
     <Container>
-      <Stack direction={left ? 'row' : tablet ? 'row' : 'column'} width={"100%"} alignItems="center" justifyContent="space-between">
-        {tablet && <Stack width="33.3%"></Stack>}
-        <Stack width={tablet ? "33.3%" : undefined} alignItems="center">
-          <Stack width={"500px"} height={100} margin={'10px 0px'}>
-            <Logo />
+      <Stack direction={left ? 'row' : tablet ? 'row' : 'column'} 
+        alignItems="center"
+        justifyContent=""
+        style={{
+          minWidth: '100%',
+          minHeight: 85,
+          background: HEADER,
+          padding: '0px 15px',
+          borderRadius: `0px 0px ${BORDERRADIUS[2]}px ${BORDERRADIUS[2]}px`,
+          transition: TRANSITION
+        }}
+        >
+          {tablet && <Stack width="23.3%"></Stack>}
+          <Stack width={desktop ? "33.3%" : 323} alignItems="center">
+            <HLogo imgStyle={{maxWidth: 323, height: 'auto'}}/>
           </Stack>
-        </Stack>
-        {tablet ?
-          <MobileHeader />
-        : desktop && 
-          <DesktopHeader />
-        }
+          <Stack width={tablet ? "43.3%" : '100%'} alignItems={tablet ? "flex-end" : "center"} style={{transition: TRANSITION}}>
+            {tablet ?
+              <MobileHeader />
+              : desktop && 
+              <DesktopHeader />
+            }
+          </Stack>
       </Stack>
     </Container>
   </Stack>
