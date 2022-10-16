@@ -1,8 +1,9 @@
 
-export const Container = ({style, children}) => {
-  return <div className="container" style={{...style}}>
-    <style jsx global>
-      {`
+export function Container({ style, children }) {
+  return (
+    <div className="container" style={{ ...style }}>
+      <style jsx global>
+        {`
         .container {
           max-width: 1200px;
           width: 100%;
@@ -19,7 +20,8 @@ export const Container = ({style, children}) => {
           }
         }
       `}
-    </style>
-    {children}
-  </div>
+      </style>
+      {children}
+    </div>
+  );
 }

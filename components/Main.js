@@ -2,12 +2,11 @@ import Stack from '@mui/material/Stack';
 import Header from './Header';
 import { BigSlider } from './Slider';
 import { Animals, Interview, Note, Services } from './Sections';
-import { Span } from './../utils/styling';
+import { Span } from '../utils/styling';
 import { TransparentBtn } from './Buttons';
 import Footer from './Footer';
 
-
-const Main = () => {
+function Main() {
   return (
     <Stack>
       <Header />
@@ -29,7 +28,7 @@ const Main = () => {
       <Animals />
       <Footer />
     </Stack>
-  )
+  );
 }
 
-export default Main
+export default Main;

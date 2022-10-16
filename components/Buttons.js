@@ -1,5 +1,5 @@
-import { ButtonBase, Stack, styled } from "@mui/material"
-import { BTNRADIUS, BTNWHITE, ORANGE, RED, SECTION, textStyle, LINERGRADBACK, TRANSITION, DARK } from "../utils/styling";
+import { ButtonBase, Stack, styled } from '@mui/material';
+import { BTNRADIUS, BTNWHITE, ORANGE, RED, SECTION, textStyle, LINERGRADBACK, TRANSITION, DARK } from '../utils/styling';
 
 const Button = styled(ButtonBase)(() => ({
   position: 'relative',
@@ -8,11 +8,11 @@ const Button = styled(ButtonBase)(() => ({
   marginBottom: 15,
   background: ORANGE,
   opacity: 0.7,
-  ...textStyle("w3"),
+  ...textStyle('w3'),
   transition: TRANSITION,
   borderRadius: BTNRADIUS[0],
   // [theme.breakpoints.down('sm')]: {
-  //   width: '100% !important', 
+  //   width: '100% !important',
   // },import { LINERGRADBACK, DARK } from './../utils/styling';
 
   '&:hover, &.Mui-focusVisible': {
@@ -38,7 +38,7 @@ const SecButton = styled(ButtonBase)(() => ({
   marginTop: 15,
   marginBottom: 15,
   background: BTNWHITE,
-  ...textStyle("w4"),
+  ...textStyle('w4'),
   borderRadius: BTNRADIUS[0],
   justifyContent: 'center',
   transition: TRANSITION,
@@ -63,10 +63,10 @@ const TspBtn = styled(ButtonBase)(() => ({
   padding: '15px 24px',
   // marginTop: 15,
   // marginBottom: 15,
-  background: "transparent",
+  background: 'transparent',
   border: `1px solid ${SECTION}`,
 
-  ...textStyle("w4"),
+  ...textStyle('w4'),
   transition: TRANSITION,
   borderRadius: BTNRADIUS[1],
   justifyContent: 'center',
@@ -96,7 +96,7 @@ const LinerButtonStyle = styled(ButtonBase)(() => ({
   transition: 'linear 0.2s',
   borderRadius: BTNRADIUS[4],
   justifyContent: 'center',
-  ...textStyle("w4"),
+  ...textStyle('w4'),
   '&:hover, &.Mui-focusVisible': {
     zIndex: 1,
     // background: SECTION,
@@ -114,27 +114,34 @@ const LinerButtonStyle = styled(ButtonBase)(() => ({
   },
 }));
 
-
-export const CardButton = ({style, children, onClick}) => {
-  return <Button onClick={onClick}>
-    {children}
-  </Button>
+export function CardButton({ style, children, onClick }) {
+  return (
+    <Button onClick={onClick}>
+      {children}
+    </Button>
+  );
 }
 
-export const SectionButton = ({style, children, onClick}) => {
-  return <SecButton onClick={onClick} disableRipple>
-    {children}
-  </SecButton>
+export function SectionButton({ style, children, onClick }) {
+  return (
+    <SecButton onClick={onClick} disableRipple>
+      {children}
+    </SecButton>
+  );
 }
 
-export const TransparentBtn = ({style, children, onClick}) => {
-  return <TspBtn onClick={onClick} disableRipple>
-    {children}
-  </TspBtn>
+export function TransparentBtn({ style, children, onClick }) {
+  return (
+    <TspBtn onClick={onClick} disableRipple>
+      {children}
+    </TspBtn>
+  );
 }
 
-export const LinerButton = ({children, onClick}) => {
-  return <LinerButtonStyle onClick={onClick} disableRipple>
-    {children}
-  </LinerButtonStyle>
+export function LinerButton({ children, onClick }) {
+  return (
+    <LinerButtonStyle onClick={onClick} disableRipple>
+      {children}
+    </LinerButtonStyle>
+  );
 }

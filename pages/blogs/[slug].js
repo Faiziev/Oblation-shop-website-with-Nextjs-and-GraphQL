@@ -1,11 +1,11 @@
 import React from 'react';
-import Head from 'next/head'
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Stack, useMediaQuery } from '@mui/material';
+import Image from 'next/future/image';
 import { getPosts, getPostDetails } from '../../services';
 import { Span, screens, BORDERRADIUS } from '../../utils/styling';
-import Image from 'next/future/image';
-import { Container } from './../../components/Container';
+import { Container } from '../../components/Container';
 
 const getContentFragment = (index, text, obj, type) => {
   let modifiedText = text;
@@ -48,47 +48,48 @@ const getContentFragment = (index, text, obj, type) => {
 
 export default function PostDetails({ post }) {
   const router = useRouter();
-  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   if (router.isFallback) {
-    return 'loading'
+    return 'loading';
   }
   return (
-    <div className={'styles.container'}>
+    <div className="styles.container">
       <Head>
         <title>Yıldırım Kurban Satış Evi - Blog</title>
         <link rel="icon" href="/favicon.ico" />
         <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="keywords" content="Kasap Faiziev, Faiziev kurban, beykoz adak, beykoz kurban, kurban satışı, adak kurban, akika kurban, adak, akika, şükür kurban, kurban kesimi, kurban satışı, kasap-faiziev, faiziev-kasap, kasap, adak faiziev, faiziev adak" />
         <meta name="description" content="Kasap Faiziev Kurban Satış Evi - Beykoz Anadolu Feneri köyümüzde başlamış olduğumuz hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Yüşa'da hizmet vermeye başladık." />
         <meta name="author" content="Kasap Faiziev Kurban Satış Evi" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <Container>
         <Stack spacing={4}>
-          <Stack paddingTop={'140px'}></Stack>
-          <Stack width='100%'>
+          <Stack paddingTop="140px" />
+          <Stack width="100%">
             <Span kind={tablet ? 'b0' : 'b9'}>
               {/* {post.title} */}
               Baslik
             </Span>
           </Stack>
-          <Stack width="100%" maxWidth={"100%"}>
-            {post.featuredImage.url && <img src={post.featuredImage.url} style={{maxWidth: tablet ? '100%' : '90%', height: 'auto', borderRadius: BORDERRADIUS[2] }} />}
+          <Stack width="100%" maxWidth="100%">
+            {post.featuredImage.url && <img src={post.featuredImage.url} style={{ maxWidth: tablet ? '100%' : '90%', height: 'auto', borderRadius: BORDERRADIUS[2] }} />}
           </Stack>
-          <Stack width='100%' style={{maxWidth: tablet ? '100%' : '90%'}}>
-            <Span kind={tablet ? 'b3' : 'b1'}>
+          <Stack width="100%" style={{ maxWidth: tablet ? '100%' : '90%' }}>
+            {/* <Span kind={tablet ? 'b3' : 'b1'}> */}
               {post.content.raw.children.map((typeObj, index) => {
                 const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                 return getContentFragment(index, children, typeObj, typeObj.type);
               })}
-            </Span>
+              {/* {post.content} */}
+            {/* </Span> */}
           </Stack>
         </Stack>
-        <Stack paddingBottom={'40px'}></Stack>
+        <Stack paddingBottom="40px" />
       </Container>
     </div>
-  )
+  );
 }
 
 export async function getStaticProps({ params }) {

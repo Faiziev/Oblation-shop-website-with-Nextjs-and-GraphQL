@@ -1,29 +1,33 @@
 import Stack from '@mui/material/Stack';
 import { motion } from 'framer-motion';
 import Image from 'next/future/image';
-import Link from 'next/link'
-import { Span } from '../utils/styling';
-import { WHITE, GOLD, BORDERRADIUS } from './../utils/styling';
+import Link from 'next/link';
+import { Span, WHITE, GOLD, BORDERRADIUS } from '../utils/styling';
+
 import { CardButton } from './Buttons';
 
-const CardImg = ({img, style, imgStyles}) => {
-  return <Stack width="100%" maxWidth={350} style={{...style}}>
-    <Image src={img.src} alt={img.alt} style={{ borderRadius: 0, ...imgStyles}}/>
-  </Stack>
+function CardImg({ img, style, imgStyles }) {
+  return (
+    <Stack width="100%" maxWidth={350} style={{ ...style }}>
+      <Image src={img.src} alt={img.alt} style={{ borderRadius: 0, ...imgStyles }} />
+    </Stack>
+  );
 }
 
-const PostImg = ({src, style, imgStyles}) => {
+function PostImg({ src, style, imgStyles }) {
   // console.log(src)
-  return <Stack width="100%" maxWidth={350} style={{...style}} alignItems={"center"}>
-    <Image src={src} alt={src} width={300} height={150} style={{ borderRadius: BORDERRADIUS[2], marginTop: 15, objectFit: 'cover', ...imgStyles}}/>
-  </Stack>
+  return (
+    <Stack width="100%" maxWidth={350} style={{ ...style }} alignItems="center">
+      <Image src={src} alt={src} width={300} height={150} style={{ borderRadius: BORDERRADIUS[2], marginTop: 15, objectFit: 'cover', ...imgStyles }} />
+    </Stack>
+  );
 }
 
-
-export const SliderCard = ({title, label, img, href}) => {
-  return <div className='card'>
-    <style jsx global>
-      {`
+export function SliderCard({ title, label, img, href }) {
+  return (
+    <div className="card">
+      <style jsx global>
+        {`
         .card {
           max-width: 320px;
           width: auto !important;
@@ -58,38 +62,39 @@ export const SliderCard = ({title, label, img, href}) => {
           }
         }
       `}
-    </style>
-    <Stack spacing={1.5} alignItems={"center"}>
-      <CardImg img={img}/>
-      <Stack>
-        <Span kind="w0" style={{ userSelect: 'none' }}>
-          {title}
-        </Span>
+      </style>
+      <Stack spacing={1.5} alignItems="center">
+        <CardImg img={img} />
+        <Stack>
+          <Span kind="w0" style={{ userSelect: 'none' }}>
+            {title}
+          </Span>
+        </Stack>
+        <Stack justifyContent="center" alignItems="center">
+          <Span kind="w3" style={{ lineHeight: '24px', opacity: 0.9, userSelect: 'none' }}>
+            {label.length >= 120
+              ? `${label.slice(0, 120)}...`
+              : label}
+          </Span>
+        </Stack>
+        <Stack width="100%" height="100%" alignItems="center">
+          <Link href={`/${href}`} style={{ width: 'fit-content' }}>
+            <CardButton>
+              DETAYLARI GÖR
+            </CardButton>
+          </Link>
+        </Stack>
       </Stack>
-      <Stack justifyContent={"center"} alignItems={"center"}>
-        <Span kind="w3" style={{lineHeight: "24px", opacity: 0.9, userSelect: 'none' }}>
-          {label.length >= 120 
-            ? label.slice(0, 120) + "..."
-            : label
-          }
-        </Span>
-      </Stack>
-      <Stack width={"100%"} height={"100%"} alignItems={"center"}>
-        <Link href={`/${href}`} style={{width: 'fit-content'}}>
-          <CardButton>
-            DETAYLARI GÖR
-          </CardButton>
-        </Link>
-      </Stack>
-    </Stack>
-  </div>
+    </div>
+  );
 }
 
-export const PostCard = ({data}) => {
+export function PostCard({ data }) {
   // console.log(data.featuredImage.url)
-  return <div className='card'>
-    <style jsx global>
-      {`
+  return (
+    <div className="card">
+      <style jsx global>
+        {`
         .card {
           max-width: 320px;
           width: auto !important;
@@ -125,37 +130,37 @@ export const PostCard = ({data}) => {
           }
         }
       `}
-    </style>
-    <Stack spacing={1.5} alignItems={"center"}>
-      <PostImg src={data.featuredImage.url}/>
-      {/* <img src={data.featuredImage.url}/> */}
-      <Stack>
-        <Span kind="w0" style={{ userSelect: 'none' }}>
-          {data.title}
-        </Span>
+      </style>
+      <Stack spacing={1.5} alignItems="center">
+        <PostImg src={data.featuredImage.url} />
+        {/* <img src={data.featuredImage.url}/> */}
+        <Stack>
+          <Span kind="w0" style={{ userSelect: 'none' }}>
+            {data.title}
+          </Span>
+        </Stack>
+        <Stack justifyContent="center" alignItems="center">
+          <Span kind="w3" style={{ lineHeight: '24px', opacity: 0.9, textAlign: 'center' }}>
+            {data.excerpt.length >= 120
+              ? `${data.excerpt.slice(0, 120)}...`
+              : data.excerpt}
+          </Span>
+        </Stack>
+        <Stack width="100%" height="100%" alignItems="center">
+          <Link href={`bloglar/${data.slug}`} style={{ width: 'fit-content' }}>
+            <CardButton>
+              DETAYLARI GÖR
+            </CardButton>
+          </Link>
+        </Stack>
       </Stack>
-      <Stack justifyContent={"center"} alignItems={"center"}>
-        <Span kind="w3" style={{lineHeight: "24px", opacity: 0.9, textAlign: 'center' }}>
-          {data.excerpt.length >= 120 
-            ? data.excerpt.slice(0, 120) + "..."
-            : data.excerpt
-          }
-        </Span>
-      </Stack>
-      <Stack width={"100%"} height={"100%"} alignItems={"center"}>
-        <Link href={`bloglar/${data.slug}`} style={{width: 'fit-content'}}>
-          <CardButton>
-            DETAYLARI GÖR
-          </CardButton>
-        </Link>
-      </Stack>
-    </Stack>
-  </div>
+    </div>
+  );
 }
 
-export const ProductCard = ({data}) => {
+export function ProductCard({ data }) {
   const variants = {
-    hidden: { opacity: 0, y:  0 },
+    hidden: { opacity: 0, y: 0 },
     show: {
       opacity: 1,
       y: 0,
@@ -165,11 +170,12 @@ export const ProductCard = ({data}) => {
         duration: 1.6,
       },
     },
-  }
+  };
 
-  return <motion.div className='category-card' variants={variants} initial="hidden" animate="show">
-    <style jsx global>
-      {`
+  return (
+    <motion.div className="category-card" variants={variants} initial="hidden" animate="show">
+      <style jsx global>
+        {`
         .category-card {
           width: 33.33333333%;
           // background-color: #1e2122;
@@ -194,46 +200,48 @@ export const ProductCard = ({data}) => {
           }
         }
       `}
-    </style>
-    <Stack alignItems={'flex-start'} 
-      spacing={1} 
-      style={{
-        // width: '100%',
-        marginBottom: 30,
-        padding: 20,
-        cursor: "pointer",
-        border: '1px solid grey',
-      }}
-      >
-      <CardImg 
-        img={data.img}
+      </style>
+      <Stack
+        alignItems="flex-start"
+        spacing={1}
         style={{
-          overflow: 'hidden',
-          alignItems: 'center',
+          // width: '100%',
+          marginBottom: 30,
+          padding: 20,
+          cursor: 'pointer',
+          border: '1px solid grey',
         }}
-        imgStyles={{
-          height: "auto",
-          maxWidth: '100%',
-          paddingBottom: 10,
-        }}
+      >
+        <CardImg
+          img={data.img}
+          style={{
+            overflow: 'hidden',
+            alignItems: 'center',
+          }}
+          imgStyles={{
+            height: 'auto',
+            maxWidth: '100%',
+            paddingBottom: 10,
+          }}
         />
-      <Stack>
-        <Span kind="e0" style={{ userSelect: 'none' }}>
-          {data.name}
-        </Span>
+        <Stack>
+          <Span kind="e0" style={{ userSelect: 'none' }}>
+            {data.name}
+          </Span>
+        </Stack>
+        <Stack>
+          <Span kind="e5" style={{ userSelect: 'none' }}>
+            {data.category}
+          </Span>
+        </Stack>
       </Stack>
-      <Stack >
-        <Span kind="e5" style={{ userSelect: 'none' }}>
-          {data.category}
-        </Span>
-      </Stack>
-    </Stack>
-  </motion.div>
+    </motion.div>
+  );
 }
 
-export const UltimateCard = ({ data, product, post }) => {
+export function UltimateCard({ data, product, post }) {
   const variants = {
-    hidden: { opacity: 0, y:  0 },
+    hidden: { opacity: 0, y: 0 },
     show: {
       opacity: 1,
       y: 0,
@@ -243,82 +251,85 @@ export const UltimateCard = ({ data, product, post }) => {
         duration: 1.6,
       },
     },
-  }
+  };
 
-  return <motion.div className='ultimate-card' variants={variants} initial="hidden" animate="show" style={{margin: product || post ? 10 : 0}}>
-    <Stack spacing={1.5} alignItems={product || post ? "flex-start" : "center"}  width='100%' height={'100%'}>
-      <PostImg src={data.featuredImage.url}/>
-      {/* <img src={data.featuredImage.url}/> */}
-      {product ? 
-        <Stack direction='row' justifyContent="space-between" width='100%'>
-          <Stack>
-            <Span kind="b1" style={{ userSelect: 'none' }}>
-              {data.title}
-            </Span>
-            <Span kind="v3" style={{ opacity: 0.7, textAlign: 'start' }}>
-              {data.category}
-            </Span>
-          </Stack>
-          {/* <Stack justifyContent={"center"} alignItems={"center"}> */}
-          {/* </Stack> */}
-          <Stack height={"100%"} alignItems={"center"}>
-            <Link href={`products/${data.slug}`} style={{width: 'fit-content'}}>
-              <CardButton>
-                Satin Al 
-              </CardButton>
-            </Link>
-          </Stack>
-        </Stack>
-      : post ? 
-        <Stack direction='column' justifyContent="space-between" width='100%' height={'100%'}>
-          <Stack spacing={2}>
-            <Span kind="b1" style={{ userSelect: 'none' }}>
-              {data.title.length >= 30 
-                ? data.title.slice(0, 25) + "..."
-                : data.title
-              }
-            </Span>
-            <Span kind="v3" style={{lineHeight: "24px", opacity: 0.9, textAlign: 'center' }}>
-              {data.excerpt.length >= 120 
-                ? data.excerpt.slice(0, 120) + "..."
-                : data.excerpt
-              }
-            </Span>
-          </Stack>
-          {/* <Stack justifyContent={"center"} alignItems={"center"}> */}
-          {/* </Stack> */}
-          <Stack  alignItems={"center"}>
-            <Link href={`blogs/${data.slug}`} style={{width: 'fit-content'}}>
-              <CardButton>
-                Ayrıntılara Bakın 
-              </CardButton>
-            </Link>
-          </Stack>
-        </Stack>
-      :
-        <>
-          <Stack>
-            <Span kind="b0" style={{ userSelect: 'none' }}>
-              {data.title}
-            </Span>
-          </Stack>
-          <Stack justifyContent={"center"} alignItems={"center"}>
-            <Span kind="v3" style={{lineHeight: "24px", opacity: 0.9, textAlign: 'center' }}>
-              {data.excerpt.length >= 120 
-                ? data.excerpt.slice(0, 120) + "..."
-                : data.excerpt
-              }
-            </Span>
-          </Stack>
-          <Stack width={"100%"} height={"100%"} alignItems={"center"}>
-            <Link href={`bloglar/${data.slug}`} style={{width: 'fit-content'}}>
-              <CardButton>
-                DETAYLARI GÖR
-              </CardButton>
-            </Link>
-          </Stack>
-        </>
-      }
-    </Stack>
-  </motion.div>
+  return (
+    <motion.div className="ultimate-card" variants={variants} initial="hidden" animate="show" style={{ margin: product || post ? 10 : 0 }}>
+      <Stack spacing={1.5} alignItems={product || post ? 'flex-start' : 'center'} width="100%" height="100%">
+        <PostImg src={data.featuredImage.url} />
+        {/* <img src={data.featuredImage.url}/> */}
+        {product
+          ? (
+            <Stack direction="row" justifyContent="space-between" width="100%">
+              <Stack>
+                <Span kind="b1" style={{ userSelect: 'none' }}>
+                  {data.title}
+                </Span>
+                <Span kind="v3" style={{ opacity: 0.7, textAlign: 'start' }}>
+                  {data.category}
+                </Span>
+              </Stack>
+              {/* <Stack justifyContent={"center"} alignItems={"center"}> */}
+              {/* </Stack> */}
+              <Stack height="100%" alignItems="center">
+                <Link href={`products/${data.slug}`} style={{ width: 'fit-content' }}>
+                  <CardButton>
+                    Satin Al
+                  </CardButton>
+                </Link>
+              </Stack>
+            </Stack>
+          )
+          : post
+            ? (
+              <Stack direction="column" justifyContent="space-between" width="100%" height="100%">
+                <Stack spacing={2}>
+                  <Span kind="b1" style={{ userSelect: 'none' }}>
+                    {data.title.length >= 30
+                      ? `${data.title.slice(0, 25)}...`
+                      : data.title}
+                  </Span>
+                  <Span kind="v3" style={{ lineHeight: '24px', opacity: 0.9, textAlign: 'center' }}>
+                    {data.excerpt.length >= 120
+                      ? `${data.excerpt.slice(0, 120)}...`
+                      : data.excerpt}
+                  </Span>
+                </Stack>
+                {/* <Stack justifyContent={"center"} alignItems={"center"}> */}
+                {/* </Stack> */}
+                <Stack alignItems="center">
+                  <Link href={`blogs/${data.slug}`} style={{ width: 'fit-content' }}>
+                    <CardButton>
+                      Ayrıntılara Bakın
+                    </CardButton>
+                  </Link>
+                </Stack>
+              </Stack>
+            )
+            : (
+              <>
+                <Stack>
+                  <Span kind="b0" style={{ userSelect: 'none' }}>
+                    {data.title}
+                  </Span>
+                </Stack>
+                <Stack justifyContent="center" alignItems="center">
+                  <Span kind="v3" style={{ lineHeight: '24px', opacity: 0.9, textAlign: 'center' }}>
+                    {data.excerpt.length >= 120
+                      ? `${data.excerpt.slice(0, 120)}...`
+                      : data.excerpt}
+                  </Span>
+                </Stack>
+                <Stack width="100%" height="100%" alignItems="center">
+                  <Link href={`bloglar/${data.slug}`} style={{ width: 'fit-content' }}>
+                    <CardButton>
+                      DETAYLARI GÖR
+                    </CardButton>
+                  </Link>
+                </Stack>
+              </>
+            )}
+      </Stack>
+    </motion.div>
+  );
 }
