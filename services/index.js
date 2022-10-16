@@ -1,4 +1,4 @@
-import { request, gql } from 'graphql-request'
+import { request, gql, GraphQLClient  } from 'graphql-request'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
@@ -24,7 +24,7 @@ export const getPosts = async () => {
     }  
   `
   
-  const result = await request(graphqlAPI, query)
+  const result = await request('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl95q8fxh6by501t6flqfgnis/master', query)
   return result.postsConnection.edges;
 }
 
@@ -47,6 +47,5 @@ export const getPostDetails = async (slug) => {
   `;
 
   const result = await request(graphqlAPI, query, { slug });
-
   return result.post;
 };
