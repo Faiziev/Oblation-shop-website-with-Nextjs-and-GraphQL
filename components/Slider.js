@@ -1,4 +1,4 @@
-/*eslint import/no-unresolved: [2, { ignore: ['\\css$'] }]*/
+/*  eslint import/no-unresolved: [2, { ignore: ['\\css$'] }]  */
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -186,13 +186,13 @@ export function BigSlider() {
       </style>
       <Stack height={tablet ? '110vh' : '110vh'}>
         <Swiper
-          className='mySwiper'
+          className="mySwiper"
           autoplay={{
             delay: 5500,
             disableOnInteraction: false,
           }}
           pagination={false}
-          centeredSlides
+          centeredSlides  
           navigation
           modules={[Autoplay, Pagination, Navigation]}
         >
@@ -201,10 +201,10 @@ export function BigSlider() {
               <Container>
                 <Stack
                   direction={tablet ? 'column-reverse' : 'row'}
-                  width='100%'
-                  height='100%'
-                  alignItems='center'
-                  justifyContent='center'
+                  width="100%"
+                  height="100%"
+                  alignItems="center"
+                  justifyContent="center"
                   spacing={tablet ? 3 : 0}
                 >
                   <Stack
@@ -230,7 +230,7 @@ export function BigSlider() {
                     maxWidth={img.size}
                     maxHeight={img.size}
                   >
-                    <Image src={img.img} alt={img.alt} sizes='100%' />
+                    <Image src={img.img} alt={img.alt} sizes="100%" />
                   </Stack>
                 </Stack>
               </Container>
@@ -246,7 +246,7 @@ export function SmallSwiper() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
   return (
-    <Stack height='100%' width='100%'>
+    <Stack height="100%" width="100%">
       <style jsx global>
         {`
           .swiper-pagination {
@@ -274,7 +274,7 @@ export function SmallSwiper() {
         `}
       </style>
       <Swiper
-        slidesPerView={mobile ? 1 : tablet ? 2 : 3}
+        slidesPerView={mobile ? 1 : (tablet ? 2 : 3)}
         spaceBetween={30}
         pagination={{
           clickable: true,
