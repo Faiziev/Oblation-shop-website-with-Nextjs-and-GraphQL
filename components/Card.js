@@ -263,7 +263,7 @@ export function UltimateCard({ data, product, post }) {
     >
       <Stack
         spacing={1.5}
-        alignItems={product || post ? "flex-start" : "center"}
+        alignItems={product || post ? 'flex-start' : 'center'}
         width="100%"
         height="100%"
       >
@@ -272,17 +272,17 @@ export function UltimateCard({ data, product, post }) {
         {product ? (
           <Stack direction="row" justifyContent="space-between" width="100%">
             <Stack>
-              <Span kind="b1" style={{ userSelect: "none" }}>
+              <Span kind="b1" style={{ userSelect: 'none' }}>
                 {data.title}
               </Span>
-              <Span kind="v3" style={{ opacity: 0.7, textAlign: "start" }}>
+              <Span kind="v3" style={{ opacity: 0.7, textAlign: 'start' }}>
                 {data.category}
               </Span>
             </Stack>
             <Stack height="100%" alignItems="center">
               <Link
                 href={`products/${data.slug}`}
-                style={{ width: "fit-content" }}
+                style={{ width: 'fit-content' }}
               >
                 <CardButton>Satin Al</CardButton>
               </Link>
@@ -296,7 +296,7 @@ export function UltimateCard({ data, product, post }) {
             height="100%"
           >
             <Stack spacing={2}>
-              <Span kind="b1" style={{ userSelect: "none" }}>
+              <Span kind="b1" style={{ userSelect: 'none' }}>
                 {data.title.length >= 30
                   ? `${data.title.slice(0, 25)}...`
                   : data.title}
@@ -304,9 +304,9 @@ export function UltimateCard({ data, product, post }) {
               <Span
                 kind="v3"
                 style={{
-                  lineHeight: "24px",
+                  lineHeight: '24px',
                   opacity: 0.9,
-                  textAlign: "center",
+                  textAlign: 'center',
                 }}
               >
                 {data.excerpt.length >= 120
@@ -317,7 +317,7 @@ export function UltimateCard({ data, product, post }) {
             <Stack alignItems="center">
               <Link
                 href={`blogs/${data.slug}`}
-                style={{ width: "fit-content" }}
+                style={{ width: 'fit-content' }}
               >
                 <CardButton>Ayrıntılara Bakın</CardButton>
               </Link>
@@ -326,7 +326,7 @@ export function UltimateCard({ data, product, post }) {
         ) : (
           <>
             <Stack>
-              <Span kind="b0" style={{ userSelect: "none" }}>
+              <Span kind="b0" style={{ userSelect: 'none' }}>
                 {data.title}
               </Span>
             </Stack>
@@ -334,9 +334,9 @@ export function UltimateCard({ data, product, post }) {
               <Span
                 kind="v3"
                 style={{
-                  lineHeight: "24px",
+                  lineHeight: '24px',
                   opacity: 0.9,
-                  textAlign: "center",
+                  textAlign: 'center',
                 }}
               >
                 {data.excerpt.length >= 120
@@ -347,7 +347,7 @@ export function UltimateCard({ data, product, post }) {
             <Stack width="100%" height="100%" alignItems="center">
               <Link
                 href={`bloglar/${data.slug}`}
-                style={{ width: "fit-content" }}
+                style={{ width: 'fit-content' }}
               >
                 <CardButton>DETAYLARI GÖR</CardButton>
               </Link>
