@@ -1,4 +1,7 @@
 import '../styles/globals.css';
+import '../styles/navigation.min.css';
+import '../styles/pagination.min.css';
+import '../styles/swiper.min.css';
 import '../styles/bootstrap.min.css';
 import { Stack } from '@mui/material';
 import Footer from '../components/Footer';

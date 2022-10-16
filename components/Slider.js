@@ -1,9 +1,3 @@
-/*  eslint import/no-unresolved: [2, { ignore: ['\\css$'] }]  */
-// Import Swiper styles
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -192,7 +186,7 @@ export function BigSlider() {
             disableOnInteraction: false,
           }}
           pagination={false}
-          centeredSlides  
+          centeredSlides
           navigation
           modules={[Autoplay, Pagination, Navigation]}
         >
