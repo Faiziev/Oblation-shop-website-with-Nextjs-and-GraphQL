@@ -288,7 +288,7 @@ export function UltimateCard({ data, product, post }) {
               </Link>
             </Stack>
           </Stack>
-        ) : post ? (
+        ) : (
           <Stack
             direction="column"
             justifyContent="space-between"
@@ -323,36 +323,6 @@ export function UltimateCard({ data, product, post }) {
               </Link>
             </Stack>
           </Stack>
-        ) : (
-          <>
-            <Stack>
-              <Span kind="b0" style={{ userSelect: 'none' }}>
-                {data.title}
-              </Span>
-            </Stack>
-            <Stack justifyContent="center" alignItems="center">
-              <Span
-                kind="v3"
-                style={{
-                  lineHeight: '24px',
-                  opacity: 0.9,
-                  textAlign: 'center',
-                }}
-              >
-                {data.excerpt.length >= 120
-                  ? `${data.excerpt.slice(0, 120)}...`
-                  : data.excerpt}
-              </Span>
-            </Stack>
-            <Stack width="100%" height="100%" alignItems="center">
-              <Link
-                href={`bloglar/${data.slug}`}
-                style={{ width: 'fit-content' }}
-              >
-                <CardButton>DETAYLARI GÖR</CardButton>
-              </Link>
-            </Stack>
-          </>
         )}
       </Stack>
     </motion.div>

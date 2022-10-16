@@ -104,7 +104,7 @@ function Header() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const desktop = useMediaQuery(`(min-width:${screens[1]}px)`);
   const [left, setLeft] = useState(false);
-  const resValue = tablet ? 'row' : 'column'
+  const resValue = tablet ? 'row' : 'column';
   const handle = () => {
     if (window.scrollY >= 100) {
       setLeft(true);
