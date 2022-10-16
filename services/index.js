@@ -1,4 +1,5 @@
 import { request, gql } from 'graphql-request'
+import useSWR from 'swr'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
@@ -22,8 +23,13 @@ export const getPosts = async () => {
     }
   }  
   `
-  // await request(graphqlAPI, query).then((data) => console.log('hmmm', data))
+  
+  
+  // if (error) return console.log( error, 'swr' )
+  // if (!data) return console.log( data, 'swr' )
+  
   const result = await request(graphqlAPI, query);
+  // const { data, error } = await useSWR(graphqlAPI, query)
   return result.postsConnection.edges;
 }
 

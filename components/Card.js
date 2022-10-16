@@ -15,7 +15,7 @@ const CardImg = ({img, style, imgStyles}) => {
 const PostImg = ({src, style, imgStyles}) => {
   // console.log(src)
   return <Stack width="100%" maxWidth={350} style={{...style}} alignItems={"center"}>
-    <Image src={src} alt={src} width={300} height={150} style={{ borderRadius: BORDERRADIUS[2], marginTop: 15, ...imgStyles}}/>
+    <Image src={src} alt={src} width={300} height={150} style={{ borderRadius: BORDERRADIUS[2], marginTop: 15, objectFit: 'cover', ...imgStyles}}/>
   </Stack>
 }
 

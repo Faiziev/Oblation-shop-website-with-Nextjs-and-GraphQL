@@ -1,19 +1,11 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { Stack, useMediaQuery } from '@mui/material';
-import { BigSlider } from '../components/Slider';
-import { Note, Services, Interview, Animals, Blogs } from '../components/Sections';
-import { screens, Span } from '../utils/styling';
-import { TransparentBtn } from '../components/Buttons';
-
+import { Blogs } from '../components/Sections';
 import { getPosts } from '../services';
 import { useEffect } from 'react';
 
 export default function Blog({posts}) {
-  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
-  
-  const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
-
   useEffect(() => console.log( posts, graphqlAPI ));
   
   return (
