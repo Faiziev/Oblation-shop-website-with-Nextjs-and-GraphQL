@@ -46,6 +46,6 @@ export const getPostDetails = async (slug) => {
     }
   `;
 
-  const result = await request(graphqlAPI, query, { slug });
+  const result = await request('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl95q8fxh6by501t6flqfgnis/master', query, { slug });
   return result.post;
 };
