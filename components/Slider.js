@@ -239,6 +239,7 @@ export function BigSlider() {
 export function SmallSwiper() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
+  const swipValue = tablet ? 2 : 3
   return (
     <Stack height="100%" width="100%">
       <style jsx global>
@@ -268,7 +269,7 @@ export function SmallSwiper() {
         `}
       </style>
       <Swiper
-        slidesPerView={mobile ? 1 : (tablet ? 2 : 3)}
+        slidesPerView={mobile ? 1 : swipValue}
         spaceBetween={30}
         pagination={{
           clickable: true,
