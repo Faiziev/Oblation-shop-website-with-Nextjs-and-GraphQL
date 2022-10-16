@@ -26,7 +26,7 @@ export default function Blog({ posts }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const posts = (await getPosts()) || [];
   return {
     props: { posts },
