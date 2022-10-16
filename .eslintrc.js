@@ -28,7 +28,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'max-len': [
       2,
-      300,
+      500,
     ],
     
     'no-multiple-empty-lines': [

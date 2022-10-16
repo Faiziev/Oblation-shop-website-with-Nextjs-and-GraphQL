@@ -259,26 +259,26 @@ export function UltimateCard({ data, product, post }) {
         <PostImg src={data.featuredImage.url} />
         {/* <img src={data.featuredImage.url}/> */}
         {product ? (
-            <Stack direction="row" justifyContent="space-between" width="100%">
-              <Stack>
-                <Span kind="b1" style={{ userSelect: 'none' }}>
-                  {data.title}
-                </Span>
-                <Span kind="v3" style={{ opacity: 0.7, textAlign: 'start' }}>
-                  {data.category}
-                </Span>
-              </Stack>
-              {/* <Stack justifyContent={"center"} alignItems={"center"}> */}
-              {/* </Stack> */}
-              <Stack height="100%" alignItems="center">
-                <Link href={`products/${data.slug}`} style={{ width: 'fit-content' }}>
-                  <CardButton>
-                    Satin Al
-                  </CardButton>
-                </Link>
-              </Stack>
+          <Stack direction="row" justifyContent="space-between" width="100%">
+            <Stack>
+              <Span kind="b1" style={{ userSelect: 'none' }}>
+                {data.title}
+              </Span>
+              <Span kind="v3" style={{ opacity: 0.7, textAlign: 'start' }}>
+                {data.category}
+              </Span>
             </Stack>
-          )
+            {/* <Stack justifyContent={"center"} alignItems={"center"}> */}
+            {/* </Stack> */}
+            <Stack height="100%" alignItems="center">
+              <Link href={`products/${data.slug}`} style={{ width: 'fit-content' }}>
+                <CardButton>
+                  Satin Al
+                </CardButton>
+              </Link>
+            </Stack>
+          </Stack>
+        )
           : post
             ? (
               <Stack direction="column" justifyContent="space-between" width="100%" height="100%">

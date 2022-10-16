@@ -58,10 +58,8 @@ export default function PostDetails({ post }) {
         <link rel="icon" href="/favicon.ico" />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="keywords" content="Kasap Faiziev, Faiziev kurban, beykoz adak, beykoz kurban, kurban satışı, adak kurban, akika kurban,
-         adak, akika, şükür kurban, kurban kesimi, kurban satışı, kasap-faiziev, faiziev-kasap, kasap, adak faiziev, faiziev adak" />
-        <meta name="description" content="Kasap Faiziev Kurban Satış Evi - Beykoz Anadolu Feneri köyümüzde başlamış olduğumuz hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz.
-        2007 yılından itibaren Beykoz Yüşa'da hizmet vermeye başladık." />
+        <meta name="keywords" content="Kasap Faiziev, Faiziev kurban, beykoz adak, beykoz kurban, kurban satışı, adak kurban, akika kurban,adak, akika, şükür kurban, kurban kesimi, kurban satışı, kasap-faiziev, faiziev-kasap, kasap, adak faiziev, faiziev adak" />
+        <meta name="description" content="Kasap Faiziev Kurban Satış Evi - Beykoz Anadolu Feneri köyümüzde başlamış olduğumuz hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Yüşa'da hizmet vermeye başladık." />
         <meta name="author" content="Kasap Faiziev Kurban Satış Evi" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -83,6 +81,7 @@ export default function PostDetails({ post }) {
                 const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                 return getContentFragment(index, children, typeObj, typeObj.type);
               })}
+              {/* {post.content} */}
             </Span>
           </Stack>
         </Stack>
