@@ -1,22 +1,15 @@
+/*eslint import/no-unresolved: [2, { ignore: ['\\css$'] }]*/
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-// import './styles.css';
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Stack, useMediaQuery } from '@mui/material';
 import Image from 'next/future/image';
-import {
-  SliderImgSm1,
-  SliderImg1,
-  SliderImg2,
-  SliderImg3,
-  SliderImg4,
-} from './Images';
+import { SliderImgSm1, SliderImg1, SliderImg2, SliderImg3, SliderImg4 } from './Images';
 import { UltimateCard } from './Card';
 import { GOLD, GREY, ORANGE, screens, SECTION, Span } from '../utils/styling';
 import { Container } from './Container';
