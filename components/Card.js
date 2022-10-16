@@ -268,8 +268,6 @@ export function UltimateCard({ data, product, post }) {
                 {data.category}
               </Span>
             </Stack>
-            {/* <Stack justifyContent={"center"} alignItems={"center"}> */}
-            {/* </Stack> */}
             <Stack height="100%" alignItems="center">
               <Link href={`products/${data.slug}`} style={{ width: 'fit-content' }}>
                 <CardButton>
@@ -278,55 +276,56 @@ export function UltimateCard({ data, product, post }) {
               </Link>
             </Stack>
           </Stack>
-        ) : (post ? (
-              <Stack direction="column" justifyContent="space-between" width="100%" height="100%">
-                <Stack spacing={2}>
-                  <Span kind="b1" style={{ userSelect: 'none' }}>
-                    {data.title.length >= 30
-                      ? `${data.title.slice(0, 25)}...`
-                      : data.title}
-                  </Span>
-                  <Span kind="v3" style={{ lineHeight: '24px', opacity: 0.9, textAlign: 'center' }}>
-                    {data.excerpt.length >= 120
-                      ? `${data.excerpt.slice(0, 120)}...`
-                      : data.excerpt}
-                  </Span>
-                </Stack>
-                {/* <Stack justifyContent={"center"} alignItems={"center"}> */}
-                {/* </Stack> */}
-                <Stack alignItems="center">
-                  <Link href={`blogs/${data.slug}`} style={{ width: 'fit-content' }}>
-                    <CardButton>
-                      Ayrıntılara Bakın
-                    </CardButton>
-                  </Link>
-                </Stack>
-              </Stack>
-            ) : 
-            (
-              <>
-                <Stack>
-                  <Span kind="b0" style={{ userSelect: 'none' }}>
-                    {data.title}
-                  </Span>
-                </Stack>
-                <Stack justifyContent="center" alignItems="center">
-                  <Span kind="v3" style={{ lineHeight: '24px', opacity: 0.9, textAlign: 'center' }}>
-                    {data.excerpt.length >= 120
-                      ? `${data.excerpt.slice(0, 120)}...`
-                      : data.excerpt}
-                  </Span>
-                </Stack>
-                <Stack width="100%" height="100%" alignItems="center">
-                  <Link href={`bloglar/${data.slug}`} style={{ width: 'fit-content' }}>
-                    <CardButton>
-                      DETAYLARI GÖR
-                    </CardButton>
-                  </Link>
-                </Stack>
-              </>
-            )
-          )}
+        )
+        : post ?
+        (
+          <Stack direction="column" justifyContent="space-between" width="100%" height="100%">
+            <Stack spacing={2}>
+              <Span kind="b1" style={{ userSelect: 'none' }}>
+                {data.title.length >= 30
+                  ? `${data.title.slice(0, 25)}...`
+                  : data.title}
+              </Span>
+              <Span kind="v3" style={{ lineHeight: '24px', opacity: 0.9, textAlign: 'center' }}>
+                {data.excerpt.length >= 120
+                  ? `${data.excerpt.slice(0, 120)}...`
+                  : data.excerpt}
+              </Span>
+            </Stack>
+            <Stack alignItems="center">
+              <Link href={`blogs/${data.slug}`} style={{ width: 'fit-content' }}>
+                <CardButton>
+                  Ayrıntılara Bakın
+                </CardButton>
+              </Link>
+            </Stack>
+          </Stack>
+        )
+        :
+        (
+          <>
+            <Stack>
+              <Span kind="b0" style={{ userSelect: 'none' }}>
+                {data.title}
+              </Span>
+            </Stack>
+            <Stack justifyContent="center" alignItems="center">
+              <Span kind="v3" style={{ lineHeight: '24px', opacity: 0.9, textAlign: 'center' }}>
+                {data.excerpt.length >= 120
+                  ? `${data.excerpt.slice(0, 120)}...`
+                  : data.excerpt}
+              </Span>
+            </Stack>
+            <Stack width="100%" height="100%" alignItems="center">
+              <Link href={`bloglar/${data.slug}`} style={{ width: 'fit-content' }}>
+                <CardButton>
+                  DETAYLARI GÖR
+                </CardButton>
+              </Link>
+            </Stack>
+          </>
+        )
+        }
       </Stack>
     </motion.div>
   );
