@@ -1,113 +1,113 @@
 // Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-// import "./styles.css";
+// import './styles.css';
 
 // import required modules
-import { Autoplay, Pagination, Navigation } from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Stack, useMediaQuery } from "@mui/material";
-import Image from "next/future/image";
+import { Autoplay, Pagination, Navigation } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Stack, useMediaQuery } from '@mui/material';
+import Image from 'next/future/image';
 import {
   SliderImgSm1,
   SliderImg1,
   SliderImg2,
   SliderImg3,
   SliderImg4,
-} from "./Images";
-import { UltimateCard } from "./Card";
-import { GOLD, GREY, ORANGE, screens, SECTION, Span } from "../utils/styling";
-import { Container } from "./Container";
+} from './Images';
+import { UltimateCard } from './Card';
+import { GOLD, GREY, ORANGE, screens, SECTION, Span } from '../utils/styling';
+import { Container } from './Container';
 
 const imgList = [
   {
-    alt: "kurban fotograf Slider-1",
+    alt: 'kurban fotograf Slider-1',
     img: SliderImg1,
-    content: "Yıldırım Adak ve Kurban Satış Noktasına",
-    gradient: "Hoş Geldiniz",
-    size: "500px",
+    content: 'Yıldırım Adak ve Kurban Satış Noktasına',
+    gradient: 'Hoş Geldiniz',
+    size: '500px',
   },
   {
-    alt: "kurban fotograf Slider-2",
+    alt: 'kurban fotograf Slider-2',
     img: SliderImg2,
-    content: "Yıldırım Adak ve Kurban Satış Noktasına",
-    gradient: "Hoş Geldiniz",
-    size: "500px",
+    content: 'Yıldırım Adak ve Kurban Satış Noktasına',
+    gradient: 'Hoş Geldiniz',
+    size: '500px',
   },
   {
-    alt: "kurban fotograf Slider-3",
+    alt: 'kurban fotograf Slider-3',
     img: SliderImg3,
-    content: "Yıldırım Adak ve Kurban Satış Noktasına",
-    gradient: "Hoş Geldiniz",
-    size: "500px",
+    content: 'Yıldırım Adak ve Kurban Satış Noktasına',
+    gradient: 'Hoş Geldiniz',
+    size: '500px',
   },
   {
-    alt: "kurban fotograf Slider-4",
+    alt: 'kurban fotograf Slider-4',
     img: SliderImg4,
-    content: "Yıldırım Adak ve Kurban Satış Noktasına",
-    gradient: "Hoş Geldiniz",
-    size: "500px",
+    content: 'Yıldırım Adak ve Kurban Satış Noktasına',
+    gradient: 'Hoş Geldiniz',
+    size: '500px',
   },
 ];
 
 const ServicesData = [
   {
-    featuredImage: { url: SliderImgSm1, alt: "akika foto" },
-    title: "Baslik",
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
     excerpt:
-      "Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.",
-    slug: "#",
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
   },
   {
-    featuredImage: { url: SliderImgSm1, alt: "akika foto" },
-    title: "Baslik",
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
     excerpt:
-      "Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.",
-    slug: "#",
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
   },
   {
-    featuredImage: { url: SliderImgSm1, alt: "akika foto" },
-    title: "Baslik",
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
     excerpt:
-      "Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.",
-    slug: "#",
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
   },
   {
-    featuredImage: { url: SliderImgSm1, alt: "akika foto" },
-    title: "Baslik",
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
     excerpt:
-      "Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.",
-    slug: "#",
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
   },
   {
-    featuredImage: { url: SliderImgSm1, alt: "akika foto" },
-    title: "Baslik",
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
     excerpt:
-      "Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.",
-    slug: "#",
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
   },
   {
-    featuredImage: { url: SliderImgSm1, alt: "akika foto" },
-    title: "Baslik",
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
     excerpt:
-      "Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.",
-    slug: "#",
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
   },
   {
-    featuredImage: { url: SliderImgSm1, alt: "akika foto" },
-    title: "Baslik",
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
     excerpt:
-      "Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.",
-    slug: "#",
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
   },
   {
-    featuredImage: { url: SliderImgSm1, alt: "akika foto" },
-    title: "Baslik",
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
     excerpt:
-      "Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.",
-    slug: "#",
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
   },
 ];
 
@@ -191,9 +191,9 @@ export function BigSlider() {
           }
         `}
       </style>
-      <Stack height={tablet ? "110vh" : "110vh"}>
+      <Stack height={tablet ? '110vh' : '110vh'}>
         <Swiper
-          className="mySwiper"
+          className='mySwiper'
           autoplay={{
             delay: 5500,
             disableOnInteraction: false,
@@ -207,24 +207,24 @@ export function BigSlider() {
             <SwiperSlide key={i}>
               <Container>
                 <Stack
-                  direction={tablet ? "column-reverse" : "row"}
-                  width="100%"
-                  height="100%"
-                  alignItems="center"
-                  justifyContent="center"
+                  direction={tablet ? 'column-reverse' : 'row'}
+                  width='100%'
+                  height='100%'
+                  alignItems='center'
+                  justifyContent='center'
                   spacing={tablet ? 3 : 0}
                 >
                   <Stack
-                    width={tablet ? "100%" : "50%"}
-                    height={tablet ? "15%" : undefined}
+                    width={tablet ? '100%' : '50%'}
+                    height={tablet ? '15%' : undefined}
                   >
                     <Span
-                      kind={tablet ? "b7" : "b9"}
-                      style={{ textAlign: tablet ? "center" : "start" }}
+                      kind={tablet ? 'b7' : 'b9'}
+                      style={{ textAlign: tablet ? 'center' : 'start' }}
                     >
-                      {img.content}{" "}
+                      {img.content}{' '}
                       <Span
-                        kind={tablet ? "b7" : "b9"}
+                        kind={tablet ? 'b7' : 'b9'}
                         style={{ color: ORANGE }}
                       >
                         {img.gradient}
@@ -232,12 +232,12 @@ export function BigSlider() {
                     </Span>
                   </Stack>
                   <Stack
-                    width={tablet ? "100%" : "50%"}
-                    height={tablet ? "auto" : undefined}
+                    width={tablet ? '100%' : '50%'}
+                    height={tablet ? 'auto' : undefined}
                     maxWidth={img.size}
                     maxHeight={img.size}
                   >
-                    <Image src={img.img} alt={img.alt} sizes="100%" />
+                    <Image src={img.img} alt={img.alt} sizes='100%' />
                   </Stack>
                 </Stack>
               </Container>
@@ -253,7 +253,7 @@ export function SmallSwiper() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
   return (
-    <Stack height="100%" width="100%">
+    <Stack height='100%' width='100%'>
       <style jsx global>
         {`
           .swiper-pagination {
@@ -289,7 +289,7 @@ export function SmallSwiper() {
         modules={[Pagination]}
       >
         {ServicesData.map((card, i) => (
-          <SwiperSlide style={{ background: SECTION, height: "100%" }} key={i}>
+          <SwiperSlide style={{ background: SECTION, height: '100%' }} key={i}>
             <UltimateCard
               data={card}
               img={card.img}
