@@ -1,4 +1,4 @@
-import { request, gql, GraphQLClient } from 'graphql-request'
+import { request, gql } from 'graphql-request'
 
 const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
 
@@ -7,13 +7,6 @@ export const getPosts = async () => {
     postsConnection {
       edges {
         node {
-          author {
-            name
-            id
-            photo {
-              url
-            }
-          }
           createdAt
           slug
           title
@@ -21,8 +14,6 @@ export const getPosts = async () => {
           featuredImage {
             url
           }
-          secondaryTitle
-          featuredPost
           content {
             text
           }
@@ -31,6 +22,7 @@ export const getPosts = async () => {
     }
   }  
   `
+  // await request(graphqlAPI, query).then((data) => console.log('hmmm', data))
   const result = await request(graphqlAPI, query);
   return result.postsConnection.edges;
 }
@@ -43,12 +35,6 @@ export const getPostDetails = async (slug) => {
         excerpt
         featuredImage {
           url
-        }
-        author{
-          name
-          photo {
-            url
-          }
         }
         createdAt
         slug

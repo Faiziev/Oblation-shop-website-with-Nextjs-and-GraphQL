@@ -80,11 +80,9 @@ const MobileHeader = () => {
     {
       ['right'].map((anchor, i) => (
         <React.Fragment key={anchor}>
-          {/* <Stack width="33.3%" alignItems="flex-end"> */}
-            <Stack width="30px" height="30px" alignItems={"flex-end"} justifyContent={"center"} onClick={toggleDrawer(anchor, true)} style={{cursor: 'pointer'}}>
-              <MenuIcon />
-            </Stack>
-          {/* </Stack> */}
+          <Stack width="30px" height="30px" alignItems={"flex-end"} justifyContent={"center"} onClick={toggleDrawer(anchor, true)} style={{cursor: 'pointer'}}>
+            <MenuIcon />
+          </Stack>
           <Drawer
             anchor={anchor}
             open={state[anchor]}

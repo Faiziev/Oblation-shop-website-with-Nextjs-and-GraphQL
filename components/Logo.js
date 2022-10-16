@@ -5,9 +5,7 @@ import { LogoSvg } from './../lib/icons';
 
 export const Logo = () => {
   return (
-    // <Stack width="100%" alignItems='center'>
-      <Image src={logo} width={200} height={200} />
-    // </Stack>
+    <Image src={logo} width={200} height={200} />
   )
 }
 export const HLogo = ({ imgStyle, style }) => {

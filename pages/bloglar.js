@@ -7,10 +7,15 @@ import { screens, Span } from '../utils/styling';
 import { TransparentBtn } from '../components/Buttons';
 
 import { getPosts } from '../services';
+import { useEffect } from 'react';
 
 export default function Blog({posts}) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`)
-  console.log( posts )
+  
+  const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+
+  useEffect(() => console.log( posts, graphqlAPI ));
+  
   return (
     <div className={styles.container}>
       <Head>

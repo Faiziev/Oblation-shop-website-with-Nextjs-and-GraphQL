@@ -194,7 +194,7 @@ export const Blogs = ({posts}) => {
       </SectionTitle>
       <Stack justifyContent={"space-between"} width="100%">
         <motion.div variants={container} initial="hidden" animate="show"
-          direction='row' alignItems="center"
+          direction='row' 
           style={{
             width: '100%',
             display: 'flex',
