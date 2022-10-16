@@ -1,9 +1,7 @@
-import { request, gql, GraphQLClient  } from 'graphql-request'
-
-const graphqlAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT
+import { request, gql } from 'graphql-request';
 
 export const getPosts = async () => {
-  const query = gql `query MyQuery  {
+  const query = gql`query MyQuery  {
       postsConnection {
         edges {
           node {
@@ -22,11 +20,11 @@ export const getPosts = async () => {
         }
       }
     }  
-  `
-  
-  const result = await request('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl95q8fxh6by501t6flqfgnis/master', query)
+  `;
+
+  const result = await request('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl95q8fxh6by501t6flqfgnis/master', query);
   return result.postsConnection.edges;
-}
+};
 
 export const getPostDetails = async (slug) => {
   const query = gql`
