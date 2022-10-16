@@ -10,11 +10,11 @@ import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Stack, useMediaQuery } from '@mui/material';
 import Image from 'next/future/image';
-import { SliderImg1, SliderImg2, SliderImg3, SliderImg4 } from './Images';
-import { SliderCard, UltimateCard } from './Card';
-import { ServicesData } from './Sections';
+import { SliderImgSm1, SliderImg1, SliderImg2, SliderImg3, SliderImg4 } from './Images';
+import { UltimateCard } from './Card';
 import { GOLD, GREY, ORANGE, screens, SECTION, Span } from '../utils/styling';
 import { Container } from './Container';
+
 
 const imgList = [
   { alt: 'kurban fotograf Slider-1', img: SliderImg1, content: 'Yıldırım Adak ve Kurban Satış Noktasına', gradient: 'Hoş Geldiniz', size: '500px' },
@@ -23,10 +23,36 @@ const imgList = [
   { alt: 'kurban fotograf Slider-4', img: SliderImg4, content: 'Yıldırım Adak ve Kurban Satış Noktasına', gradient: 'Hoş Geldiniz', size: '500px' },
 ];
 
+const ServicesData = [
+  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', 
+  excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.', slug: '#' },
+  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', 
+  excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.', slug: '#' },
+  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', 
+  excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.', slug: '#' },
+  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', 
+  excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.', slug: '#' },
+  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', 
+  excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.', slug: '#' },
+  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', 
+  excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.', slug: '#' },
+  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', 
+  excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.', slug: '#' },
+  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', 
+  excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.', slug: '#' },
+];
+
+
 export function BigSlider() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
-  const rightIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.16458 39.2646L21.2014 20.8097C21.6314 20.4136 21.6314 19.7347 21.2014 19.3386L1.16458 0.883611' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`;
-  const leftIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8354 0.884521L1.79859 19.3395C1.36856 19.7356 1.36856 20.4145 1.79859 20.8106L21.8354 39.2656' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`;
+  const rightIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath 
+  d='M1.16458 39.2646L21.2014 20.8097C21.6314 20.4136 21.6314 19.7347 21.2014 19.3386L1.16458 0.883611' 
+  stroke='${GREY}' 
+  strokeLinecap='round'/%3E%3C/svg%3E")`;
+  const leftIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' 
+  xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8354 0.884521L1.79859 19.3395C1.36856 19.7356 1.36856 20.4145 1.79859 20.8106L21.8354 39.2656' 
+  stroke='${GREY}' 
+  strokeLinecap='round'/%3E%3C/svg%3E")`;
   return (
     <>
       <style jsx global>

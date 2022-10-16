@@ -48,7 +48,6 @@ function FooterLogo() {
         </>
         )}
       </Stack>
-      {/* <Span kind={`g${tablet ? 5 : 3}`}>Adak, Kurban ve Akika vb. hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Faiziev&apos;da hizmet vermeye başladık. </Span> */}
     </Stack>
   );
 }
@@ -58,7 +57,8 @@ function FooterContact() {
 
   return (
     <Stack width="100%" alignItems="flex-start" justifyContent="center" style={{ padding: '20px 0px', textAlign: 'center' }} spacing={1}>
-      <Span kind={`w${tablet ? 4 : 2}`} style={{ textAlign: !tablet && 'start', width: tablet ? '100%' : '50%' }}>Adak, Kurban ve Akika vb. hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Faiziev&apos;da hizmet vermeye başladık. </Span>
+      <Span kind={`w${tablet ? 4 : 2}`} style={{ textAlign: !tablet && 'start', width: tablet ? '100%' : '50%' }}>Adak, Kurban ve Akika vb. hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 
+      2007 yılından itibaren Beykoz Faiziev&apos;da hizmet vermeye başladık. </Span>
       <br />
       <br />
       <br />

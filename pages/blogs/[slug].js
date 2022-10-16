@@ -2,7 +2,6 @@ import React from 'react';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { Stack, useMediaQuery } from '@mui/material';
-import Image from 'next/future/image';
 import { getPosts, getPostDetails } from '../../services';
 import { Span, screens, BORDERRADIUS } from '../../utils/styling';
 import { Container } from '../../components/Container';
@@ -59,8 +58,10 @@ export default function PostDetails({ post }) {
         <link rel="icon" href="/favicon.ico" />
         <meta charset="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="keywords" content="Kasap Faiziev, Faiziev kurban, beykoz adak, beykoz kurban, kurban satışı, adak kurban, akika kurban, adak, akika, şükür kurban, kurban kesimi, kurban satışı, kasap-faiziev, faiziev-kasap, kasap, adak faiziev, faiziev adak" />
-        <meta name="description" content="Kasap Faiziev Kurban Satış Evi - Beykoz Anadolu Feneri köyümüzde başlamış olduğumuz hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Yüşa'da hizmet vermeye başladık." />
+        <meta name="keywords" content="Kasap Faiziev, Faiziev kurban, beykoz adak, beykoz kurban, kurban satışı, adak kurban, akika kurban,
+         adak, akika, şükür kurban, kurban kesimi, kurban satışı, kasap-faiziev, faiziev-kasap, kasap, adak faiziev, faiziev adak" />
+        <meta name="description" content="Kasap Faiziev Kurban Satış Evi - Beykoz Anadolu Feneri köyümüzde başlamış olduğumuz hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz.
+        2007 yılından itibaren Beykoz Yüşa'da hizmet vermeye başladık." />
         <meta name="author" content="Kasap Faiziev Kurban Satış Evi" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -77,13 +78,12 @@ export default function PostDetails({ post }) {
             {post.featuredImage.url && <img src={post.featuredImage.url} style={{ maxWidth: tablet ? '100%' : '90%', height: 'auto', borderRadius: BORDERRADIUS[2] }} />}
           </Stack>
           <Stack width="100%" style={{ maxWidth: tablet ? '100%' : '90%' }}>
-            {/* <Span kind={tablet ? 'b3' : 'b1'}> */}
+            <Span kind={tablet ? 'b3' : 'b1'}>
               {post.content.raw.children.map((typeObj, index) => {
                 const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
                 return getContentFragment(index, children, typeObj, typeObj.type);
               })}
-              {/* {post.content} */}
-            {/* </Span> */}
+            </Span>
           </Stack>
         </Stack>
         <Stack paddingBottom="40px" />

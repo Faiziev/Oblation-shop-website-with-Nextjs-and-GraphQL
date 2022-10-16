@@ -1,7 +1,6 @@
 import Stack from '@mui/material/Stack';
 import Image from 'next/future/image';
 import { logo, HorzontalLogo, SingleLogo, FOOTERLOGO } from './Images';
-import { LogoSvg } from '../lib/icons';
 
 export function Logo() {
   return (

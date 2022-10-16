@@ -2,7 +2,7 @@ import Stack from '@mui/material/Stack';
 import { motion } from 'framer-motion';
 import Image from 'next/future/image';
 import Link from 'next/link';
-import { Span, WHITE, GOLD, BORDERRADIUS } from '../utils/styling';
+import { Span, BORDERRADIUS } from '../utils/styling';
 
 import { CardButton } from './Buttons';
 
@@ -258,8 +258,7 @@ export function UltimateCard({ data, product, post }) {
       <Stack spacing={1.5} alignItems={product || post ? 'flex-start' : 'center'} width="100%" height="100%">
         <PostImg src={data.featuredImage.url} />
         {/* <img src={data.featuredImage.url}/> */}
-        {product
-          ? (
+        {product ? (
             <Stack direction="row" justifyContent="space-between" width="100%">
               <Stack>
                 <Span kind="b1" style={{ userSelect: 'none' }}>

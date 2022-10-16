@@ -1,5 +1,5 @@
-import { ButtonBase, Stack, styled } from '@mui/material';
-import { BTNRADIUS, BTNWHITE, ORANGE, RED, SECTION, textStyle, LINERGRADBACK, TRANSITION, DARK } from '../utils/styling';
+import { ButtonBase, styled } from '@mui/material';
+import { BTNRADIUS, BTNWHITE, ORANGE, SECTION, textStyle, LINERGRADBACK, TRANSITION, DARK } from '../utils/styling';
 
 const Button = styled(ButtonBase)(() => ({
   position: 'relative',
@@ -114,7 +114,7 @@ const LinerButtonStyle = styled(ButtonBase)(() => ({
   },
 }));
 
-export function CardButton({ style, children, onClick }) {
+export function CardButton({ children, onClick }) {
   return (
     <Button onClick={onClick}>
       {children}
@@ -122,7 +122,7 @@ export function CardButton({ style, children, onClick }) {
   );
 }
 
-export function SectionButton({ style, children, onClick }) {
+export function SectionButton({ children, onClick }) {
   return (
     <SecButton onClick={onClick} disableRipple>
       {children}
@@ -130,7 +130,7 @@ export function SectionButton({ style, children, onClick }) {
   );
 }
 
-export function TransparentBtn({ style, children, onClick }) {
+export function TransparentBtn({ children, onClick }) {
   return (
     <TspBtn onClick={onClick} disableRipple>
       {children}

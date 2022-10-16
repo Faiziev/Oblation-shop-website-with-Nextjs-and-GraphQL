@@ -4,27 +4,16 @@ import { motion } from 'framer-motion';
 import { useMediaQuery } from '@mui/material';
 import { useDropzone } from 'react-dropzone';
 import { useRef, useState } from 'react';
-import { Span, GOLD, BLOOD, ORANGE, BORDERPRIM, screens, SECTION } from '../utils/styling';
+import { Span, BLOOD, ORANGE, BORDERPRIM, screens, SECTION } from '../utils/styling';
 import { SectionButton, LinerButton } from './Buttons';
-import { PostCard, ProductCard, SliderCard, UltimateCard } from './Card';
+import { UltimateCard } from './Card';
 import { Container } from './Container';
-import { SliderImgSm1, AnimalsImages } from './Images';
+import { AnimalsImages } from './Images';
 import { SmallSwiper } from './Slider';
 import { SectionTitle } from './Titles';
 import YoutubeEmbed from './Youtube';
 import { ImgIcon } from '../lib/icons';
 import { BorderedTextField } from './Inputs';
-
-export const ServicesData = [
-  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: '#' },
-  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: '#' },
-  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: '#' },
-  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: '#' },
-  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: '#' },
-  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: '#' },
-  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: '#' },
-  { featuredImage: { url: SliderImgSm1, alt: 'akika foto' }, title: 'Baslik', excerpt: 'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir sektörde yer alan Yûşâ Adak Kurban Satış Evi, akika kurbanlarınızın kesimini %100 islami usullere uygun olarak yapmaktadır.', slug: '#' },
-];
 
 export const AnimalsData = [
   { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: '#' },
@@ -260,7 +249,7 @@ export function BlogPage({ post }) {
               justifyContent: 'center',
             }}
           >
-            {post.map((post, i) => <UltimateCard data={post.node} key={i} post />)}
+            {post.map((data, i) => <UltimateCard data={data.node} key={i} post />)}
           </motion.div>
         </Stack>
       </Container>

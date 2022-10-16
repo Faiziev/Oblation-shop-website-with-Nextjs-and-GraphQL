@@ -1,6 +1,4 @@
 import Link from 'next/link';
-import { Stack } from '@mui/material';
-import { ADLink } from '../lib/links';
 import { Span } from '../utils/styling';
 
 export function HeaderButton({ href, title }) {

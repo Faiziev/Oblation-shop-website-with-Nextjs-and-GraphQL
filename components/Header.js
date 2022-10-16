@@ -5,10 +5,10 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import { HLogo, Logo, SLogo } from './Logo';
+import { HLogo } from './Logo';
 import { HeaderButton } from './HeaderButton';
 import { Container } from './Container';
-import { BACKGROUND, HEADER, screens, DARK, Span, TRANSITION, ZINDEX, BORDERRADIUS } from '../utils/styling';
+import { BACKGROUND, HEADER, screens, DARK, TRANSITION, ZINDEX, BORDERRADIUS } from '../utils/styling';
 
 import { MenuIcon } from '../lib/icons';
 
@@ -81,7 +81,7 @@ function MobileHeader() {
   return (
     <>
       {
-      ['right'].map((anchor, i) => (
+      ['right'].map((anchor) => (
         <React.Fragment key={anchor}>
           <Stack width="30px" height="30px" alignItems="flex-end" justifyContent="center" onClick={toggleDrawer(anchor, true)} style={{ cursor: 'pointer' }}>
             <MenuIcon />
@@ -103,7 +103,6 @@ function MobileHeader() {
 function Header() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const desktop = useMediaQuery(`(min-width:${screens[1]}px)`);
-  const l_tablet = useMediaQuery(`(min-width:${screens[2]}px)`);
   const [left, setLeft] = useState(false);
   const handle = () => {
     if (window.scrollY >= 100) {

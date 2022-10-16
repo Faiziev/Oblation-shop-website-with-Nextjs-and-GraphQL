@@ -1,7 +1,5 @@
-import { Stack } from '@mui/system';
-import { Container } from '../components/Container';
-import { Section, Upload } from '../components/Sections';
-import { Span } from '../utils/styling';
+import Stack from '@mui/material/Stack';
+import { Upload } from '../components/Sections';
 
 export default function Admin() {
   return (
