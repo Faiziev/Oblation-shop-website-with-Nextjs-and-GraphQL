@@ -25,66 +25,6 @@ export const AnimalsData = [
   { featuredImage: { url: AnimalsImages.Animal6, alt: 'category foto' }, title: 'DÜVE', category: 'Büyükbaş', href: 'duve', price: 1000 },
 ];
 
-const ServicesData = [
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-];
-
-
 export function Services({ data }) {
   return (
     <Section>
@@ -332,7 +272,7 @@ export function ProductPage({ data }) {
     <Section>
       <Container>
         <Stack width="100%" spacing={2}>
-          <Stack width="100%" direction={tablet ? "column" : "row"} spacing={3}>
+          <Stack width="100%" direction={tablet ? 'column' : 'row'} spacing={3}>
             <ProductImage image={data[1].featuredImage}/>
             <Stack width={tablet ? '100%' : '40%'} spacing={3}>
               <ProductDetail data={data[1]} />
@@ -358,7 +298,7 @@ export function Section({ children, height, background, style }) {
       style={{
         backgroundColor: background || SECTION,
         padding: '75px 0px',
-        ...style,
+        ...style
       }}
       alignItems="center"
     >
