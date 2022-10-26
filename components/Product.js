@@ -60,7 +60,7 @@ export function ProductForm({ data }) {
                   <MenuItem value={value} key={value}>
                     <Span kind="h3">{value + 1}</Span>
                   </MenuItem>
-                ),)}
+                ))}
               </Select>
             </FormControl>
           </Stack>
