@@ -90,7 +90,7 @@ function Footer() {
               // right: '100px',
               pasition: 'relative',
               maxWidth: '1140px',
-              marginTop: -60,
+              marginTop: -45,
             }}
           >
             <Image src={BackImg} style={{ width: '850px', maxHeight: '39.3rem', top: '-202px', position: 'inherit', right: '0px' }} />
