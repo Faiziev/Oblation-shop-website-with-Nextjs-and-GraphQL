@@ -1,35 +1,39 @@
 import React from 'react';
 import Head from 'next/head';
+// eslint-disable-next-line react/no-danger
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Stack, useMediaQuery } from '@mui/material';
 import { getPosts, getPostDetails } from '../../services';
 import { Span, screens, BORDERRADIUS } from '../../utils/styling';
 import { Container } from '../../components/Container';
+import { RichText } from '@graphcms/rich-text-react-renderer';
 
 const getContentFragment = (index, text, obj, type) => {
   let modifiedText = text;
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
 
   if (obj) {
     if (obj.bold) {
-      modifiedText = (<b key={index}>{text}</b>);
+      modifiedText = (<Span kind={tablet ? 'b3' : 'b1'} key={index}>{text}</Span>);
     }
 
     if (obj.italic) {
-      modifiedText = (<em key={index}>{text}</em>);
+      modifiedText = (<Span kind={tablet ? 'i3' : 'i1'} key={index}>{text}</Span>);
     }
 
     if (obj.underline) {
-      modifiedText = (<u key={index}>{text}</u>);
+      modifiedText = (<Span kind={tablet ? 'u3' : 'u1'} key={index}>{text}</Span>);
     }
   }
 
   switch (type) {
     case 'heading-three':
-      return <h3 key={index} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h3>;
+      return <Span kind={tablet ? 'b3' : 'b1'} key={index} style={{ marginBottom: 4, fontWeight: 500, whiteSpace: 'nowrap', textOverflow: '"-"' }} className="text-xl font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</Span>;
     case 'paragraph':
-      return <p key={index} className="mb-8">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
+      return <Span kind={tablet ? 'h3' : 'h1'} key={index} style={{ marginBottom: 8 }}>{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</Span>;
     case 'heading-four':
-      return <h4 key={index} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+      return <Span kind={tablet ? 'b3' : 'b1'} key={index} style={{ marginBottom: 4 }} className="text-md font-semibold mb-4">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</Span>;
     case 'image':
       return (
         <img
@@ -48,9 +52,12 @@ const getContentFragment = (index, text, obj, type) => {
 export default function PostDetails({ post }) {
   const router = useRouter();
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
+
   if (router.isFallback) {
     return 'loading';
   }
+
+  console.log(post.content)
   return (
     <div className="styles.container">
       <Head>
@@ -76,13 +83,47 @@ export default function PostDetails({ post }) {
             {post.featuredImage.url && <img src={post.featuredImage.url} style={{ maxWidth: tablet ? '100%' : '90%', height: 'auto', borderRadius: BORDERRADIUS[2] }} />}
           </Stack>
           <Stack width="100%" style={{ maxWidth: tablet ? '100%' : '90%' }}>
-            <Span kind={tablet ? 'b3' : 'b1'}>
-              {post.content.raw.children.map((typeObj, index) => {
-                const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
-                return getContentFragment(index, children, typeObj, typeObj.type);
-              })}
-              {/* {post.content} */}
-            </Span>
+            {/* <Span kind={tablet ? 'b3' : 'b1'}> */}
+            {/* {post.content.raw.children.map((typeObj, index) => {
+              const children = typeObj.children.map((item, itemindex) => getContentFragment(itemindex, item.text, item));
+              return getContentFragment(index, children, typeObj, typeObj.type);
+            })} */}
+            {/* {post.content} */}
+            {/* </Span> */}
+            {/* eslint-disable-next-line react/no-danger */}
+            <RichText
+              content={post.content.raw}
+              renderers={{
+                h1: ({ children }) => <h1 className="text-white">{children}</h1>,
+                bold: ({ children }) => <strong>{children}</strong>,
+                italic: ({ children }) => <em>{children}</em>,
+                underline: ({ children }) => <u>{children}</u>,
+                code: ({ children }) => <code>{children}</code>,
+                italic: ({ children }) => <em>{children}</em>,
+                code_block: ({ children }) => <blockquote>{children}</blockquote>,
+                // img: ({ children }) => <blockquote>{children}</blockquote>,
+                a: ({ children, openInNewTab, href, rel, ...rest }) => {
+                  if (href.match(/^https?:\/\/|^\/\//i)) {
+                    return (
+                      <a
+                        href={href}
+                        target={openInNewTab ? '_blank' : '_self'}
+                        rel={rel || 'noopener noreferrer'}
+                        {...rest}
+                      >
+                        {children}
+                      </a>
+                    );
+                  }
+
+                  return (
+                    <Link href={href}>
+                      <a {...rest}>{children}</a>
+                    </Link>
+                  );
+                },
+              }}
+            />
           </Stack>
         </Stack>
         <Stack paddingBottom="40px" />

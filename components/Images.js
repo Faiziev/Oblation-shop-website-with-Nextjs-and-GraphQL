@@ -24,4 +24,31 @@ export { logo, HorzontalLogo, SingleLogo, BackImg, FOOTERLOGO };
 export { SliderImg1, SliderImg2, SliderImg3, SliderImg4, SliderImg5 };
 export { SliderImgSm1 };
 
+export function Loading() {
+  return (
+    <div className='box'>
+      <style jsx>{`
+        .box {
+          width: 100%;
+          height: 100%;
+          background-color: #D4D7D9;
+          animation: hmm 2s infinite;
+          border-radius: 16px;
+        }
+        @keyframes hmm {
+          0% {
+            background-color: #D4D7D9;
+          }
+          50% {
+            background-color: #E5E9EC;
+          }
+          100% {
+            background-color: #D4D7D9;
+          }
+        }      
+      `}</style>
+    </div>
+  )
+}
+
 export const AnimalsImages = { Animal1, Animal2, Animal3, Animal4, Animal5, Animal6 };

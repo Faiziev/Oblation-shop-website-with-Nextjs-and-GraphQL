@@ -5,8 +5,9 @@ import { BigSlider } from '../components/Slider';
 import { Note, Services, Interview, Animals } from '../components/Sections';
 import { screens, Span } from '../utils/styling';
 import { TransparentBtn } from '../components/Buttons';
+import { getPosts } from '../services';
 
-export default function Home() {
+export default function Home({ posts }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
 
   return (
@@ -24,7 +25,7 @@ export default function Home() {
       </Head>
       {/* <Stack marginTop={tablet ? "120px" : "160px"}> */}
       <BigSlider />
-      <Services />
+      <Services data={posts} />
       <Note>
         <Span kind={`e${tablet ? 0 : 8}`} style={{ textAlign: tablet ? 'center' : undefined }}>TÜM KREDI KARTLARI <Span kind={`w${tablet ? 0 : 8}`}>GEÇERLIDIR.</Span></Span>
         <TransparentBtn>
@@ -43,3 +44,12 @@ export default function Home() {
     </div>
   );
 }
+
+
+// export async function getStaticProps() {
+//   const posts = (await getPosts()) || [];
+//   return {
+//     props: { posts },
+//     revalidate: 5,
+//   };
+// }

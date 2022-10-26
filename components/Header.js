@@ -5,7 +5,7 @@ import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
-import { HLogo } from './Logo';
+import { HLogo, SLogo } from './Logo';
 import { HeaderButton } from './HeaderButton';
 import { Container } from './Container';
 import { BACKGROUND, HEADER, screens, DARK, TRANSITION, ZINDEX, BORDERRADIUS } from '../utils/styling';
@@ -101,6 +101,7 @@ function MobileHeader() {
 }
 
 function Header() {
+  const mobile = useMediaQuery(`(min-width:${screens[0]}px)`);
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const desktop = useMediaQuery(`(min-width:${screens[1]}px)`);
   const [left, setLeft] = useState(false);
@@ -147,11 +148,15 @@ function Header() {
             transition: TRANSITION,
           }}
         >
-          {tablet && <Stack width="33.3%" />}
-          <Stack width={desktop ? '33.3%' : 323} alignItems="center">
-            <HLogo imgStyle={{ maxWidth: 323, height: 'auto' }} />
+          {tablet && <Stack width="33.33%" />}
+          <Stack width={desktop ? '35.33%' : 323} alignItems="center">
+            {mobile ? 
+              <HLogo imgStyle={{ maxWidth: 323, height: 'auto' }} />
+              :
+              <SLogo imgStyle={{ maxWidth: 130, height: 'auto' }} />
+            }
           </Stack>
-          <Stack width={tablet ? '43.3%' : '100%'} alignItems={tablet ? 'flex-end' : 'center'} style={{ transition: TRANSITION }}>
+          <Stack width={tablet ? '33.33%' : '100%'} alignItems={tablet ? 'flex-end' : 'center'} style={{ transition: TRANSITION }}>
             {tablet
               ? <MobileHeader />
               : desktop

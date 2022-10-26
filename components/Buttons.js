@@ -3,8 +3,8 @@ import { BTNRADIUS, BTNWHITE, ORANGE, SECTION, textStyle, LINERGRADBACK, TRANSIT
 
 const Button = styled(ButtonBase)(() => ({
   position: 'relative',
-  padding: '6px 12px',
-  marginTop: 15,
+  padding: '4px 12px',
+  // marginTop: 10,
   marginBottom: 15,
   background: ORANGE,
   opacity: 0.7,
@@ -114,9 +114,9 @@ const LinerButtonStyle = styled(ButtonBase)(() => ({
   },
 }));
 
-export function CardButton({ children, onClick }) {
+export function CardButton({ children, onClick, style }) {
   return (
-    <Button onClick={onClick}>
+    <Button onClick={onClick} style={{...style}}>
       {children}
     </Button>
   );

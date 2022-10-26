@@ -1,8 +1,10 @@
+import { useEffect, useState } from 'react';
 import Stack from '@mui/material/Stack';
 import { motion } from 'framer-motion';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import { Span, BORDERRADIUS } from '../utils/styling';
+import { Loading } from './Images';
 
 import { CardButton } from './Buttons';
 
@@ -18,7 +20,7 @@ function PostImg({ src, style, imgStyles }) {
   // console.log(src)
   return (
     <Stack width="100%" maxWidth={350} style={{ ...style }} alignItems="center">
-      <Image src={src} alt={src} width={300} height={150} style={{ borderRadius: BORDERRADIUS[2], marginTop: 15, objectFit: 'cover', ...imgStyles }} />
+      <Image src={src} alt={src} sizes="100%" width={100} height={100} style={{ width: '100%', height: 'auto', maxHeight: 170, borderRadius: BORDERRADIUS[2], objectFit: 'cover', objectPosition: 'bottom center', ...imgStyles }} />
     </Stack>
   );
 }
@@ -239,7 +241,8 @@ export function ProductCard({ data }) {
   );
 }
 
-export function UltimateCard({ data, product, post }) {
+export function UltimateCard({ data, product, post, slider, style }) {
+  const [active, setActive] = useState(true)
   const variants = {
     hidden: { opacity: 0, y: 0 },
     show: {
@@ -253,36 +256,50 @@ export function UltimateCard({ data, product, post }) {
     },
   };
 
+  const slideMargin = slider ? 0 : 10
+
+  useEffect(() => {
+    setTimeout(() => setActive(false), 1000); 
+  },[]);
+
   return (
     <motion.div
       className="ultimate-card"
       variants={variants}
       initial="hidden"
       animate="show"
-      style={{ margin: product || post ? 10 : 0 }}
+      style={{ margin: product || post ? 10 : 0, padding: '15px 15px 0px', ...style }}
     >
       <Stack
         spacing={1.5}
         alignItems={product || post ? 'flex-start' : 'center'}
-        width="100%"
+        // width="100%"
         height="100%"
       >
-        <PostImg src={data.featuredImage.url} />
-        {/* <img src={data.featuredImage.url}/> */}
+        {active ? 
+          <Stack width="100%" height="220px">
+            <Loading />
+          </Stack>
+            :
+          <PostImg src={data.featuredImage.url} imgStyles={{ marginTop: slider ? 10 : 0}}/>
+        }
         {product ? (
           <Stack direction="row" justifyContent="space-between" width="100%">
             <Stack>
               <Span kind="b1" style={{ userSelect: 'none' }}>
                 {data.title}
               </Span>
-              <Span kind="v3" style={{ opacity: 0.7, textAlign: 'start' }}>
+              <Span kind="v3" style={{ opacity: 0.6, textAlign: 'start', marginTop: 5 }}>
                 {data.category}
               </Span>
             </Stack>
-            <Stack height="100%" alignItems="center">
+            <Stack height="100%" alignItems="flex-end">
+              <Span kind="b1" style={{ userSelect: 'none' }}>
+                {data.price}₺
+              </Span>
               <Link
-                href={`products/${data.slug}`}
-                style={{ width: 'fit-content' }}
+                href={`urunler/${data.slug}`}
+                style={{ width: '100%' }}
               >
                 <CardButton>Satin Al</CardButton>
               </Link>
@@ -296,7 +313,7 @@ export function UltimateCard({ data, product, post }) {
             height="100%"
           >
             <Stack spacing={2}>
-              <Span kind="b1" style={{ userSelect: 'none' }}>
+              <Span kind="b1" style={{ userSelect: 'none', textAlign: 'center', }}>
                 {data.title.length >= 30
                   ? `${data.title.slice(0, 25)}...`
                   : data.title}
@@ -306,7 +323,7 @@ export function UltimateCard({ data, product, post }) {
                 style={{
                   lineHeight: '24px',
                   opacity: 0.9,
-                  textAlign: 'center',
+                  textAlign: 'left',
                 }}
               >
                 {data.excerpt.length >= 120
@@ -314,7 +331,7 @@ export function UltimateCard({ data, product, post }) {
                   : data.excerpt}
               </Span>
             </Stack>
-            <Stack alignItems="center">
+            <Stack alignItems="center" paddingTop="10px">
               <Link
                 href={`blogs/${data.slug}`}
                 style={{ width: 'fit-content' }}

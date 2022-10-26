@@ -98,10 +98,11 @@ const ServicesData = [
   },
 ];
 
+const rightIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.16458 39.2646L21.2014 20.8097C21.6314 20.4136 21.6314 19.7347 21.2014 19.3386L1.16458 0.883611' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`;
+const leftIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8354 0.884521L1.79859 19.3395C1.36856 19.7356 1.36856 20.4145 1.79859 20.8106L21.8354 39.2656' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`;
+
 export function BigSlider() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
-  const rightIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.16458 39.2646L21.2014 20.8097C21.6314 20.4136 21.6314 19.7347 21.2014 19.3386L1.16458 0.883611' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`;
-  const leftIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8354 0.884521L1.79859 19.3395C1.36856 19.7356 1.36856 20.4145 1.79859 20.8106L21.8354 39.2656' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`;
   return (
     <>
       <style jsx global>
@@ -176,6 +177,10 @@ export function BigSlider() {
             background-position: center;
             background-repeat: no-repeat;
           }
+          .mySwiper .swiper-pagination-bullets.swiper-pagination-horizontal {
+            bottom: 100px;
+            position: absolute;
+          }
         `}
       </style>
       <Stack height={tablet ? '110vh' : '110vh'}>
@@ -185,7 +190,9 @@ export function BigSlider() {
             delay: 5500,
             disableOnInteraction: false,
           }}
-          pagination={false}
+          pagination={{
+            clickable: true,
+          }}
           centeredSlides
           navigation
           modules={[Autoplay, Pagination, Navigation]}
@@ -236,7 +243,7 @@ export function BigSlider() {
   );
 }
 
-export function SmallSwiper() {
+export function SmallSwiper({ small, data }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
   const swipValue = tablet ? 2 : 3;
@@ -274,6 +281,7 @@ export function SmallSwiper() {
         pagination={{
           clickable: true,
         }}
+        centeredSlides={small ? true : false}
         modules={[Pagination]}
       >
         {ServicesData.map((card, i) => (
@@ -284,6 +292,85 @@ export function SmallSwiper() {
               title={card.title}
               label={card.label}
               href={card.href}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </Stack>
+  );
+}
+
+export function ProductSwiper({data}) {
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
+  const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
+  const swipValue = tablet ? 2 : 4;
+  return (
+    <Stack height="100%" width="100%">
+      <style jsx global>
+        {`
+          .swiper {
+            width: 100%;
+          }
+
+          .swiper-container .swiper-button-disabled,
+          .swiper-button-prev, .swiper-button-next {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: white;
+            box-shadow: 0 8px 30px rgba(0,0,0,.12);
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+          }
+
+          .swiper-container .swiper-button-prev {
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+          .swiper-container:hover .swiper-button-next {
+            visibility: visible;
+          }
+          .swiper-container:hover .swiper-button-prev {
+            visibility: visible;
+          }
+          .swiper-button-prev.swiper-button-disabled {
+            opacity: 0.35;
+          }
+          .swiper-button-next::after,
+          .swiper-button-prev::after {
+            display: none;
+          }
+          .swiper-button-next {
+            background-image: ${rightIcon};
+          }
+          .swiper-button-prev {
+            background-image: ${leftIcon};
+          }
+          .swiper-container11 .swiper-button-next,
+          .swiper-button-prev {
+            visibility: visible;
+            // background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        `}
+      </style>
+      <Swiper
+        slidesPerView={mobile ? 1 : swipValue}
+        navigation
+        modules={[ Navigation ]}
+      >
+        {data.map((card, index) => (
+          <SwiperSlide style={{ background: SECTION, height: '100%', width: 'fit-content !important', justifyContent: 'center', display: 'flex' }} key={index}>
+            <UltimateCard
+              data={card}
+              img={card.img}
+              title={card.title}
+              label={card.label}
+              href={card.href}
+              style={{ padding: '0px 10px' }}
+              product
+              slider
             />
           </SwiperSlide>
         ))}

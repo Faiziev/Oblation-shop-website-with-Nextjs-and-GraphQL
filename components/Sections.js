@@ -9,29 +9,92 @@ import { SectionButton, LinerButton } from './Buttons';
 import { UltimateCard } from './Card';
 import { Container } from './Container';
 import { AnimalsImages } from './Images';
-import { SmallSwiper } from './Slider';
+import { ProductSwiper, SmallSwiper } from './Slider';
 import { SectionTitle } from './Titles';
 import YoutubeEmbed from './Youtube';
 import { ImgIcon } from '../lib/icons';
 import { BorderedTextField } from './Inputs';
+import { ProductDetail, ProductImage, ProductForm } from './Product';
+import { SliderImgSm1, SliderImg1, SliderImg2, SliderImg3, SliderImg4 } from './Images';
+import { SwiperSlide } from 'swiper/react';
 
 export const AnimalsData = [
-  { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: '#' },
-  { featuredImage: { url: AnimalsImages.Animal2, alt: 'category foto' }, title: 'KOYUN', category: 'Küçükbaş', href: '#' },
-  { featuredImage: { url: AnimalsImages.Animal3, alt: 'category foto' }, title: 'KUZU', category: 'Küçükbaş', href: '#' },
-  { featuredImage: { url: AnimalsImages.Animal4, alt: 'category foto' }, title: 'DANA', category: 'Büyükbaş', href: '#' },
-  { featuredImage: { url: AnimalsImages.Animal5, alt: 'category foto' }, title: 'İNEK', category: 'Büyükbaş', href: '#' },
-  { featuredImage: { url: AnimalsImages.Animal6, alt: 'category foto' }, title: 'DÜVE', category: 'Büyükbaş', href: '#' },
+  { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: 'koc', price: 1000 },
+  { featuredImage: { url: AnimalsImages.Animal2, alt: 'category foto' }, title: 'KOYUN', category: 'Küçükbaş', href: 'koyun', price: 1000 },
+  { featuredImage: { url: AnimalsImages.Animal3, alt: 'category foto' }, title: 'KUZU', category: 'Küçükbaş', href: 'kuzu', price: 1000 },
+  { featuredImage: { url: AnimalsImages.Animal4, alt: 'category foto' }, title: 'DANA', category: 'Büyükbaş', href: 'dana', price: 1000 },
+  { featuredImage: { url: AnimalsImages.Animal5, alt: 'category foto' }, title: 'İNEK', category: 'Büyükbaş', href: 'inek', price: 1000 },
+  { featuredImage: { url: AnimalsImages.Animal6, alt: 'category foto' }, title: 'DÜVE', category: 'Büyükbaş', href: 'duve', price: 1000 },
 ];
 
-export function Services() {
+const ServicesData = [
+  {
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
+    excerpt:
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
+  },
+  {
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
+    excerpt:
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
+  },
+  {
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
+    excerpt:
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
+  },
+  {
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
+    excerpt:
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
+  },
+  {
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
+    excerpt:
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
+  },
+  {
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
+    excerpt:
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
+  },
+  {
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
+    excerpt:
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
+  },
+  {
+    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
+    title: 'Baslik',
+    excerpt:
+      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
+    slug: '#',
+  },
+];
+
+
+export function Services({ data }) {
   return (
     <Section>
       <Container>
         <SectionTitle>
           HİZMETLERİMİZ
         </SectionTitle>
-        <SmallSwiper />
+        <SmallSwiper data={data} />
         <SectionButton>
           <Link href="/services" style={{ width: 'fit-content' }}>
             TÜM FAALİYETLERİ GÖR
@@ -61,14 +124,14 @@ export function Interview() {
     <Section>
       <Container>
         <SectionTitle>
-          ÜLKE TV RÖPORTAJIMIZ
+        Kurban ve Adak Kesim Videoları
         </SectionTitle>
         <Stack direction={tablet ? 'column' : 'row'} alignItems="center" justifyContent="space-between" spacing={5}>
           <Stack width={tablet ? '100%' : '50%'}>
             <YoutubeEmbed embedId="hnEwJKVWjFM" />
           </Stack>
           <Stack width={tablet ? '100%' : '50%'}>
-            <Span kind={`b${tablet ? 1 : 7}`}>Ülke TV - Yol Hikayesi programına <Span kind={`w${tablet ? 1 : 7}`} style={{ color: ORANGE }}>Yıldırım Adak ve Kurban</Span> Satış evi olarak konuk olduk.</Span>
+            <Span kind={`b${tablet ? 1 : 7}`}>Yol Hikayesi programına <Span kind={`w${tablet ? 1 : 7}`} style={{ color: ORANGE }}>Yıldırım Adak ve Kurban</Span> Satış evi olarak konuk olduk.</Span>
           </Stack>
         </Stack>
       </Container>
@@ -251,6 +314,38 @@ export function BlogPage({ post }) {
           >
             {post.map((data, i) => <UltimateCard data={data.node} key={i} post />)}
           </motion.div>
+        </Stack>
+      </Container>
+    </Section>
+  );
+}
+
+export function ProductPage({ data }) {
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
+  const container = {
+    show: {
+      transition: {
+        staggerChildren: 0.35,
+      },
+    },
+  };
+
+  return (
+    <Section>
+      <Container>
+        <Stack width="100%" spacing={2}>
+          <Stack width="100%" direction={tablet ? "column" : "row"} spacing={3}>
+            <ProductImage image={data[1].featuredImage}/>
+            <Stack width={tablet ? "100%" : "40%"} spacing={3}>
+              <ProductDetail data={data[1]}/>
+              <ProductForm data={data[1]}/>
+            </Stack>
+          </Stack>
+          <Span kind='h3'>
+            Ağırlığı 40 ile 60 kg arasi <br />
+            1. yaşından sonra koyun olarak isimlendirilir. <br />
+            Hayvanlarımız doğal bir ortamda yetiştiriliyor. Koyun hem adaklık, hemde kurban icin uygun bir hayvandır. Adaklık kurbanı sağlıklı ortamda yetişmektedir.  Hızlı kesim ve paketleme, video/canlı baglantı eşliğinde kesilir ve teslim edilir. 
+          </Span> 
         </Stack>
       </Container>
     </Section>

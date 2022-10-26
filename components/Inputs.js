@@ -1,4 +1,4 @@
-import { TextField } from '@mui/material';
+import { TextField, Select } from '@mui/material';
 import { textStyle, BORDERPRIM } from '../utils/styling';
 
 export function BorderedTextField({ rows, placeHolder }) {
@@ -6,21 +6,20 @@ export function BorderedTextField({ rows, placeHolder }) {
     <TextField
       InputLabelProps={{
         style: {
-          border: '1px solid transparent !important',
-          ...textStyle('w3'),
+          ...textStyle('v3'),
         },
       }}
       sx={{
-        border: '1px solid transparent !important',
-        ...textStyle('w3'),
+        ...textStyle('v3'),
       }}
       InputProps={{
         sx: {
-          border: `1px solid ${BORDERPRIM}`,
+          // border: `1px solid ${BORDERPRIM}`,
+          // padding: "10.5px 14px",
           // background: LINERGRAD,
-          ...textStyle('w3'),
+          ...textStyle('h3'),
           '.css-1d3z3hw-MuiOutlinedInput-notchedOutline': {
-            border: '1px solid transparent !important',
+            border: '1px solid #D7D4D4 !important',
           },
 
           '&:hover': {
@@ -34,8 +33,28 @@ export function BorderedTextField({ rows, placeHolder }) {
       id="outlined-textarea"
       label={placeHolder}
       placeholder={placeHolder}
-      multiline
+      size='small'
       rows={rows}
+      required
+    />
+  );
+}
+
+export function BorderedSelect({ label, value, onChange }) {
+  return (
+    <Select
+      labelId="demo-simple-select-label"
+      fullWidth
+      sx={{
+        border: '1px solid transparent !important',
+        '.MuiOutlinedInput-notchedOutline': {
+          border: '1px solid #D7D4D4 !important',
+        },
+      }}
+      id="demo-simple-select"
+      value={value}
+      label={label}
+      onChange={onChange}
     />
   );
 }

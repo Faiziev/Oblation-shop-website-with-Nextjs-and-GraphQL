@@ -27,7 +27,7 @@ function Phone() {
   return (
     <Stack width="100%" justifyContent="center" alignItems={tablet ? 'center' : 'flex-end'} direction={tablet ? 'row' : 'column'} spacing={2}>
       <Span kind="b2" style={{ color: ORANGE }}>İletişim</Span>
-      <Span kind={tablet ? 'b2' : 'b0'} style={{ color: WHITE }}>+90 532 746 03 82</Span>
+      <Span kind={tablet ? 'b2' : 'b0'} style={{ color: WHITE }}>+90 538 648 23 30</Span>
     </Stack>
   );
 }
@@ -57,15 +57,15 @@ function FooterContact() {
 
   return (
     <Stack width="100%" alignItems="flex-start" justifyContent="center" style={{ padding: '20px 0px', textAlign: 'center' }} spacing={1}>
-      <Span kind={`w${tablet ? 4 : 2}`} style={{ textAlign: !tablet && 'start', width: tablet ? '100%' : '50%' }}>Adak, Kurban ve Akika vb. hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz. 2007 yılından itibaren Beykoz Faiziev&apos;da hizmet vermeye başladık. </Span>
+      <Span kind={`w${tablet ? 4 : 2}`} style={{ textAlign: !tablet && 'start', width: tablet ? '100%' : '50%' }}>Adak, Kurban ve Akika vb. hayvancılık alanındaki faaliyetlerimizi 20 yılı aşkın süredir sürdürmekteyiz.</Span>
       <br />
       <br />
       <br />
       <br />
       <br />
       <Stack alignItems={tablet ? 'center' : 'flex-start'} width="100%">
-        <Span kind={`w${tablet ? 2 : 0}`} style={{ textAlign: 'center' }}>+90 532 746 03 82</Span>
-        <Span kind={`w${tablet ? 3 : 2}`}>bilgi@faiziev.com</Span>
+        <Span kind={`w${tablet ? 2 : 0}`} style={{ textAlign: 'center' }}>+90 538 648 23 30</Span>
+        <Span kind={`w${tablet ? 3 : 2}`}>info@Yildirimkurban.com</Span>
       </Stack>
     </Stack>
   );
@@ -78,23 +78,23 @@ function Footer() {
     <Container>
       <Stack width="100%" style={{ background: BACKGROUND, pasition: 'relative' }} alignItems="center" justifyContent="center">
         {!tablet
-        && (
-        <Stack
-          width="100%"
-          maxWidth="100%"
-          alignItems="flex-end"
-          justifyContent="flex-end"
-          style={{
-            display: 'block',
-            position: 'absolute',
-            // right: '100px',
-            pasition: 'relative',
-            maxWidth: '1140px',
-            marginTop: -60,
-          }}
-        >
-          <Image src={BackImg} style={{ width: '850px', maxHeight: '39.3rem', top: '-202px', position: 'inherit', right: '0px' }} />
-        </Stack>
+          && (
+          <Stack
+            width="100%"
+            maxWidth="100%"
+            alignItems="flex-end"
+            justifyContent="flex-end"
+            style={{
+              display: 'block',
+              position: 'absolute',
+              // right: '100px',
+              pasition: 'relative',
+              maxWidth: '1140px',
+              marginTop: -60,
+            }}
+          >
+            <Image src={BackImg} style={{ width: '850px', maxHeight: '39.3rem', top: '-202px', position: 'inherit', right: '0px' }} />
+          </Stack>
         )}
         <Stack
           width="100%"
