@@ -10,7 +10,7 @@ export function Logo() {
 }
 export function HLogo({ imgStyle, style }) {
   const router = useRouter();
-  
+
   return (
     <Stack width="100%" maxWidth="100%" style={{ cursor: 'pointer', ...style }}>
       <Image src={HorzontalLogo} style={{ ...imgStyle }} onClick={() => router.push('/', '/')} />

@@ -32,7 +32,7 @@ export default function Blog() {
               <Span kind={tablet ? 'h0' : 'h8'}><a href="tel:+905327460382">+90 532 746 03 82</a></Span>
             </Stack>
             <Stack width="100%" spacing={3} justifyContent="center" alignItems="center">
-              <MapEmbed/>
+              <MapEmbed />
             </Stack>
           </Stack>
         </Container>

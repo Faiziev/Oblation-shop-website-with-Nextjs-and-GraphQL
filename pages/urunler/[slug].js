@@ -19,7 +19,7 @@ export const AnimalsData = [
 
 export default function Product() {
   return (
-    <div className={styles.container} >
+    <div className={styles.container}>
       <Head>
         <title>Yıldırım Kurban Satış Evi - Blog</title>
         <link rel="icon" href="/favicon.ico" />
@@ -33,8 +33,8 @@ export default function Product() {
       <Stack paddingTop="100px" />
       <Container>
         <ProductPage data={AnimalsData} />
-        <Stack width="100%" alignItems="center" marginBottom="30px" >
-          <ProductSwiper data={AnimalsData} small /> 
+        <Stack width="100%" alignItems="center" marginBottom="30px">
+          <ProductSwiper data={AnimalsData} small />
         </Stack>
       </Container>
       {/* <Services /> */}

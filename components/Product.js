@@ -34,7 +34,7 @@ export function ProductForm({ data }) {
   const counter = Array.from(Array(15).keys());
   // const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
 
-  const border = { border: '1px solid transparent !important', '.MuiOutlinedInput-notchedOutline': { border: '1px solid #D7D4D4 !important' } }
+  const border = { border: '1px solid transparent !important', '.MuiOutlinedInput-notchedOutline': { border: '1px solid #D7D4D4 !important' } };
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -60,8 +60,8 @@ export function ProductForm({ data }) {
                   <MenuItem value={value} key={value}>
                     <Span kind="h3">{value + 1}</Span>
                   </MenuItem>
-                  ))
-                }
+                  )
+                )}
               </Select>
             </FormControl>
           </Stack>
