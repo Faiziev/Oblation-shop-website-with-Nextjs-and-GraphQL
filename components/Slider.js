@@ -243,7 +243,7 @@ export function BigSlider() {
   );
 }
 
-export function SmallSwiper({ small, data }) {
+export function SmallSwiper({ small }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
   const swipValue = tablet ? 2 : 3;
@@ -281,7 +281,7 @@ export function SmallSwiper({ small, data }) {
         pagination={{
           clickable: true,
         }}
-        centeredSlides={small ? true : false}
+        centeredSlides={small || false}
         modules={[Pagination]}
       >
         {ServicesData.map((card, i) => (
@@ -300,7 +300,7 @@ export function SmallSwiper({ small, data }) {
   );
 }
 
-export function ProductSwiper({data}) {
+export function ProductSwiper({ data }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
   const swipValue = tablet ? 2 : 4;
@@ -358,7 +358,7 @@ export function ProductSwiper({data}) {
       <Swiper
         slidesPerView={mobile ? 1 : swipValue}
         navigation
-        modules={[ Navigation ]}
+        modules={[Navigation]}
       >
         {data.map((card, index) => (
           <SwiperSlide style={{ background: SECTION, height: '100%', width: 'fit-content !important', justifyContent: 'center', display: 'flex' }} key={index}>

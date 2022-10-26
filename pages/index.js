@@ -5,7 +5,7 @@ import { BigSlider } from '../components/Slider';
 import { Note, Services, Interview, Animals } from '../components/Sections';
 import { screens, Span } from '../utils/styling';
 import { TransparentBtn } from '../components/Buttons';
-import { getPosts } from '../services';
+// import { getPosts } from '../services';
 
 export default function Home({ posts }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
@@ -44,7 +44,6 @@ export default function Home({ posts }) {
     </div>
   );
 }
-
 
 // export async function getStaticProps() {
 //   const posts = (await getPosts()) || [];

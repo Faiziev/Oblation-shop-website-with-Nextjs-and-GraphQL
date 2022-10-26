@@ -1,5 +1,5 @@
 import { TextField, Select } from '@mui/material';
-import { textStyle, BORDERPRIM } from '../utils/styling';
+import { textStyle } from '../utils/styling';
 
 export function BorderedTextField({ rows, placeHolder }) {
   return (
@@ -33,7 +33,7 @@ export function BorderedTextField({ rows, placeHolder }) {
       id="outlined-textarea"
       label={placeHolder}
       placeholder={placeHolder}
-      size='small'
+      size="small"
       rows={rows}
       required
     />

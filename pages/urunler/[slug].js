@@ -1,16 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
 // eslint-disable-next-line react/no-danger
-import Link from 'next/link';
+import { Stack } from '@mui/material';
 import styles from '../../styles/Home.module.css';
-import { useRouter } from 'next/router';
-import { Stack, useMediaQuery } from '@mui/material';
-import { getPosts, getPostDetails } from '../../services';
-import { Span, screens, BORDERRADIUS } from '../../utils/styling';
 import { Container } from '../../components/Container';
-import { ProductPage, Section, Services } from './../../components/Sections';
-import { AnimalsImages } from './../../components/Images';
-import { ProductSwiper } from './../../components/Slider';
+import { ProductPage } from '../../components/Sections';
+import { AnimalsImages } from '../../components/Images';
+import { ProductSwiper } from '../../components/Slider';
 
 export const AnimalsData = [
   { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: 'koc', price: 1000 },
@@ -23,7 +19,7 @@ export const AnimalsData = [
 
 export default function Product() {
   return (
-    <div className={styles.container}>
+    <div className={styles.container} >
       <Head>
         <title>Yıldırım Kurban Satış Evi - Blog</title>
         <link rel="icon" href="/favicon.ico" />
@@ -36,9 +32,9 @@ export default function Product() {
       </Head>
       <Stack paddingTop="100px" />
       <Container>
-        <ProductPage data={AnimalsData}/>
-        <Stack width="100%" alignItems='center' marginBottom='30px'>
-          <ProductSwiper data={AnimalsData} small/> 
+        <ProductPage data={AnimalsData} />
+        <Stack width="100%" alignItems="center" marginBottom="30px" >
+          <ProductSwiper data={AnimalsData} small /> 
         </Stack>
       </Container>
       {/* <Services /> */}

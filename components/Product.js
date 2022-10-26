@@ -1,40 +1,40 @@
-import Image from "next/future/image";
-import { Span, LIGHT_GREY, BORDERRADIUS, ORANGE, screens } from "../utils/styling";
-import { InputLabel, MenuItem, Select, Stack, FormControl, useMediaQuery } from '@mui/material';
 import { useState } from 'react';
-import { BorderedSelect, BorderedTextField } from "./Inputs";
-import { CardButton } from "./Buttons";
+import Image from 'next/future/image';
+import { InputLabel, MenuItem, Select, Stack, FormControl, useMediaQuery } from '@mui/material';
+import { Span, BORDERRADIUS, screens } from '../utils/styling';
+import { BorderedTextField } from './Inputs';
+import { CardButton } from './Buttons';
 
-export function ProductImage({ image, imgStyle }) {
+export function ProductImage({ image }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
 
   return (
-    <Stack width={tablet ? "100%" : "60%"} spacing={2}>
-      <Image src={image.url} alt={image.alt} sizes="100%" style={{ width: "100%", height: "auto", borderRadius: BORDERRADIUS[2] }} />
+    <Stack width={tablet ? '100%' : '60%'} spacing={2}>
+      <Image src={image.url} alt={image.alt} sizes="100%" style={{ width: '100%', height: 'auto', borderRadius: BORDERRADIUS[2] }} />
     </Stack>
-  )
+  );
 }
 
 export function ProductDetail({ data }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   return (
-    <Stack width={tablet ? "100%" : "40%"}>
+    <Stack width={tablet ? '100%' : '40%'}>
       <Stack direction="row" spacing={2}>
         <Span kind="b8">{data.title}</Span>
         <Span kind="b8">•</Span>
         <Span kind="b8" style={{ opacity: 0.7 }}>{data.category}</Span>
       </Stack>
     </Stack>
-  )
+  );
 }
 
 export function ProductForm({ data }) {
   const [type, setType] = useState('');
   const [count, setCount] = useState('');
-  const counter = Array.from(Array(15).keys())
-  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
+  const counter = Array.from(Array(15).keys());
+  // const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
 
-  const border = { border: '1px solid transparent !important', '.MuiOutlinedInput-notchedOutline': { border: '1px solid #D7D4D4 !important' }}
+  const border = { border: '1px solid transparent !important', '.MuiOutlinedInput-notchedOutline': { border: '1px solid #D7D4D4 !important' } }
 
   const handleChange = (event) => {
     setType(event.target.value);
@@ -43,7 +43,7 @@ export function ProductForm({ data }) {
     setCount(event.target.value);
   };
   return (
-    <Stack height={'100%'} justifyContent="space-between">
+    <Stack height="100%" justifyContent="space-between">
       <style jsx global>{`
           .css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root.Mui-selected {
             background-color: rgba(0, 0, 0, 0.05) !important;
@@ -56,12 +56,12 @@ export function ProductForm({ data }) {
             <FormControl fullWidth>
               <InputLabel><Span kind="v3">Adet</Span></InputLabel>
               <Select fullWidth value={count} label="Adet" onChange={handleCounter} sx={border}>
-                {counter.map((count, i) => (
-                    <MenuItem value={count} key={count}>
-                      <Span kind="h3">{count + 1}</Span>
-                    </MenuItem>
-                  )
-                )}
+                {counter.map((value) => (
+                  <MenuItem value={value} key={value}>
+                    <Span kind="h3">{value + 1}</Span>
+                  </MenuItem>
+                  ))
+                }
               </Select>
             </FormControl>
           </Stack>
@@ -76,15 +76,15 @@ export function ProductForm({ data }) {
             </FormControl>
           </Stack>
         </Stack>
-      <Stack spacing={2}>
-        <Stack direction='row' spacing={2}>
-          <BorderedTextField placeHolder={"Ad"}/>
-          <BorderedTextField placeHolder={"Soyad"}/>
+        <Stack spacing={2}>
+          <Stack direction="row" spacing={2}>
+            <BorderedTextField placeHolder="Ad" />
+            <BorderedTextField placeHolder="Soyad" />
+          </Stack>
+          <BorderedTextField placeHolder="@email" />
         </Stack>
-        <BorderedTextField placeHolder={"@email"}/>
       </Stack>
-      </Stack>
-      <Stack width="100%"  direction="row" justifyContent="flex-start" alignItems="flex-end" marginTop="50px">
+      <Stack width="100%" direction="row" justifyContent="flex-start" alignItems="flex-end" marginTop="50px">
         <Stack paddingRight="20px">
           <Span kind="b7">{data.price * (count + 1)}₺</Span>
         </Stack>
@@ -93,5 +93,5 @@ export function ProductForm({ data }) {
         </Stack>
       </Stack>
     </Stack>
-  )
+  );
 }

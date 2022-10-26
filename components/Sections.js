@@ -8,15 +8,13 @@ import { Span, BLOOD, ORANGE, BORDERPRIM, screens, SECTION } from '../utils/styl
 import { SectionButton, LinerButton } from './Buttons';
 import { UltimateCard } from './Card';
 import { Container } from './Container';
-import { AnimalsImages } from './Images';
-import { ProductSwiper, SmallSwiper } from './Slider';
+import { AnimalsImages, SliderImgSm1 } from './Images';
+import { SmallSwiper } from './Slider';
 import { SectionTitle } from './Titles';
 import YoutubeEmbed from './Youtube';
 import { ImgIcon } from '../lib/icons';
 import { BorderedTextField } from './Inputs';
 import { ProductDetail, ProductImage, ProductForm } from './Product';
-import { SliderImgSm1, SliderImg1, SliderImg2, SliderImg3, SliderImg4 } from './Images';
-import { SwiperSlide } from 'swiper/react';
 
 export const AnimalsData = [
   { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: 'koc', price: 1000 },
@@ -124,7 +122,7 @@ export function Interview() {
     <Section>
       <Container>
         <SectionTitle>
-        Kurban ve Adak Kesim Videoları
+          Kurban ve Adak Kesim Videoları
         </SectionTitle>
         <Stack direction={tablet ? 'column' : 'row'} alignItems="center" justifyContent="space-between" spacing={5}>
           <Stack width={tablet ? '100%' : '50%'}>
@@ -336,16 +334,16 @@ export function ProductPage({ data }) {
         <Stack width="100%" spacing={2}>
           <Stack width="100%" direction={tablet ? "column" : "row"} spacing={3}>
             <ProductImage image={data[1].featuredImage}/>
-            <Stack width={tablet ? "100%" : "40%"} spacing={3}>
-              <ProductDetail data={data[1]}/>
-              <ProductForm data={data[1]}/>
+            <Stack width={tablet ? '100%' : '40%'} spacing={3}>
+              <ProductDetail data={data[1]} />
+              <ProductForm data={data[1]} />
             </Stack>
           </Stack>
-          <Span kind='h3'>
+          <Span kind="h3">
             Ağırlığı 40 ile 60 kg arasi <br />
             1. yaşından sonra koyun olarak isimlendirilir. <br />
             Hayvanlarımız doğal bir ortamda yetiştiriliyor. Koyun hem adaklık, hemde kurban icin uygun bir hayvandır. Adaklık kurbanı sağlıklı ortamda yetişmektedir.  Hızlı kesim ve paketleme, video/canlı baglantı eşliğinde kesilir ve teslim edilir. 
-          </Span> 
+          </Span>
         </Stack>
       </Container>
     </Section>

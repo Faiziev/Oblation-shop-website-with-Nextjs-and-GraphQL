@@ -150,7 +150,8 @@ function Header() {
         >
           {tablet && <Stack width="33.33%" />}
           <Stack width={desktop ? '35.33%' : 323} alignItems="center">
-            {mobile ? 
+            {mobile 
+              ?
               <HLogo imgStyle={{ maxWidth: 323, height: 'auto' }} />
               :
               <SLogo imgStyle={{ maxWidth: 130, height: 'auto' }} />

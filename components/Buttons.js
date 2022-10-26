@@ -116,7 +116,7 @@ const LinerButtonStyle = styled(ButtonBase)(() => ({
 
 export function CardButton({ children, onClick, style }) {
   return (
-    <Button onClick={onClick} style={{...style}}>
+    <Button onClick={onClick} style={{ ...style }}>
       {children}
     </Button>
   );

@@ -2,11 +2,10 @@ import Head from 'next/head';
 import { Stack, useMediaQuery } from '@mui/material';
 
 import styles from '../styles/Home.module.css';
+import { Container } from '../components/Container';
 import { Section } from '../components/Sections';
-import { Container } from './../components/Container';
-import { Span } from '../utils/styling';
-import { screens } from './../utils/styling';
-import MapEmbed from './../components/Map';
+import { Span, screens } from '../utils/styling';
+import MapEmbed from '../components/Map';
 
 export default function Blog() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
@@ -27,13 +26,13 @@ export default function Blog() {
       <Section>
         <Container>
           <Stack width="100%" spacing={6}>
-            <Stack width="100%" spacing={3} justifyContent="center" alignItems={"center"}>
+            <Stack width="100%" spacing={3} justifyContent="center" alignItems="center">
               <Span kind={tablet ? 'g7' : 'g9'}>İletişim Bilgileri</Span>
               <Span kind={tablet ? 'h0' : 'h8'} style={{ textAlign: 'center' }}>İstiklal, Yeşildağ Sk., 34522 Esenyurt/İstanbul</Span>
               <Span kind={tablet ? 'h0' : 'h8'}><a href="tel:+905327460382">+90 532 746 03 82</a></Span>
             </Stack>
-            <Stack width="100%" spacing={3} justifyContent="center" alignItems={"center"}>
-              <MapEmbed  />
+            <Stack width="100%" spacing={3} justifyContent="center" alignItems="center">
+              <MapEmbed/>
             </Stack>
           </Stack>
         </Container>

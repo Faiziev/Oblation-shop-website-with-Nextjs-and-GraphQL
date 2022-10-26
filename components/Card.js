@@ -242,7 +242,7 @@ export function ProductCard({ data }) {
 }
 
 export function UltimateCard({ data, product, post, slider, style }) {
-  const [active, setActive] = useState(true)
+  const [active, setActive] = useState(true);
   const variants = {
     hidden: { opacity: 0, y: 0 },
     show: {
@@ -256,11 +256,11 @@ export function UltimateCard({ data, product, post, slider, style }) {
     },
   };
 
-  const slideMargin = slider ? 0 : 10
+  // const slideMargin = slider ? 0 : 10
 
   useEffect(() => {
     setTimeout(() => setActive(false), 1000); 
-  },[]);
+  }, []);
 
   return (
     <motion.div
@@ -276,12 +276,13 @@ export function UltimateCard({ data, product, post, slider, style }) {
         // width="100%"
         height="100%"
       >
-        {active ? 
+        {active 
+          ? 
           <Stack width="100%" height="220px">
             <Loading />
           </Stack>
-            :
-          <PostImg src={data.featuredImage.url} imgStyles={{ marginTop: slider ? 10 : 0}}/>
+          :
+          <PostImg src={ data.featuredImage.url } imgStyles={{ marginTop: slider ? 10 : 0}}/>
         }
         {product ? (
           <Stack direction="row" justifyContent="space-between" width="100%">
@@ -315,7 +316,7 @@ export function UltimateCard({ data, product, post, slider, style }) {
             <Stack spacing={2}>
               <Span kind="b1" style={{ userSelect: 'none', textAlign: 'center', }}>
                 {data.title.length >= 30
-                  ? `${data.title.slice(0, 25)}...`
+                  ? `${ data.title.slice(0, 25) }...`
                   : data.title}
               </Span>
               <Span
@@ -327,7 +328,7 @@ export function UltimateCard({ data, product, post, slider, style }) {
                 }}
               >
                 {data.excerpt.length >= 120
-                  ? `${data.excerpt.slice(0, 120)}...`
+                  ? `${ data.excerpt.slice(0, 120) }...`
                   : data.excerpt}
               </Span>
             </Stack>

@@ -95,7 +95,7 @@ function Footer() {
           >
             <Image src={BackImg} style={{ width: '850px', maxHeight: '39.3rem', top: '-202px', position: 'inherit', right: '0px' }} />
           </Stack>
-        )}
+          )}
         <Stack
           width="100%"
           style={{

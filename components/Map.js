@@ -28,7 +28,7 @@ function MapEmbed() {
         // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
         title="Embedded map"
-        style={{border: 0}}
+        style={{ border: 0 }}
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
       />

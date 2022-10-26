@@ -26,7 +26,7 @@ export { SliderImgSm1 };
 
 export function Loading() {
   return (
-    <div className='box'>
+    <div className="box">
       <style jsx>{`
         .box {
           width: 100%;
@@ -46,9 +46,10 @@ export function Loading() {
             background-color: #D4D7D9;
           }
         }      
-      `}</style>
+      `}
+      </style>
     </div>
-  )
+  );
 }
 
 export const AnimalsImages = { Animal1, Animal2, Animal3, Animal4, Animal5, Animal6 };
