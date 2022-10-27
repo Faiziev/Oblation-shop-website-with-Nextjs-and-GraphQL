@@ -277,7 +277,7 @@ export function UltimateCard({ data, product, post, slider, style }) {
         height="100%"
       >
         {active ? (
-            <Stack width="100%" height="220px">
+            <Stack width="250px" height={ product ? 170 : "220px"}>
               <Loading />
             </Stack>
           ) : (
