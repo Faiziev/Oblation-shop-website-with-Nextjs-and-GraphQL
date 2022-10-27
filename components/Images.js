@@ -15,10 +15,18 @@ import SliderImgSm1 from '../public/slider-sm-1.jpg';
 
 import Animal1 from '../public/animal-card/1.jpg';
 import Animal2 from '../public/animal-card/2.jpg';
-import Animal3 from '../public/animal-card/3.jpg';
+import Animal3 from '../public/kuzu.jpg';
 import Animal4 from '../public/animal-card/4.jpg';
 import Animal5 from '../public/animal-card/5.jpg';
 import Animal6 from '../public/animal-card/6.jpg';
+import Animal7 from '../public/kasap-1.png';
+import Animal8 from '../public/kasap-3.jpg';
+import Animal9 from '../public/kasap-4.jpg';
+import Animal10 from '../public/kasap-2.jpg';
+import Animal11 from '../public/kasap-5.jpg';
+import Animal12 from '../public/kasap-6.jpg';
+import Animal13 from '../public/kasap-7.jpg';
+import Animal14 from '../public/kasap-8.jpg';
 
 export { logo, HorzontalLogo, SingleLogo, BackImg, FOOTERLOGO };
 export { SliderImg1, SliderImg2, SliderImg3, SliderImg4, SliderImg5 };
@@ -52,4 +60,4 @@ export function Loading() {
   );
 }
 
-export const AnimalsImages = { Animal1, Animal2, Animal3, Animal4, Animal5, Animal6 };
+export const AnimalsImages = { Animal1, Animal2, Animal3, Animal4, Animal5, Animal6, Animal7, Animal8, Animal9, Animal10, Animal11, Animal12, Animal13, Animal14 };

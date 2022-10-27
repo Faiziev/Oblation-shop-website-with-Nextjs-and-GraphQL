@@ -16,11 +16,11 @@ function CardImg({ img, style, imgStyles }) {
   );
 }
 
-function PostImg({ src, style, imgStyles }) {
+function PostImg({ src, style, imgStyles, product }) {
   // console.log(src)
   return (
     <Stack width="100%" maxWidth={350} style={{ ...style }} alignItems="center">
-      <Image src={src} alt={src} sizes="100%" width={100} height={100} style={{ width: '100%', height: 'auto', maxHeight: 170, borderRadius: BORDERRADIUS[2], objectFit: 'cover', objectPosition: 'bottom center', ...imgStyles }} />
+      <Image src={src} alt={src} sizes="100%" width={100} height={100} style={{ width: '100%', height: 'auto', maxWidth: product ? 250 : undefined, maxHeight: 170, borderRadius: BORDERRADIUS[2], objectFit: 'cover', objectPosition: 'bottom center', ...imgStyles }} />
     </Stack>
   );
 }
@@ -281,7 +281,7 @@ export function UltimateCard({ data, product, post, slider, style }) {
               <Loading />
             </Stack>
           ) : (
-            <PostImg src={ data.featuredImage.url } imgStyles={{ marginTop: slider ? 10 : 0}}/>
+            <PostImg src={ data.featuredImage.url } imgStyles={{ marginTop: slider ? 10 : 0}} product/>
           )
         }
         {product ? (

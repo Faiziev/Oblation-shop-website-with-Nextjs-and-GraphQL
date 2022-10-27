@@ -17,12 +17,18 @@ import { BorderedTextField } from './Inputs';
 import { ProductDetail, ProductImage, ProductForm } from './Product';
 
 export const AnimalsData = [
+  { featuredImage: { url: AnimalsImages.Animal13, alt: 'category foto' }, title: 'OĞLAK', category: 'Küçükbaş', href: 'oglak', price: 800 },
+  { featuredImage: { url: AnimalsImages.Animal14, alt: 'category foto' }, title: 'KEÇİ', category: 'Küçükbaş', href: 'keci', price: 1200 },
   { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: 'koc', price: 3000 },
   { featuredImage: { url: AnimalsImages.Animal2, alt: 'category foto' }, title: 'KOYUN', category: 'Küçükbaş', href: 'koyun', price: 1500 },
   { featuredImage: { url: AnimalsImages.Animal3, alt: 'category foto' }, title: 'KUZU', category: 'Küçükbaş', href: 'kuzu', price: 2000 },
-  { featuredImage: { url: AnimalsImages.Animal4, alt: 'category foto' }, title: 'DANA', category: 'Büyükbaş', href: 'dana', price: 1000 },
-  { featuredImage: { url: AnimalsImages.Animal5, alt: 'category foto' }, title: 'İNEK', category: 'Büyükbaş', href: 'inek', price: 1000 },
-  { featuredImage: { url: AnimalsImages.Animal6, alt: 'category foto' }, title: 'DÜVE', category: 'Büyükbaş', href: 'duve', price: 1000 },
+  { featuredImage: { url: AnimalsImages.Animal12, alt: 'category foto' }, title: 'Koyun Et', category: 'Küçükbaş', href: 'koyun-et', price: 90 },
+  { featuredImage: { url: AnimalsImages.Animal11, alt: 'category foto' }, title: 'Kuzu Et', category: 'Küçükbaş', href: 'kuzu-et', price: 110 },
+  { featuredImage: { url: AnimalsImages.Animal4, alt: 'category foto' }, title: 'DANA', category: 'Büyükbaş', href: 'dana', price: 10000 },
+  { featuredImage: { url: AnimalsImages.Animal5, alt: 'category foto' }, title: 'İNEK', category: 'Büyükbaş', href: 'inek', price: 10000 },
+  { featuredImage: { url: AnimalsImages.Animal6, alt: 'category foto' }, title: 'DÜVE', category: 'Büyükbaş', href: 'duve', price: 10000 },
+  { featuredImage: { url: AnimalsImages.Animal8, alt: 'category foto' }, title: 'Dana Et Kemiksiz', category: 'Büyükbaş', href: 'dana-et-kemiksiz', price: 145 },
+  { featuredImage: { url: AnimalsImages.Animal9, alt: 'category foto' }, title: 'Dana Et Kemikli', category: 'Büyükbaş', href: 'dana-et-kemikli', price: 120 },
 ];
 
 export function Services({ data }) {
@@ -54,7 +60,6 @@ export function Note({ blood, children }) {
     </Section>
   );
 }
-
 export function Interview() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
 
