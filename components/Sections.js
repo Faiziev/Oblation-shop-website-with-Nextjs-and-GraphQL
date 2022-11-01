@@ -6,7 +6,7 @@ import { useDropzone } from 'react-dropzone';
 import { useRef, useState } from 'react';
 import { Span, BLOOD, ORANGE, BORDERPRIM, screens, SECTION } from '../utils/styling';
 import { SectionButton, LinerButton } from './Buttons';
-import { UltimateCard } from './Card';
+import { UltimateCard, ProductCard } from './Card';
 import { Container } from './Container';
 import { AnimalsImages, SliderImgSm1 } from './Images';
 import { SmallSwiper } from './Slider';
@@ -40,7 +40,7 @@ export function Services({ data }) {
         </SectionTitle>
         <SmallSwiper data={data} />
         <SectionButton>
-          <Link href="/services" style={{ width: 'fit-content' }}>
+          <Link href="/bloglar" style={{ width: 'fit-content' }}>
             TÜM FAALİYETLERİ GÖR
           </Link>
         </SectionButton>
@@ -152,11 +152,13 @@ export function Upload() {
   );
 }
 
-export function Animals() {
+export function Animals({ data }) {
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
+
   const container = {
     show: {
       transition: {
-        staggerChildren: 0.35,
+        staggerChildren: 1,
       },
     },
   };
@@ -168,22 +170,22 @@ export function Animals() {
           HAYVANLARIMIZ
         </SectionTitle>
         <Stack justifyContent="space-between" width="100%">
-          <Stack
+          <motion.div
             variants={container}
             initial="hidden"
             animate="show"
-            direction="row"
-            alignItems="center"
-            justifyContent="center"
+            spacing={1}
             style={{
               width: '100%',
+              height: 'calc(100% + 30px)',
               display: 'flex',
               flexWrap: 'wrap',
-              justifyContent: 'center',
+              justifyContent: tablet ? 'space-evenly' : 'space-between',
+              alignItems: 'space-between',
             }}
           >
-            {AnimalsData.map((animal, i) => <UltimateCard data={animal} key={i} product />)}
-          </Stack>
+            {data.map((animal, i) => <ProductCard data={animal.node} key={i} product />)}
+          </motion.div>
         </Stack>
       </Container>
     </Section>

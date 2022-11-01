@@ -243,7 +243,7 @@ export function BigSlider() {
   );
 }
 
-export function SmallSwiper({ small }) {
+export function SmallSwiper({ small, data }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
   const swipValue = tablet ? 2 : 3;
@@ -284,10 +284,10 @@ export function SmallSwiper({ small }) {
         centeredSlides={small || false}
         modules={[Pagination]}
       >
-        {ServicesData.map((card, i) => (
+        {data.map((card, i) => (
           <SwiperSlide style={{ background: SECTION, height: '100%' }} key={i}>
             <UltimateCard
-              data={card}
+              data={card.node}
               img={card.img}
               title={card.title}
               label={card.label}

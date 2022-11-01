@@ -7,6 +7,7 @@ import { Container } from '../../components/Container';
 import { ProductPage } from '../../components/Sections';
 import { AnimalsImages } from '../../components/Images';
 import { ProductSwiper } from '../../components/Slider';
+import { getProducts, getProductDetails } from '../../services';
 
 export const AnimalsData = [
   { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: 'koc', price: 1000 },
@@ -17,7 +18,8 @@ export const AnimalsData = [
   { featuredImage: { url: AnimalsImages.Animal6, alt: 'category foto' }, title: 'DÜVE', category: 'Büyükbaş', href: 'duve', price: 1000 },
 ];
 
-export default function Product() {
+export default function Product({ data }) {
+  console.log(data)
   return (
     <div className={styles.container}>
       <Head>
@@ -40,4 +42,25 @@ export default function Product() {
       {/* <Services /> */}
     </div>
   );
+}
+
+
+export async function getStaticProps({ params }) {
+  // console.log('params', params)
+  // const data = await getProductDetails(params.slug);
+  return {
+    props: {
+      // products: data,
+    },
+    revalidate: 5,
+  };
+}
+
+export async function getStaticPaths() {
+  const products = await getProducts();
+  console.log('products', products)
+  return {
+    paths: products.map(({ node: { slug } }) => ({ params: { slug } })),
+    fallback: true,
+  };
 }

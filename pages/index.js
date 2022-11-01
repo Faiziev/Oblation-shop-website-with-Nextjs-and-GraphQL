@@ -6,9 +6,12 @@ import { Note, Services, Interview, Animals } from '../components/Sections';
 import { screens, Span } from '../utils/styling';
 import { TransparentBtn } from '../components/Buttons';
 // import { getPosts } from '../services';
+import { getProducts, getPosts } from '../services/index';
 
-export default function Home({ posts }) {
+export default function Home({ posts, products }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
+
+  console.log("products", products)
 
   return (
     <div className={styles.container}>
@@ -39,16 +42,20 @@ export default function Home({ posts }) {
           Adresimiz İçin Tıklayın!
         </TransparentBtn>
       </Note>
-      <Animals />
+      <Animals data={products}/>
       {/* </Stack> */}
     </div>
   );
 }
 
-// export async function getStaticProps() {
-//   const posts = (await getPosts()) || [];
-//   return {
-//     props: { posts },
-//     revalidate: 5,
-//   };
-// }
+export async function getStaticProps() {
+  const posts = (await getPosts()) || [];
+  const products = (await getProducts()) || [];
+  return {
+    props: { 
+      posts,
+      products
+    },
+    revalidate: 5,
+  };
+}

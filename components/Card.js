@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Stack from '@mui/material/Stack';
 import { motion } from 'framer-motion';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import { Span, BORDERRADIUS } from '../utils/styling';
+import { getContentFragment } from './convertor';
 import { Loading } from './Images';
 
 import { CardButton } from './Buttons';
@@ -20,7 +21,7 @@ function PostImg({ src, style, imgStyles, product }) {
   // console.log(src)
   return (
     <Stack width="100%" maxWidth={350} style={{ ...style }} alignItems="center">
-      <Image src={src} alt={src} sizes="100%" width={100} height={100} style={{ width: '100%', height: 'auto', maxWidth: product ? 250 : undefined, maxHeight: 170, borderRadius: BORDERRADIUS[2], objectFit: 'cover', objectPosition: 'bottom center', ...imgStyles }} />
+      <Image src={src} alt={src} sizes="100%" width={100} height={100} style={{ width: '100%', height: 'auto', maxHeight: 170, borderRadius: BORDERRADIUS[2], objectFit: 'cover', objectPosition: 'bottom center', ...imgStyles }} />
     </Stack>
   );
 }
@@ -160,7 +161,8 @@ export function PostCard({ data }) {
   );
 }
 
-export function ProductCard({ data }) {
+export function ProductCard({ data, style, slider }) {
+  const [active, setActive] = useState(true);
   const variants = {
     hidden: { opacity: 0, y: 0 },
     show: {
@@ -173,69 +175,56 @@ export function ProductCard({ data }) {
       },
     },
   };
-
+  
+  useEffect(() => {
+    setTimeout(() => setActive(false), 1000);
+  }, []);
+  
   return (
-    <motion.div className="category-card" variants={variants} initial="hidden" animate="show">
-      <style jsx global>
-        {`
-        .category-card {
-          width: 33.33333333%;
-          // background-color: #1e2122;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0px 15px;
-        }
-        @media (min-width: 768px) and (max-width: 991px) {
-          .category-card {
-            width: 50%;
-          }
-        }
-        @media (max-width: 767px) {
-          .category-card {
-            width: 100%;
-          }
-        }
-        @media (min-width: 1200px) {
-          .category-card {
-            width: 33.33333333%;
-          }
-        }
-      `}
-      </style>
+    <motion.div
+      className="product-card"
+      variants={variants}
+      initial="hidden"
+      animate="show"
+      style={{ marginTop: !slider && 25, padding: '15px 15px 0px', ...style }}
+    >
       <Stack
+        spacing={1.5}
         alignItems="flex-start"
-        spacing={1}
-        style={{
-          // width: '100%',
-          marginBottom: 30,
-          padding: 20,
-          cursor: 'pointer',
-          border: '1px solid grey',
-        }}
+        // width="100%"
+        // height="100%"
       >
-        <CardImg
-          img={data.img}
-          style={{
-            overflow: 'hidden',
-            alignItems: 'center',
-          }}
-          imgStyles={{
-            height: 'auto',
-            maxWidth: '100%',
-            paddingBottom: 10,
-          }}
-        />
-        <Stack>
-          <Span kind="e0" style={{ userSelect: 'none' }}>
-            {data.name}
-          </Span>
-        </Stack>
-        <Stack>
-          <Span kind="e5" style={{ userSelect: 'none' }}>
-            {data.category}
-          </Span>
-        </Stack>
+      {active ? (
+          <Stack width="250px" height={ 170 }>
+            <Loading />
+          </Stack>
+        ) : (
+          <>
+            <PostImg src={ data.featuredImage.url } imgStyles={{ marginTop: slider ? 10 : 0}} product/>
+            <Stack direction="row" justifyContent="space-between" width="100%">
+              <Stack>
+                <Span kind="b1" style={{ userSelect: 'none' }}>
+                  {data.title}
+                </Span>
+                <Span kind="v3" style={{ opacity: 0.6, textAlign: 'start', marginTop: 5 }}>
+                  {data.category}
+                </Span>
+              </Stack>
+              <Stack height="100%" alignItems="flex-end">
+                <Span kind="b1" style={{ userSelect: 'none' }}>
+                  {data.price}₺
+                </Span>
+                <Link
+                  href={`urunler/${data.slug}`}
+                  style={{ width: '100%' }}
+                >
+                  <CardButton>Satin Al</CardButton>
+                </Link>
+              </Stack>
+            </Stack>
+          </>
+        )
+      }
       </Stack>
     </motion.div>
   );
@@ -268,7 +257,7 @@ export function UltimateCard({ data, product, post, slider, style }) {
       variants={variants}
       initial="hidden"
       animate="show"
-      style={{ margin: product || post ? 10 : 0, padding: '15px 15px 0px', ...style }}
+      style={{ margin: product || post ? 10 : 0, padding: '15px 15px 0px', maxHeight: 400, ...style }}
     >
       <Stack
         spacing={1.5}
@@ -324,12 +313,15 @@ export function UltimateCard({ data, product, post, slider, style }) {
                 style={{
                   lineHeight: '24px',
                   opacity: 0.9,
-                  textAlign: 'left',
+                  textAlign: 'center',
+                  height: '100%',
+                  flex: '0 1 auto',
                 }}
               >
                 {data.excerpt.length >= 120
                   ? `${data.excerpt.slice(0, 120)}...`
-                  : data.excerpt}
+                  : `${data.excerpt}`
+                }
               </Span>
             </Stack>
             <Stack alignItems="center" paddingTop="10px">
