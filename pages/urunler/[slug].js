@@ -5,19 +5,9 @@ import { Stack } from '@mui/material';
 import styles from '../../styles/Home.module.css';
 import { Container } from '../../components/Container';
 import { ProductPage } from '../../components/Sections';
-import { AnimalsImages } from '../../components/Images';
 import { ProductSwiper } from '../../components/Slider';
 import { getProducts, getProductDetails } from '../../services/index';
 // import { getProducts } from './../../services/index';
-
-export const AnimalsData = [
-  { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: 'koc', price: 1000 },
-  { featuredImage: { url: AnimalsImages.Animal2, alt: 'category foto' }, title: 'KOYUN', category: 'Küçükbaş', href: 'koyun', price: 1000 },
-  { featuredImage: { url: AnimalsImages.Animal3, alt: 'category foto' }, title: 'KUZU', category: 'Küçükbaş', href: 'kuzu', price: 1000 },
-  { featuredImage: { url: AnimalsImages.Animal4, alt: 'category foto' }, title: 'DANA', category: 'Büyükbaş', href: 'dana', price: 1000 },
-  { featuredImage: { url: AnimalsImages.Animal5, alt: 'category foto' }, title: 'İNEK', category: 'Büyükbaş', href: 'inek', price: 1000 },
-  { featuredImage: { url: AnimalsImages.Animal6, alt: 'category foto' }, title: 'DÜVE', category: 'Büyükbaş', href: 'duve', price: 1000 },
-];
 
 export default function Product({ data, slider }) {
   return (
