@@ -280,7 +280,7 @@ export function ProductPage({ data }) {
       <Container>
         <Stack width="100%" spacing={2}>
           <Stack width="100%" direction={tablet ? 'column' : 'row'} spacing={3}>
-            <ProductImage data={data} image={data.featuredImage}/>
+            <ProductImage data={data}/>
             <Stack width={tablet ? '100%' : '40%'} spacing={3}>
               <ProductDetail data={data} />
               <ProductForm data={data} />

@@ -5,11 +5,11 @@ import { Span, BORDERRADIUS, screens } from '../utils/styling';
 import { BorderedTextField } from './Inputs';
 import { CardButton } from './Buttons';
 
-export function ProductImage({ data, image }) {
+export function ProductImage({ data }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   return (
     <Stack width={tablet ? '100%' : '60%'} spacing={2}>
-      {image.url && <img src={image.url} alt={data.alt} style={{ width: '100%', height: 'auto', borderRadius: BORDERRADIUS[2] }} /> }
+      {data.featuredImage.url && <img src={data.featuredImage.url} alt={data.alt} style={{ width: '100%', height: 'auto', borderRadius: BORDERRADIUS[2] }} /> }
     </Stack>
   );
 }
