@@ -8,8 +8,14 @@ import { ProductPage } from '../../components/Sections';
 import { ProductSwiper } from '../../components/Slider';
 import { getProducts, getProductDetails } from '../../services/index';
 // import { getProducts } from './../../services/index';
+import { useRouter } from 'next/router';
 
 export default function Product({ data, slider }) {
+  const router = useRouter();
+  if (router.isFallback) {
+    return 'loading';
+  }
+
   return (
     <div className={styles.container}>
       <Head>
