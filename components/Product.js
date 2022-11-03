@@ -9,7 +9,7 @@ export function ProductImage({ data }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   return (
     <Stack width={tablet ? '100%' : '60%'} spacing={2}>
-      {datafeaturedImage.url && <img src={data.featuredImage.url} alt={data.alt} style={{ width: '100%', height: 'auto', borderRadius: BORDERRADIUS[2] }} /> }
+      {data.featuredImage.url && <img src={data.featuredImage.url} alt={data.alt} style={{ width: '100%', height: 'auto', borderRadius: BORDERRADIUS[2] }} /> }
     </Stack>
   );
 }
