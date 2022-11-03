@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/future/image';
 import Link from 'next/link';
 import { Span, BORDERRADIUS } from '../utils/styling';
-import { getContentFragment } from './convertor';
+import { useRouter } from 'next/router';
 import { Loading } from './Images';
 
 import { CardButton } from './Buttons';
@@ -17,11 +17,10 @@ function CardImg({ img, style, imgStyles }) {
   );
 }
 
-function PostImg({ src, style, imgStyles, product }) {
-  // console.log(src)
+function PostImg({ src, style, imgStyles, alt }) {
   return (
     <Stack width="100%" maxWidth={350} style={{ ...style }} alignItems="center">
-      <Image src={src} alt={src} sizes="100%" width={100} height={100} style={{ width: '100%', height: 'auto', maxHeight: 170, borderRadius: BORDERRADIUS[2], objectFit: 'cover', objectPosition: 'bottom center', ...imgStyles }} />
+      <Image src={src} alt={alt} sizes="100%" width={100} height={100} style={{ width: '100%', height: 'auto', maxHeight: 170, borderRadius: BORDERRADIUS[2], objectFit: 'cover', objectPosition: 'bottom center', ...imgStyles }} />
     </Stack>
   );
 }
@@ -180,6 +179,7 @@ export function ProductCard({ data, style, slider }) {
     setTimeout(() => setActive(false), 1000);
   }, []);
   
+  
   return (
     <motion.div
       className="product-card"
@@ -200,7 +200,7 @@ export function ProductCard({ data, style, slider }) {
           </Stack>
         ) : (
           <>
-            <PostImg src={ data.featuredImage.url } imgStyles={{ marginTop: slider ? 10 : 0}} product/>
+            <PostImg src={ data.featuredImage.url } alt={data.alt} imgStyles={{ marginTop: slider ? 10 : 0}} product/>
             <Stack direction="row" justifyContent="space-between" width="100%">
               <Stack>
                 <Span kind="b1" style={{ userSelect: 'none' }}>
@@ -215,10 +215,10 @@ export function ProductCard({ data, style, slider }) {
                   {data.price}₺
                 </Span>
                 <Link
-                  href={`urunler/${data.slug}`}
+                  href={`/urunler/${data.slug}`} 
                   style={{ width: '100%' }}
                 >
-                  <CardButton>Satin Al</CardButton>
+                  <CardButton >Satin Al</CardButton>
                 </Link>
               </Stack>
             </Stack>
@@ -250,6 +250,8 @@ export function UltimateCard({ data, product, post, slider, style }) {
   useEffect(() => {
     setTimeout(() => setActive(false), 1000);
   }, []);
+
+  const chars = data.excerpt.length <= 120 ? data.excerpt + '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀' : null
 
   return (
     <motion.div
@@ -320,7 +322,7 @@ export function UltimateCard({ data, product, post, slider, style }) {
               >
                 {data.excerpt.length >= 120
                   ? `${data.excerpt.slice(0, 120)}...`
-                  : `${data.excerpt}`
+                  : `${chars.slice(0, 120)}...`
                 }
               </Span>
             </Stack>

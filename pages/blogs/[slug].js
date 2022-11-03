@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from 'next/head';
-// eslint-disable-next-line react/no-danger
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Stack, useMediaQuery } from '@mui/material';
@@ -132,6 +131,7 @@ export default function PostDetails({ post }) {
 
 export async function getStaticProps({ params }) {
   const data = await getPostDetails(params.slug);
+  console.log('data', data)
   return {
     props: {
       post: data,
@@ -142,6 +142,8 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
   const posts = await getPosts();
+
+  console.log('posts', posts)
   return {
     paths: posts.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: true,

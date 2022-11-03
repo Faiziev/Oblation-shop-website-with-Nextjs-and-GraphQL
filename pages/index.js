@@ -11,7 +11,7 @@ import { getProducts, getPosts } from '../services/index';
 export default function Home({ posts, products }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
 
-  console.log("products", products)
+  // console.log("products", products)
 
   return (
     <div className={styles.container}>

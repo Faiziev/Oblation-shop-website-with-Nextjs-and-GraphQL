@@ -49,23 +49,24 @@ export const getPostDetails = async (slug) => {
 };
 
 export const getProducts = async () => {
-  const query = gql`query MyQuery  {
-    productsConnection {
-      edges {
-        node {
-          title
-          category
-          price
-          description
-          alt
-          featuredImage {
-            url
+  const query = gql`
+    query MyQuery  {
+      productsConnection {
+        edges {
+          node {
+            title
+            category
+            price
+            description
+            alt
+            featuredImage {
+              url
+            }
+            slug
           }
-          slug
         }
       }
-    }
-  }  
+    }  
   `;
 
   const result = await request('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl95q8fxh6by501t6flqfgnis/master', query);
@@ -73,14 +74,14 @@ export const getProducts = async () => {
 };
 
 export const getProductDetails = async (slug) => {
-  console.log(slug)
+  console.log('slug', slug)
   const query = gql`
     query GetProductDetails($slug : String!) {
       product(where: {slug: $slug}) {
         title
         category
         price
-        description
+        description 
         alt
         featuredImage {
           url
@@ -90,5 +91,5 @@ export const getProductDetails = async (slug) => {
   `;
 
   const result = await request('https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/cl95q8fxh6by501t6flqfgnis/master', query, { slug });
-  return result.post;
+  return result.product;
 };

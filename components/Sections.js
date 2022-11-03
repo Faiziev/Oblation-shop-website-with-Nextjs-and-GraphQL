@@ -280,10 +280,10 @@ export function ProductPage({ data }) {
       <Container>
         <Stack width="100%" spacing={2}>
           <Stack width="100%" direction={tablet ? 'column' : 'row'} spacing={3}>
-            <ProductImage image={data[1].featuredImage}/>
+            <ProductImage data={data}/>
             <Stack width={tablet ? '100%' : '40%'} spacing={3}>
-              <ProductDetail data={data[1]} />
-              <ProductForm data={data[1]} />
+              <ProductDetail data={data} />
+              <ProductForm data={data} />
             </Stack>
           </Stack>
           <Span kind="h3">

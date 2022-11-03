@@ -7,7 +7,8 @@ import { Container } from '../../components/Container';
 import { ProductPage } from '../../components/Sections';
 import { AnimalsImages } from '../../components/Images';
 import { ProductSwiper } from '../../components/Slider';
-import { getProducts, getProductDetails } from '../../services';
+import { getProducts, getProductDetails } from '../../services/index';
+// import { getProducts } from './../../services/index';
 
 export const AnimalsData = [
   { featuredImage: { url: AnimalsImages.Animal1, alt: 'category foto' }, title: 'KOÇ', category: 'Küçükbaş', href: 'koc', price: 1000 },
@@ -18,8 +19,7 @@ export const AnimalsData = [
   { featuredImage: { url: AnimalsImages.Animal6, alt: 'category foto' }, title: 'DÜVE', category: 'Büyükbaş', href: 'duve', price: 1000 },
 ];
 
-export default function Product({ data }) {
-  console.log(data)
+export default function Product({ data, slider }) {
   return (
     <div className={styles.container}>
       <Head>
@@ -34,9 +34,9 @@ export default function Product({ data }) {
       </Head>
       <Stack paddingTop="100px" />
       <Container>
-        <ProductPage data={AnimalsData} />
+        <ProductPage data={data} />
         <Stack width="100%" alignItems="center" marginBottom="30px">
-          <ProductSwiper data={AnimalsData} small />
+          <ProductSwiper data={slider} small />
         </Stack>
       </Container>
       {/* <Services /> */}
@@ -47,18 +47,21 @@ export default function Product({ data }) {
 
 export async function getStaticProps({ params }) {
   // console.log('params', params)
-  // const data = await getProductDetails(params.slug);
+  // const products = await getProducts()
+  const products = await getProducts()
+  const data = await getProductDetails(params.slug);
+  // console.log('products', products)
   return {
     props: {
-      // products: data,
+      data: data,
+      slider: products
     },
     revalidate: 5,
   };
 }
 
 export async function getStaticPaths() {
-  const products = await getProducts();
-  console.log('products', products)
+  const products = await getProducts()
   return {
     paths: products.map(({ node: { slug } }) => ({ params: { slug } })),
     fallback: true,

@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Stack, useMediaQuery } from '@mui/material';
 import Image from 'next/future/image';
 import { SliderImgSm1, SliderImg1, SliderImg2, SliderImg3, SliderImg4 } from './Images';
-import { UltimateCard } from './Card';
+import { UltimateCard, ProductCard } from './Card';
 import { GOLD, GREY, ORANGE, screens, SECTION, Span } from '../utils/styling';
 import { Container } from './Container';
 
@@ -36,65 +36,6 @@ const imgList = [
     content: 'Yıldırım Adak ve Kurban Satış Noktasına',
     gradient: 'Hoş Geldiniz',
     size: '500px',
-  },
-];
-
-const ServicesData = [
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
-  },
-  {
-    featuredImage: { url: SliderImgSm1, alt: 'akika foto' },
-    title: 'Baslik',
-    excerpt:
-      'Yeni doğan çocuk için şükür amacıyla kesilen kurbana, “akîka” adı verilir. Akika kurbanı kesmek sünnettir. 20 yılı aşkın süredir.',
-    slug: '#',
   },
 ];
 
@@ -304,6 +245,7 @@ export function ProductSwiper({ data }) {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
   const mobile = useMediaQuery(`(max-width:${screens[0]}px)`);
   const swipValue = tablet ? 2 : 4;
+
   return (
     <Stack height="100%" width="100%">
       <style jsx global>
@@ -362,12 +304,8 @@ export function ProductSwiper({ data }) {
       >
         {data.map((card, index) => (
           <SwiperSlide style={{ background: SECTION, height: '100%', width: 'fit-content !important', justifyContent: 'center', display: 'flex' }} key={index}>
-            <UltimateCard
-              data={card}
-              img={card.img}
-              title={card.title}
-              label={card.label}
-              href={card.href}
+            <ProductCard
+              data={card.node}
               style={{ padding: '0px 10px' }}
               product
               slider
