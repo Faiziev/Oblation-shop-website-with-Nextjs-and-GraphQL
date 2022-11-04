@@ -33,7 +33,7 @@ export default function Blog() {
                 20 yıllık tecrübe...
                 <br />
                 <br />
-                Yildirim Kurban Satış Evi, Beykoz Anadolu Feneri köyünde başlamış olduğu hayvancılık alanındaki faaliyetlerini 20 yılı aşkın süredir sürdürmektedir. 2007 yılından itibaren Yildirim Kurban Satış Evi olarak Beykoz Yûşa Tepesi bölgesinde faaliyet göstermektedir.
+                Yıldırım Kurban Satış Evi, alanındaki faaliyetlerini 20 yılı aşkın süredir sürdürmektedir. 2007 yılından itibaren Yıldırım Kurban Satış Evi olarak Esenyurt bölgesinde faaliyet göstermektedir.
                 <br />
                 <br />
                 Yildirim Kurban Satış Evi ister adak isterseniz akika kurbanlarınızın kesimini yapmaktadır. Adak ve akika kurban kesimlerini %100 islami usullere uygun olarak yapmaktadır.
@@ -52,7 +52,7 @@ export default function Blog() {
                 Bünyesinde bulunan küçükbaş hayvanlar; Koç, Koyun, Kuzu
                 <br />
                 <br />
-                Yildirim Kurban Satış Evi, Yûşâ Tepesi otopark girişinde yer almaktadır ve başka şubesi bulunmamaktadır.
+                Yildirim Kurban Satış Evi olarak başka şubesi bulunmamaktadır.
                 <br />
                 <br />
                 Tüm kredi kartları ile ödeme işlemlerinizi güvenle gerçekleştirebilirsiniz.
