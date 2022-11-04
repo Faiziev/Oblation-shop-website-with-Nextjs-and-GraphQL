@@ -28,8 +28,8 @@ export default function Blog() {
           <Stack width="100%" spacing={6}>
             <Stack width="100%" spacing={3} justifyContent="center" alignItems="center">
               <Span kind={tablet ? 'g7' : 'g9'}>İletişim Bilgileri</Span>
-              <Span kind={tablet ? 'h0' : 'h8'} style={{ textAlign: 'center' }}>İstiklal, Yeşildağ Sk., 34522 Esenyurt/İstanbul</Span>
-              <Span kind={tablet ? 'h0' : 'h8'}><a href="tel:+905327460382">+90 532 746 03 82</a></Span>
+              <Span kind={tablet ? 'h0' : 'h8'} style={{ textAlign: 'center' }}>İstiklal Mahallesi Yeşildağ Sokak 34522 Esenyurt/İstanbul</Span>
+              <Span kind={tablet ? 'h0' : 'h8'}><a href="Whatsapp ve İletişim Numaramız 0532 746 03 82"> 0532 746 03 82</a></Span>
             </Stack>
             <Stack width="100%" spacing={3} justifyContent="center" alignItems="center">
               <MapEmbed />
