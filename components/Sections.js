@@ -67,7 +67,7 @@ export function Interview() {
     <Section>
       <Container>
         <SectionTitle>
-          Kurban ve Adak Kesim Videoları
+          REFERANS KURUMLARIMIZ
         </SectionTitle>
         <Stack direction={tablet ? 'column' : 'row'} alignItems="center" justifyContent="space-between" spacing={5}>
           <Stack width={tablet ? '100%' : '50%'}>
