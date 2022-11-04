@@ -33,7 +33,7 @@ export default function Blog() {
                 20 yıllık tecrübe...
                 <br />
                 <br />
-                Yıldırım Kurban Satış Evi, alanındaki faaliyetlerini 20 yılı aşkın süredir sürdürmektedir. 2007 yılından itibaren Yıldırım Kurban Satış Evi olarak Esenyurt bölgesinde faaliyet göstermektedir.
+                Yıldırım Kurban Satış Evi, alanındaki faaliyetlerini 20 yılı aşkın süredir sürdürmektedir. 1997 yılından itibaren Yıldırım Kurban Satış Evi olarak Esenyurt bölgesinde faaliyet göstermektedir.
                 <br />
                 <br />
                 Yildirim Kurban Satış Evi ister adak isterseniz akika kurbanlarınızın kesimini yapmaktadır. Adak ve akika kurban kesimlerini %100 islami usullere uygun olarak yapmaktadır.
