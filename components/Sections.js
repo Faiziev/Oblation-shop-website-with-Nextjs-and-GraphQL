@@ -9,7 +9,7 @@ import { SectionButton, LinerButton } from './Buttons';
 import { UltimateCard, ProductCard } from './Card';
 import { Container } from './Container';
 import { AnimalsImages, SliderImgSm1 } from './Images';
-import { SmallSwiper } from './Slider';
+import { ImageSwiper, SmallSwiper } from './Slider';
 import { SectionTitle } from './Titles';
 import YoutubeEmbed from './Youtube';
 import { ImgIcon } from '../lib/icons';
@@ -60,6 +60,7 @@ export function Note({ blood, children }) {
     </Section>
   );
 }
+
 export function Interview() {
   const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
 
@@ -69,14 +70,15 @@ export function Interview() {
         <SectionTitle>
           REFERANS KURUMLARIMIZ
         </SectionTitle>
-        <Stack direction={tablet ? 'column' : 'row'} alignItems="center" justifyContent="space-between" spacing={5}>
+        {/* <Stack direction={tablet ? 'column' : 'row'} alignItems="center" justifyContent="space-between" spacing={5}>
           <Stack width={tablet ? '100%' : '50%'}>
             <YoutubeEmbed embedId="hnEwJKVWjFM" />
           </Stack>
           <Stack width={tablet ? '100%' : '50%'}>
             <Span kind={`b${tablet ? 1 : 7}`}>Yol Hikayesi programına <Span kind={`w${tablet ? 1 : 7}`} style={{ color: ORANGE }}>Yıldırım Adak ve Kurban</Span> Satış evi olarak konuk olduk.</Span>
           </Stack>
-        </Stack>
+        </Stack> */}
+        <ImageSwiper />
       </Container>
     </Section>
   );

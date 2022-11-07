@@ -3,7 +3,7 @@ import { Autoplay, Pagination, Navigation } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Stack, useMediaQuery } from '@mui/material';
 import Image from 'next/future/image';
-import { SliderImgSm1, SliderImg1, SliderImg2, SliderImg3, SliderImg4 } from './Images';
+import { SliderImg1, SliderImg2, SliderImg3, SliderImg4, referans } from './Images';
 import { UltimateCard, ProductCard } from './Card';
 import { GOLD, GREY, ORANGE, screens, SECTION, Span } from '../utils/styling';
 import { Container } from './Container';
@@ -38,6 +38,7 @@ const imgList = [
     size: '500px',
   },
 ];
+
 
 const rightIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.16458 39.2646L21.2014 20.8097C21.6314 20.4136 21.6314 19.7347 21.2014 19.3386L1.16458 0.883611' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`;
 const leftIcon = `url("data:image/svg+xml,%3Csvg width='23' height='40' viewBox='0 0 23 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M21.8354 0.884521L1.79859 19.3395C1.36856 19.7356 1.36856 20.4145 1.79859 20.8106L21.8354 39.2656' stroke='${GREY}' strokeLinecap='round'/%3E%3C/svg%3E")`;
@@ -314,5 +315,132 @@ export function ProductSwiper({ data }) {
         ))}
       </Swiper>
     </Stack>
+  );
+}
+
+export function ImageSwiper({ data }) {
+  const tablet = useMediaQuery(`(max-width:${screens[1]}px)`);
+  return (
+    <>
+      <style jsx global>
+        {`
+          .swiper {
+            width: 100%;
+            height: 100%;
+          }
+
+          .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+          }
+
+          .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          .mySwiper {
+            // height: calc(100% + 30px);
+          }
+          .swiper-container .swiper-button-disabled,
+          .swiper-button-next {
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+
+          .swiper-container .swiper-button-prev {
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+          .swiper-container:hover .swiper-button-next {
+            visibility: visible;
+          }
+          .swiper-container:hover .swiper-button-prev {
+            visibility: visible;
+          }
+          .swiper-button-prev.swiper-button-disabled {
+            opacity: 0.35;
+          }
+          .swiper-button-next::after,
+          .swiper-button-prev::after {
+            display: none;
+          }
+          .swiper-button-next {
+            background-image: ${rightIcon};
+          }
+          .swiper-button-prev {
+            background-image: ${leftIcon};
+          }
+          .swiper-container11 .swiper-button-next,
+          .swiper-button-prev {
+            visibility: visible;
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+          .mySwiper .swiper-pagination-bullets.swiper-pagination-horizontal {
+            bottom: 100px;
+            position: relative;
+          }
+        `}
+      </style>
+      <Stack width="100%" height="calc(100% + 20px)">
+        <Container>
+          <Stack
+            direction={tablet ? 'column' : 'row'}
+            width="100%"
+            height="100%"
+            alignItems="center"
+            justifyContent="center"
+            spacing={tablet ? 3 : 2}
+          >
+            <Swiper
+              className="mySwiper"
+              autoplay={{
+                delay: 5500,
+                disableOnInteraction: false,
+              }}
+              centeredSlides
+              navigation
+              modules={[Autoplay, Navigation]}
+            >
+              {referans.map((img, i) => (
+                <SwiperSlide key={i}>
+                  <Stack width={tablet ? '100%' : '50%'} height={tablet ? 'auto' : undefined} maxWidth={img.size} maxHeight={img.size} alignItems="center">
+                    <div style={{ height: '30px'}} />
+                    <Image src={img.img} alt={img.alt} sizes="100%" style={{ boxShadow: !tablet && '0 8px 30px rgba(0,0,0,.12)' }}/>
+                    <div style={{ height: '30px'}} />
+                  </Stack>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+            <Stack width={tablet ? '100%' : '50%'} height={tablet ? '15%' : undefined}>
+              <Span kind={tablet ? 'b7' : 'b8'} style={{ textAlign: tablet ? 'center' : 'start' }}>
+                {referans[1].content}{' '}
+                <Span kind={tablet ? 'b7' : 'b8'} style={{ color: ORANGE }}>
+                  {referans[1].gradient}
+                </Span>
+              </Span>
+            </Stack>
+          </Stack>
+        </Container>
+      </Stack>
+    </>
   );
 }

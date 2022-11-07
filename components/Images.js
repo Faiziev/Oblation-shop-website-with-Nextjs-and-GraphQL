@@ -28,9 +28,31 @@ import Animal12 from '../public/kasap-6.jpg';
 import Animal13 from '../public/kasap-7.jpg';
 import Animal14 from '../public/kasap-8.jpg';
 
+
+import agd from '../public/referans/agd.png';
+import kizil from '../public/referans/kizil.png';
+
 export { logo, HorzontalLogo, SingleLogo, BackImg, FOOTERLOGO };
 export { SliderImg1, SliderImg2, SliderImg3, SliderImg4, SliderImg5 };
 export { SliderImgSm1 };
+const referansImg = { agd, kizil };
+
+export const referans = [
+  {
+    alt: 'kurban fotograf Slider-1',
+    img: referansImg.kizil,
+    content: 'Anadolu Genclik Dernegi, Kizil Ay ile cok iyi Baglarimiz Vardir',
+    gradient: 'Baglarimiz Vardir',
+    size: '700px',
+  },
+  {
+    alt: 'kurban fotograf Slider-2',
+    img: referansImg.agd,
+    content: 'Anadolu Genclik Dernegi, Kizil Ay ile cok iyi Baglarimiz Vardir',
+    gradient: 'Baglarimiz Vardir  ',
+    size: '700px',
+  },
+];
 
 export function Loading() {
   return (

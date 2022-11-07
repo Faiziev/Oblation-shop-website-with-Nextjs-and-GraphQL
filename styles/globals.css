@@ -86,6 +86,11 @@ a {
             user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 
 }
+
+.shadow {
+  box-shadow: 0 8px 30px rgba(0,0,0,.12);
+}
+
 .product-card {
   /* width: 33.33333333%; */
   background-color: #1e2122;
