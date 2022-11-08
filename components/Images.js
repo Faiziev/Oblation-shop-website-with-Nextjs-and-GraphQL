@@ -41,7 +41,7 @@ export const referans = [
   {
     alt: 'kurban fotograf Slider-1',
     img: referansImg.kizil,
-    content: 'Anadolu Genclik Dernegi, Kizil Ay ile cok iyi Baglarimiz Vardir',
+    content: 'Anadolu Gençilk Derneği, Kızılay vb daha bir çok kurum ile işbirliği içinde çalışmaktayız.',
     gradient: 'Baglarimiz Vardir',
     size: '700px',
   },
